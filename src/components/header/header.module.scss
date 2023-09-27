@@ -1,0 +1,11 @@
+.header {
+  height: var(--header-height);
+
+  align-items: center;
+  display: flex;
+
+  .imgC {
+    height: desktop-vw(67px);
+    width: desktop-vw(216px);
+  }
+}

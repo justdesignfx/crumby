@@ -1,0 +1,146 @@
+.hero {
+  @include dims(auto, calc(100vh - var(--header-height)));
+  background: url("../../assets/img/wave.svg");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  position: relative;
+
+  h1 {
+    color: var(--duqqa-brown);
+    font-size: desktop-vw(150px);
+    font-family: var(--font-grandstander);
+    font-weight: 900;
+    position: relative;
+    text-align: center;
+
+    > span {
+      display: block;
+      position: relative;
+
+      &.imgC {
+        @include dims(desktop-vw(360px), auto);
+        @include position(absolute, 50%, auto, auto, 50%);
+        transform: translate(-50%, -45%);
+      }
+
+      &:nth-child(1) {
+        margin-bottom: desktop-vw(40px);
+        z-index: 10;
+      }
+
+      &:nth-child(2) {
+        z-index: 20;
+      }
+
+      &:nth-child(3) {
+        z-index: 30;
+      }
+    }
+  }
+
+  .marqueeC {
+    @include position(absolute, 100%, auto, auto, auto);
+    transform: translateY(-100%);
+
+    h2 {
+      color: var(--toasted-marshmallow-fluff);
+      font-size: desktop-vw(30px);
+      font-family: var(--font-grandstander);
+      font-weight: 900;
+      margin: 0 desktop-vw(50px);
+    }
+  }
+}
+
+.why {
+  align-items: center;
+  background: var(--duqqa-brown);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: desktop-vw(110px);
+
+  h2 {
+    color: var(--toasted-marshmallow-fluff);
+    font-size: desktop-vw(120px);
+    font-family: var(--font-grandstander);
+    font-weight: 900;
+    margin-bottom: desktop-vw(120px);
+  }
+
+  .reasons {
+    column-gap: desktop-vw(140px);
+    display: flex;
+    align-items: flex-start;
+
+    & > div {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      width: desktop-vw(330px);
+
+      h5 {
+        color: var(--toasted-marshmallow-fluff);
+        font-size: desktop-vw(40px);
+        font-family: var(--font-grandstander);
+        font-weight: 900;
+        margin-bottom: desktop-vw(30px);
+      }
+
+      p {
+        color: var(--net-worker);
+        font-size: desktop-vw(16px);
+        font-family: var(--font-grandstander);
+        font-weight: 400;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+.ingredients {
+  align-items: center;
+  background: var(--toasted-marshmallow-fluff);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: desktop-vw(110px);
+
+  h2 {
+    color: var(--duqqa-brown);
+    font-size: desktop-vw(120px);
+    font-family: var(--font-grandstander);
+    font-weight: 900;
+    margin-bottom: desktop-vw(120px);
+  }
+
+  .realChocolate {
+    .marqueeC {
+      align-items: center;
+      height: desktop-vw(150px);
+      display: flex;
+
+      &:nth-child(1) {
+        background: var(--pale-marigold);
+        color: var(--duqqa-brown);
+        transform: rotate(-8deg);
+      }
+
+      &:nth-child(2) {
+        background: var(--passionate-purple);
+        color: var(--porcellana);
+        transform: rotate(4deg) translateY(-20%);
+      }
+
+      h3 {
+        font-size: desktop-vw(70px);
+        font-family: var(--font-grandstander);
+        font-weight: 900;
+        margin: 0 desktop-vw(50px);
+        transform: translateY(10%);
+      }
+    }
+  }
+}

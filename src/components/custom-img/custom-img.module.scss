@@ -1,0 +1,22 @@
+.figure {
+  @include dims(100%);
+  position: relative;
+
+  .img {
+    @include dims(100%);
+    display: block;
+    z-index: z-index("img");
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    -o-object-fit: cover;
+    object-fit: cover;
+    max-width: 100%;
+    transform: scale(1.01);
+  }
+
+  .aspectRatio {
+    padding-top: var(--aspectRatio);
+  }
+}

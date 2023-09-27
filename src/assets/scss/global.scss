@@ -10,6 +10,7 @@
 
 :root {
   --font-grandstander: Grandstander;
+  --header-height: #{desktop-vw(120px)};
 }
 
 html {
@@ -25,6 +26,7 @@ body {
 }
 
 body {
+  background: var(--toasted-marshmallow-fluff);
   min-height: 100vh;
 }
 
