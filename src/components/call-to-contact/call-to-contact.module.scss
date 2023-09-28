@@ -1,0 +1,101 @@
+.callToContact {
+  align-items: center;
+  background: var(--toasted-marshmallow-fluff);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: desktop-vw(110px);
+  position: relative;
+
+  &::before {
+    content: "";
+    @include position(absolute, 0, 0, 0, 0);
+    // background: var(--duqqa-brown);
+    background-image: url("../../assets/img/wave.svg");
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+
+  h2 {
+    color: var(--toasted-marshmallow-fluff);
+    font-size: desktop-vw(80px);
+    font-family: var(--font-grandstander);
+    font-weight: 900;
+    margin-bottom: desktop-vw(30px);
+    text-align: center;
+    width: desktop-vw(660px);
+  }
+
+  p {
+    color: var(--toasted-marshmallow-fluff);
+    font-size: desktop-vw(26px);
+    font-family: var(--font-grandstander);
+    font-weight: 400;
+    margin-bottom: desktop-vw(120px);
+  }
+
+  .imgs {
+    align-items: center;
+    display: flex;
+    margin-bottom: desktop-vw(-75px);
+
+    @include mobile {
+      flex-direction: column;
+    }
+
+    > .imgC {
+      margin: 0 desktop-vw(-25px);
+
+      @include mobile {
+        margin: mobile-vw(-50px) 0;
+      }
+
+      &:nth-child(1) {
+        width: desktop-vw(450px);
+
+        @include tablet {
+          width: mobile-vw(140px);
+        }
+
+        @include mobile {
+          margin-right: mobile-vw(150px);
+          width: mobile-vw(200px);
+        }
+      }
+
+      &:nth-child(2) {
+        margin-bottom: desktop-vw(-120px);
+        width: desktop-vw(350px);
+
+        @include tablet {
+          width: mobile-vw(110px);
+        }
+
+        @include mobile {
+          margin-bottom: 0;
+          margin-left: mobile-vw(140px);
+          width: mobile-vw(160px);
+        }
+      }
+
+      &:nth-child(3) {
+        width: desktop-vw(370px);
+
+        @include tablet {
+          width: mobile-vw(120px);
+        }
+
+        @include mobile {
+          margin-right: mobile-vw(100px);
+          width: mobile-vw(150px);
+        }
+      }
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
+    }
+  }
+}

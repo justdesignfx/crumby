@@ -1,9 +1,13 @@
 import DefaultLayout from "./layouts/default"
 
+import AnimationWrapper from "./hocs/animation-wrapper"
+
 function App() {
   return (
     <>
-      <DefaultLayout />
+      <AnimationWrapper>
+        <DefaultLayout />
+      </AnimationWrapper>
     </>
   )
 }

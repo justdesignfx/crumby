@@ -1,0 +1,43 @@
+.button {
+  font-family: var(--font-grandstander);
+  font-weight: 600;
+
+  &.light {
+    background: var(--toasted-marshmallow-fluff);
+    border-color: var(--duqqa-brown);
+    border-style: solid;
+    color: var(--duqqa-brown);
+  }
+
+  &.dark {
+    background: var(--duqqa-brown);
+    border-color: var(--toasted-marshmallow-fluff);
+    border-style: solid;
+    color: var(--toasted-marshmallow-fluff);
+  }
+
+  &.sm {
+    border-width: 2px;
+    font-size: desktop-vw(16px);
+    padding: desktop-vw(12px) desktop-vw(20px);
+  }
+
+  &.md {
+    border-width: 2px;
+    border-radius: desktop-vw(10px);
+    font-size: desktop-vw(16px);
+    padding: desktop-vw(12px) desktop-vw(20px);
+  }
+
+  &.lg {
+    border-width: 4px;
+    border-radius: desktop-vw(20px);
+    font-size: desktop-vw(45px);
+    padding: desktop-vw(22px) desktop-vw(160px);
+  }
+
+  & > span {
+    display: block;
+    transform: translateY(10%);
+  }
+}

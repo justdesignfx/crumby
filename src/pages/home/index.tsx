@@ -1,10 +1,17 @@
-import Img from "../../components/custom-img"
 import s from "./home.module.scss"
 
 import cn from "clsx"
 
 import cake from "../../assets/img/hero-cake.png"
+import peanut from "../../assets/img/crumby-peanut.png"
+import chocolate from "../../assets/img/crumby-chocolate.png"
+import strawberry from "../../assets/img/crumby-strawberry.png"
+
 import { Marquee } from "../../components/marquee"
+import IconPopcorn from "../../components/icons/icon-popcorn"
+import CallToContact from "../../components/call-to-contact"
+import Img from "../../components/custom-img"
+import Button from "../../components/button"
 
 const Home = () => {
   return (
@@ -28,7 +35,23 @@ const Home = () => {
             </>
           </Marquee>
         </div>
+        <div className={cn(s.popcornC, s.a)}>
+          <div data-parallax>
+            <IconPopcorn fill="var(--qing-yellow)" />
+          </div>
+        </div>
+        <div className={cn(s.popcornC, s.b)} data-parallax>
+          <div data-parallax>
+            <IconPopcorn fill="var(--qing-yellow)" />
+          </div>
+        </div>
+        <div className={cn(s.popcornC, s.c)} data-parallax>
+          <div data-parallax>
+            <IconPopcorn fill="var(--qing-yellow)" />
+          </div>
+        </div>
       </section>
+
       <section className={s.why}>
         <h2>WHY CRUMBY?</h2>
         <div className={s.reasons}>
@@ -57,29 +80,74 @@ const Home = () => {
             </p>
           </div>
         </div>
+        <Button text="ABOUT US" theme="dark" />
       </section>
+
       <section className={s.ingredients}>
         <h2>WHAT'S INSIDE?</h2>
 
         <div className={s.realChocolate}>
           <div className={s.marqueeC}>
-            <Marquee repeat={5} duration={20}>
+            <Marquee repeat={5} duration={30}>
               <>
                 <h3>REAL CHOCOLATE.</h3>
+                <span className={s.imgC}>
+                  <IconPopcorn fill="var(--smashing-pumpkins)" />
+                </span>
                 <h3>REAL CRUNCH.</h3>
+                <span className={s.imgC}>
+                  <IconPopcorn fill="var(--smashing-pumpkins)" />
+                </span>
               </>
             </Marquee>
           </div>
           <div className={s.marqueeC}>
-            <Marquee repeat={5} duration={20}>
+            <Marquee repeat={5} duration={25}>
               <>
                 <h3>REAL CHOCOLATE.</h3>
+                <span className={s.imgC}>
+                  <IconPopcorn fill="var(--basil-smash)" />
+                </span>
                 <h3>REAL CRUNCH.</h3>
+                <span className={s.imgC}>
+                  <IconPopcorn fill="var(--basil-smash)" />
+                </span>
               </>
             </Marquee>
           </div>
         </div>
       </section>
+
+      <div className={s.flavors}>
+        <h2>OUR TASTY FLAVORS</h2>
+        <div className={s.boxes}>
+          <div>
+            <div className={s.imgC}>
+              <Img src={peanut} objectFit="contain" />
+            </div>
+            <p>MILK CHOCOLATE</p>
+          </div>
+          <div>
+            <div className={s.imgC}>
+              <Img src={chocolate} objectFit="contain" />
+            </div>
+            <p>
+              MILK CHOCOLATE <br /> + DRIED STRAWBERRY
+            </p>
+          </div>
+          <div>
+            <div className={s.imgC}>
+              <Img src={strawberry} objectFit="contain" />
+            </div>
+            <p>
+              MILK CHOCOLATE <br /> + PEANUT
+            </p>
+          </div>
+        </div>
+        <Button text="SEE ALL PRODUCTS" size="lg" theme="light" />
+      </div>
+
+      <CallToContact />
     </>
   )
 }
