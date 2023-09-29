@@ -2,21 +2,26 @@ import s from "./home.module.scss"
 
 import cn from "clsx"
 
-import cake from "../../assets/img/hero-cake.png"
-import peanut from "../../assets/img/crumby-peanut.png"
 import chocolate from "../../assets/img/crumby-chocolate.png"
+import peanut from "../../assets/img/crumby-peanut.png"
 import strawberry from "../../assets/img/crumby-strawberry.png"
+import cake from "../../assets/img/hero-cake.png"
 
-import { Marquee } from "../../components/marquee"
-import IconPopcorn from "../../components/icons/icon-popcorn"
+import Button from "../../components/button"
 import CallToContact from "../../components/call-to-contact"
 import Img from "../../components/custom-img"
-import Button from "../../components/button"
+import IconPopcorn from "../../components/icons/icon-popcorn"
+import { Marquee } from "../../components/marquee"
+import CardSpec from "../../components/card-spec"
+
+import cardSpec1 from "../../assets/img/card-spec-1.png"
+import cardSpecIcon1 from "../../assets/img/card-spec-icon-1.png"
+import cardSpecIcon2 from "../../assets/img/card-spec-icon-2.png"
 
 const Home = () => {
   return (
     <>
-      <section className={cn(s.hero, "flex-center")}>
+      <section className={cn(s.hero, "flex-center-y")}>
         <h1>
           <span>CRUMB</span>
           <span className={s.imgC}>
@@ -24,6 +29,9 @@ const Home = () => {
           </span>
           <span>YOUR WAY.</span>
         </h1>
+
+        <Button text="SEE ALL PRODUCTS" />
+
         <div className={s.marqueeC}>
           <Marquee repeat={3} duration={20}>
             <>
@@ -35,6 +43,7 @@ const Home = () => {
             </>
           </Marquee>
         </div>
+
         <div className={cn(s.popcornC, s.a)}>
           <div data-parallax>
             <IconPopcorn fill="var(--qing-yellow)" />
@@ -85,6 +94,48 @@ const Home = () => {
 
       <section className={s.ingredients}>
         <h2>WHAT'S INSIDE?</h2>
+        <div className={s.specs}>
+          <CardSpec
+            bgColor="var(--vanilla-cream)"
+            fontColor="var(--pale-marigold)"
+            fontSize={{ m: "14", d: "86" }}
+            icon={cardSpecIcon1}
+            img={cardSpec1}
+            title="FULL OF FIBER"
+          />
+          <CardSpec
+            bgColor="var(--lan-se-blue)"
+            fontColor="var(--porcellana)"
+            fontSize={{ m: "14", d: "56" }}
+            icon={cardSpecIcon2}
+            img={cardSpec1}
+            title="NO ADDED PRESERVATIVES"
+          />
+          <CardSpec
+            bgColor="var(--smashing-pumpkins)"
+            fontColor="var(--basil-smash)"
+            fontSize={{ m: "14", d: "86" }}
+            icon={cardSpecIcon1}
+            img={cardSpec1}
+            title="LOW SUGAR"
+          />
+          <CardSpec
+            bgColor="var(--lan-se-blue)"
+            fontColor="var(--porcellana)"
+            fontSize={{ m: "14", d: "56" }}
+            icon={cardSpecIcon2}
+            img={cardSpec1}
+            title="NO ADDED PRESERVATIVES"
+          />
+          <CardSpec
+            bgColor="var(--smashing-pumpkins)"
+            fontColor="var(--basil-smash)"
+            fontSize={{ m: "14", d: "86" }}
+            icon={cardSpecIcon1}
+            img={cardSpec1}
+            title="LOW SUGAR"
+          />
+        </div>
 
         <div className={s.realChocolate}>
           <div className={s.marqueeC}>

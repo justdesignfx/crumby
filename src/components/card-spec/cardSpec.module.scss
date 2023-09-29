@@ -1,0 +1,27 @@
+.cardSpec {
+  @include dims(desktop-vw(416px), desktop-vw(500px));
+  border-radius: desktop-vw(50px);
+  flex-shrink: 0;
+  overflow: hidden;
+  padding-top: desktop-vw(30px);
+  position: relative;
+
+  h5 {
+    color: var(--duqqa-brown);
+    font-family: var(--font-grandstander);
+    font-size: desktop-vw(86px);
+    font-weight: 900;
+    text-align: center;
+  }
+
+  .imgC {
+    @include dims(100%, desktop-vw(300px));
+    margin-top: auto;
+  }
+
+  .iconC {
+    @include position(absolute, auto, auto, desktop-vw(12px), desktop-vw(12px));
+    @include dims(desktop-vw(90px));
+    margin-top: auto;
+  }
+}
