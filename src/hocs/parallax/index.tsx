@@ -39,7 +39,7 @@ const Parallax = ({ children, speedX = 1, speedY = 1, directionX = 1, directionY
   }, [])
 
   return (
-    <div ref={ref} style={{ width: "inherit", height: "inherit" }}>
+    <div ref={ref} style={{ width: "inherit", height: "inherit", willChange: "transform" }}>
       {children}
     </div>
   )

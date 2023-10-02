@@ -21,6 +21,7 @@ import crumbyDarkChocolate from "@/assets/img/crumby-dark-chocolate.png"
 import crumbyPeanut from "@/assets/img/crumby-peanut.png"
 import crumbyStrawberry from "@/assets/img/crumby-strawberry.png"
 import riceCake from "@/assets/img/rice-cake.png"
+import Float from "@/hocs/float"
 
 const About = () => {
   return (
@@ -42,38 +43,52 @@ const About = () => {
         </div>
 
         <div className={cn(s.crumbC, s.a)}>
-          <Parallax directionX={-1} directionY={-1}>
-            <Img src={crumb1} />
+          <Parallax speedX={0} directionY={-1}>
+            <Float amount={5}>
+              <Img src={crumb1} objectFit="contain" />
+            </Float>
           </Parallax>
         </div>
         <div className={cn(s.crumbC, s.b)}>
-          <Parallax directionX={-1} directionY={-1}>
-            <Img src={crumb2} />
+          <Parallax speedX={0} directionY={-1}>
+            <Float amount={8}>
+              <Img src={crumb2} objectFit="contain" />
+            </Float>
           </Parallax>
         </div>
         <div className={cn(s.crumbC, s.c)}>
-          <Parallax directionX={-1} directionY={-1}>
-            <Img src={crumb3} />
+          <Parallax speedX={0} directionY={-1}>
+            <Float amount={3}>
+              <Img src={crumb3} objectFit="contain" />
+            </Float>
           </Parallax>
         </div>
         <div className={cn(s.crumbC, s.d)}>
-          <Parallax directionX={-1} directionY={-1}>
-            <Img src={crumb4} />
+          <Parallax speedX={0} directionY={-1}>
+            <Float amount={9}>
+              <Img src={crumb4} objectFit="contain" />
+            </Float>
           </Parallax>
         </div>
         <div className={cn(s.crumbC, s.e)}>
-          <Parallax directionX={-1} directionY={-1}>
-            <Img src={crumb5} />
+          <Parallax speedX={0} directionY={-1}>
+            <Float amount={2}>
+              <Img src={crumb5} objectFit="contain" />
+            </Float>
           </Parallax>
         </div>
         <div className={cn(s.crumbC, s.f)}>
-          <Parallax directionX={-1} directionY={-1}>
-            <Img src={crumb6} />
+          <Parallax speedX={0} directionY={-1}>
+            <Float amount={4}>
+              <Img src={crumb6} objectFit="contain" />
+            </Float>
           </Parallax>
         </div>
         <div className={cn(s.crumbC, s.g)}>
-          <Parallax directionX={-1} directionY={-1}>
-            <Img src={crumb7} />
+          <Parallax speedX={0} directionY={-1}>
+            <Float amount={6}>
+              <Img src={crumb7} objectFit="contain" />
+            </Float>
           </Parallax>
         </div>
       </section>

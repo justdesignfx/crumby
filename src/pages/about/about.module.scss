@@ -6,7 +6,7 @@
     font-family: var(--font-grandstander);
     font-weight: 900;
     margin-bottom: desktop-vw(150px);
-    margin-top: desktop-vw(150px);
+    margin-top: desktop-vw(75px);
     position: relative;
     text-align: center;
 
@@ -68,38 +68,38 @@
 
   .crumbC {
     &.a {
-      @include dims(desktop-vw(66px));
+      @include dims(desktop-vw(120px));
       @include position(absolute, desktop-vw(240px), auto, auto, desktop-vw(220px));
     }
 
     &.b {
-      @include dims(desktop-vw(98px));
-      @include position(absolute, desktop-vw(300px), auto, auto, desktop-vw(1100px));
+      @include dims(desktop-vw(90px));
+      @include position(absolute, desktop-vw(470px), auto, auto, desktop-vw(900px));
     }
 
     &.c {
-      @include dims(desktop-vw(38px));
-      @include position(absolute, desktop-vw(500px), auto, auto, desktop-vw(1250px));
+      @include dims(desktop-vw(140px));
+      @include position(absolute, desktop-vw(600px), auto, auto, desktop-vw(1160px));
     }
 
     &.d {
-      @include dims(desktop-vw(66px));
-      @include position(absolute, desktop-vw(240px), auto, auto, desktop-vw(220px));
+      @include dims(desktop-vw(140px));
+      @include position(absolute, desktop-vw(180px), auto, auto, desktop-vw(1100px));
     }
 
     &.e {
-      @include dims(desktop-vw(98px));
-      @include position(absolute, desktop-vw(300px), auto, auto, desktop-vw(1100px));
+      @include dims(desktop-vw(100px));
+      @include position(absolute, desktop-vw(280px), auto, auto, desktop-vw(620px));
     }
 
     &.f {
-      @include dims(desktop-vw(38px));
-      @include position(absolute, desktop-vw(500px), auto, auto, desktop-vw(1250px));
+      @include dims(desktop-vw(100px));
+      @include position(absolute, desktop-vw(840px), auto, auto, desktop-vw(40px));
     }
 
     &.g {
-      @include dims(desktop-vw(66px));
-      @include position(absolute, desktop-vw(240px), auto, auto, desktop-vw(220px));
+      @include dims(desktop-vw(170px));
+      @include position(absolute, desktop-vw(500px), auto, auto, desktop-vw(440px));
     }
   }
 }
