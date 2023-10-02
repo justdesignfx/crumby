@@ -2,21 +2,21 @@ import s from "./home.module.scss"
 
 import cn from "clsx"
 
-import chocolate from "../../assets/img/crumby-chocolate.png"
-import peanut from "../../assets/img/crumby-peanut.png"
-import strawberry from "../../assets/img/crumby-strawberry.png"
-import cake from "../../assets/img/hero-cake.png"
+import Button from "@/components/button"
+import CallToContact from "@/components/call-to-contact"
+import CardSpec from "@/components/card-spec"
+import Img from "@/components/custom-img"
+import IconPopcorn from "@/components/icons/icon-popcorn"
+import { Marquee } from "@/components/marquee"
+import Parallax from "@/hocs/parallax"
 
-import Button from "../../components/button"
-import CallToContact from "../../components/call-to-contact"
-import Img from "../../components/custom-img"
-import IconPopcorn from "../../components/icons/icon-popcorn"
-import { Marquee } from "../../components/marquee"
-import CardSpec from "../../components/card-spec"
-
-import cardSpec1 from "../../assets/img/card-spec-1.png"
-import cardSpecIcon1 from "../../assets/img/card-spec-icon-1.png"
-import cardSpecIcon2 from "../../assets/img/card-spec-icon-2.png"
+import cardSpec1 from "@/assets/img/card-spec-1.png"
+import cardSpecIcon1 from "@/assets/img/card-spec-icon-1.png"
+import cardSpecIcon2 from "@/assets/img/card-spec-icon-2.png"
+import chocolate from "@/assets/img/crumby-chocolate.png"
+import peanut from "@/assets/img/crumby-peanut.png"
+import strawberry from "@/assets/img/crumby-strawberry.png"
+import cake from "@/assets/img/hero-cake.png"
 
 const Home = () => {
   return (
@@ -45,19 +45,19 @@ const Home = () => {
         </div>
 
         <div className={cn(s.popcornC, s.a)}>
-          <div data-parallax>
+          <Parallax directionX={-1} directionY={-1}>
             <IconPopcorn fill="var(--qing-yellow)" />
-          </div>
+          </Parallax>
         </div>
-        <div className={cn(s.popcornC, s.b)} data-parallax>
-          <div data-parallax>
+        <div className={cn(s.popcornC, s.b)}>
+          <Parallax directionX={-1} directionY={-1}>
             <IconPopcorn fill="var(--qing-yellow)" />
-          </div>
+          </Parallax>
         </div>
-        <div className={cn(s.popcornC, s.c)} data-parallax>
-          <div data-parallax>
+        <div className={cn(s.popcornC, s.c)}>
+          <Parallax directionX={-1} directionY={-1}>
             <IconPopcorn fill="var(--qing-yellow)" />
-          </div>
+          </Parallax>
         </div>
       </section>
 

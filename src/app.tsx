@@ -7,23 +7,26 @@ import About from "./pages/about"
 import AllProducts from "./pages/all-products"
 import Contact from "./pages/contact"
 import Home from "./pages/home"
+import LenisWrapper from "./hocs/lenis-wrapper"
 
 function App() {
   return (
-    <AnimationWrapper>
-      <DefaultLayout>
-        <>
-          <Header />
-          <Routes>
-            <Route index element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/all-products" element={<AllProducts />} />
-          </Routes>
-          <Footer />
-        </>
-      </DefaultLayout>
-    </AnimationWrapper>
+    <LenisWrapper>
+      <AnimationWrapper>
+        <DefaultLayout>
+          <>
+            <Header />
+            <Routes>
+              <Route index element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/all-products" element={<AllProducts />} />
+            </Routes>
+            <Footer />
+          </>
+        </DefaultLayout>
+      </AnimationWrapper>
+    </LenisWrapper>
   )
 }
 
