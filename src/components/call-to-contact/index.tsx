@@ -13,7 +13,7 @@ const CallToContact = () => {
 
     imgs.forEach((img, i: number) => {
       if (!img) return
-      const y = (1 + Math.sin(time / 1500)) * -5 * (i + 1) * (i % 2 === 0 ? 1 : -1)
+      const y = (1 + Math.sin(time / 1500)) * -3 * (i + 1) * (i % 2 === 0 ? 1 : -1)
       const rotate = (1 + Math.sin(time / 1500)) * -3
 
       img.style.transform = `translateY(${y}px) rotate(${rotate}deg)`

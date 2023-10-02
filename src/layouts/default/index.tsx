@@ -1,15 +1,11 @@
-import Footer from "../../components/footer"
-import Header from "../../components/header"
-import Home from "../../pages/home"
+import { ReactNode } from "react"
 
-const DefaultLayout = () => {
-  return (
-    <main>
-      <Header />
-      <Home />
-      <Footer />
-    </main>
-  )
+type Props = {
+  children: ReactNode
+}
+
+const DefaultLayout = ({ children }: Props) => {
+  return <main>{children}</main>
 }
 
 export default DefaultLayout
