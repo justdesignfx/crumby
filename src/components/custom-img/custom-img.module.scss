@@ -1,8 +1,8 @@
-.figure {
+figure {
   @include dims(100%);
   position: relative;
 
-  .img {
+  img {
     @include dims(100%);
     display: block;
     z-index: z-index("img");

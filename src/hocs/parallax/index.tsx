@@ -1,6 +1,8 @@
 import { ReactNode, useLayoutEffect, useRef } from "react"
 
 import gsap from "gsap"
+import ScrollTrigger from "gsap/ScrollTrigger"
+gsap.registerPlugin(ScrollTrigger)
 
 type Props = {
   children: ReactNode
@@ -26,7 +28,6 @@ const Parallax = ({ children, speedX = 1, speedY = 1, directionX = 1, directionY
           id: "parallax",
           markers: true,
           scrub: true,
-          start: "top center-=25%",
           trigger: ref.current,
         },
       })
@@ -37,7 +38,11 @@ const Parallax = ({ children, speedX = 1, speedY = 1, directionX = 1, directionY
     }
   }, [])
 
-  return <div ref={ref}>{children}</div>
+  return (
+    <div ref={ref} style={{ width: "inherit", height: "inherit" }}>
+      {children}
+    </div>
+  )
 }
 
 export default Parallax

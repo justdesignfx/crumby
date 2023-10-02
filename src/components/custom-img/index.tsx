@@ -1,5 +1,3 @@
-import cn from "clsx"
-
 import s from "./custom-img.module.scss"
 
 type Props = {
@@ -42,25 +40,26 @@ const Img = ({
   // }, [src])
 
   return (
-    <figure className={s.figure} style={{ background: bgColor }}>
-      <div
-        className={s.aspectRatio}
-        style={{ "--aspectRatio": `${(height / width) * 100}%` } as React.CSSProperties}
-      ></div>
+    <figure style={{ background: bgColor }}>
       {lazy ? (
-        <img
-          data-src={src}
-          className={cn(s.img, "lazy")}
-          style={{
-            objectFit,
-            objectPosition,
-          }}
-          alt={alt}
-        />
+        <>
+          <div
+            className={s.aspectRatio}
+            style={{ "--aspectRatio": `${(height / width) * 100}%` } as React.CSSProperties}
+          ></div>
+          <img
+            data-src={src}
+            className="lazy"
+            style={{
+              objectFit,
+              objectPosition,
+            }}
+            alt={alt}
+          />
+        </>
       ) : (
         <img
           src={src}
-          className={s.img}
           style={{
             objectFit,
             objectPosition,

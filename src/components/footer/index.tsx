@@ -1,17 +1,31 @@
-import Img from "../custom-img"
 import s from "./footer.module.scss"
 
 import cn from "clsx"
 import { Link } from "react-router-dom"
+import { useLenis } from "@studio-freight/react-lenis"
+
+import Img from "@/components/custom-img"
 
 import logo from "../../assets/img/logo-crumby-c.svg"
 
 const Footer = () => {
+  const lenis = useLenis()
+
+  function scrollToTop() {
+    lenis.scrollTo("top", {
+      duration: 2,
+      lock: true,
+    })
+  }
+
   return (
     <footer>
       <div className={s.top}>
-        <div className={s.scrollToTop}>TO TOP</div>
+        <div className={cn(s.scrollToTop, "cursor-pointer")} onClick={scrollToTop}>
+          TO TOP
+        </div>
       </div>
+
       <div className={s.bottom}>
         <nav>
           <div className={s.navItem}>
