@@ -1,7 +1,27 @@
+h3 {
+  color: var(--duqqa-brown);
+  font-family: var(--font-grandstander);
+  font-size: desktop-vw(96px);
+  font-weight: 900;
+  margin-bottom: desktop-vw(75px);
+  text-align: center;
+}
+
+p {
+  color: var(--duqqa-brown);
+  font-family: var(--font-grandstander);
+  font-size: desktop-vw(35px);
+  font-weight: 900;
+  line-height: 1.6;
+  margin-bottom: desktop-vw(150px);
+  text-align: center;
+  width: desktop-vw(740px);
+}
+
 .hero {
   position: relative;
 
-  h1 {
+  > h1 {
     color: var(--duqqa-brown);
     font-family: var(--font-grandstander);
     font-weight: 900;
@@ -23,40 +43,6 @@
         font-size: desktop-vw(240px);
       }
     }
-  }
-
-  h2 {
-    color: var(--duqqa-brown);
-    font-family: var(--font-grandstander);
-    font-weight: 900;
-    margin-bottom: desktop-vw(30px);
-    position: relative;
-    text-align: center;
-
-    > span {
-      display: block;
-      position: relative;
-
-      &:nth-child(1) {
-        font-size: desktop-vw(190px);
-        margin-bottom: desktop-vw(-20px);
-      }
-
-      &:nth-child(2) {
-        font-size: desktop-vw(240px);
-      }
-    }
-  }
-
-  p {
-    color: var(--duqqa-brown);
-    font-family: var(--font-grandstander);
-    font-size: desktop-vw(30px);
-    font-weight: 900;
-    margin-bottom: desktop-vw(150px);
-    position: relative;
-    text-align: center;
-    width: desktop-vw(780px);
   }
 
   .charC {
@@ -122,11 +108,14 @@
 }
 
 .extravaganza {
-  h2 {
+  padding-bottom: desktop-vw(100px);
+  padding-top: desktop-vw(150px);
+
+  > h2 {
     color: var(--duqqa-brown);
     font-family: var(--font-grandstander);
     font-weight: 900;
-    margin-bottom: desktop-vw(30px);
+    margin-bottom: desktop-vw(150px);
     position: relative;
     text-align: center;
     transform: rotate(-5deg);
