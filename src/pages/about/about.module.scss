@@ -1,148 +1,161 @@
-h3 {
-  color: var(--duqqa-brown);
-  font-family: var(--font-grandstander);
-  font-size: desktop-vw(96px);
-  font-weight: 900;
-  margin-bottom: desktop-vw(75px);
-  text-align: center;
-}
-
-p {
-  color: var(--duqqa-brown);
-  font-family: var(--font-grandstander);
-  font-size: desktop-vw(35px);
-  font-weight: 900;
-  line-height: 1.6;
-  margin-bottom: desktop-vw(150px);
-  text-align: center;
-  width: desktop-vw(740px);
-}
-
-.hero {
-  position: relative;
-
-  > h1 {
+.about {
+  h3 {
     color: var(--duqqa-brown);
     font-family: var(--font-grandstander);
+    font-size: desktop-vw(96px);
     font-weight: 900;
-    margin-bottom: desktop-vw(150px);
-    margin-top: desktop-vw(75px);
-    position: relative;
+    margin-bottom: desktop-vw(75px);
     text-align: center;
+  }
 
-    > span {
-      display: block;
+  .hero {
+    position: relative;
+
+    > h1 {
+      color: var(--duqqa-brown);
+      font-family: var(--font-grandstander);
+      font-weight: 900;
+      margin-bottom: desktop-vw(150px);
+      margin-top: desktop-vw(75px);
       position: relative;
+      text-align: center;
 
-      &:nth-child(1) {
-        font-size: desktop-vw(190px);
+      > span {
+        display: block;
+        position: relative;
+
+        &:nth-child(1) {
+          font-size: desktop-vw(190px);
+          margin-bottom: desktop-vw(-20px);
+        }
+
+        &:nth-child(2) {
+          font-size: desktop-vw(240px);
+        }
+      }
+    }
+
+    p {
+      color: var(--duqqa-brown);
+      font-family: var(--font-grandstander);
+      font-size: desktop-vw(35px);
+      font-weight: 900;
+      line-height: 1.6;
+      margin-bottom: desktop-vw(150px);
+      text-align: center;
+      width: desktop-vw(740px);
+    }
+
+    .charC {
+      --char-height: #{desktop-vw(800px)};
+      @include dims(var(--char-height));
+      margin-bottom: calc(var(--char-height) / -3);
+      z-index: -1;
+    }
+
+    .crumbC {
+      &.a {
+        @include dims(desktop-vw(120px));
+        @include position(absolute, desktop-vw(240px), auto, auto, desktop-vw(220px));
+      }
+
+      &.b {
+        @include dims(desktop-vw(90px));
+        @include position(absolute, desktop-vw(470px), auto, auto, desktop-vw(900px));
+      }
+
+      &.c {
+        @include dims(desktop-vw(140px));
+        @include position(absolute, desktop-vw(600px), auto, auto, desktop-vw(1160px));
+      }
+
+      &.d {
+        @include dims(desktop-vw(140px));
+        @include position(absolute, desktop-vw(180px), auto, auto, desktop-vw(1100px));
+      }
+
+      &.e {
+        @include dims(desktop-vw(100px));
+        @include position(absolute, desktop-vw(280px), auto, auto, desktop-vw(620px));
+      }
+
+      &.f {
+        @include dims(desktop-vw(100px));
+        @include position(absolute, desktop-vw(840px), auto, auto, desktop-vw(40px));
+      }
+
+      &.g {
+        @include dims(desktop-vw(170px));
+        @include position(absolute, desktop-vw(500px), auto, auto, desktop-vw(440px));
+      }
+    }
+  }
+
+  .boom {
+    @include dims(100%, 100vh);
+    background: var(--duqqa-brown);
+    position: relative;
+
+    &::before {
+      content: "";
+      @include position(absolute, 0, 0, auto, 0);
+      @include dims(100%, desktop-vw(120px));
+      background-image: url("../../assets/img/wave.svg");
+      background-repeat: no-repeat;
+      background-position: top center;
+      background-size: 100% auto;
+      transform: translateY(-100%);
+    }
+  }
+
+  .extravaganza {
+    padding-bottom: desktop-vw(100px);
+    padding-top: desktop-vw(150px);
+
+    > h2 {
+      color: var(--duqqa-brown);
+      font-family: var(--font-grandstander);
+      font-weight: 900;
+      margin-bottom: desktop-vw(150px);
+      position: relative;
+      text-align: center;
+      transform: rotate(-5deg);
+
+      > .text {
+        display: block;
+        position: relative;
+        font-size: desktop-vw(150px);
         margin-bottom: desktop-vw(-20px);
-      }
 
-      &:nth-child(2) {
-        font-size: desktop-vw(240px);
-      }
-    }
-  }
-
-  .charC {
-    --char-height: #{desktop-vw(800px)};
-    @include dims(var(--char-height));
-    margin-bottom: calc(var(--char-height) / -3);
-    z-index: -1;
-  }
-
-  .crumbC {
-    &.a {
-      @include dims(desktop-vw(120px));
-      @include position(absolute, desktop-vw(240px), auto, auto, desktop-vw(220px));
-    }
-
-    &.b {
-      @include dims(desktop-vw(90px));
-      @include position(absolute, desktop-vw(470px), auto, auto, desktop-vw(900px));
-    }
-
-    &.c {
-      @include dims(desktop-vw(140px));
-      @include position(absolute, desktop-vw(600px), auto, auto, desktop-vw(1160px));
-    }
-
-    &.d {
-      @include dims(desktop-vw(140px));
-      @include position(absolute, desktop-vw(180px), auto, auto, desktop-vw(1100px));
-    }
-
-    &.e {
-      @include dims(desktop-vw(100px));
-      @include position(absolute, desktop-vw(280px), auto, auto, desktop-vw(620px));
-    }
-
-    &.f {
-      @include dims(desktop-vw(100px));
-      @include position(absolute, desktop-vw(840px), auto, auto, desktop-vw(40px));
-    }
-
-    &.g {
-      @include dims(desktop-vw(170px));
-      @include position(absolute, desktop-vw(500px), auto, auto, desktop-vw(440px));
-    }
-  }
-}
-
-.boom {
-  @include dims(100%, 100vh);
-  background: var(--duqqa-brown);
-  position: relative;
-
-  &::before {
-    content: "";
-    @include position(absolute, 0, 0, auto, 0);
-    @include dims(100%, desktop-vw(120px));
-    background-image: url("../../assets/img/wave.svg");
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-size: 100% auto;
-    transform: translateY(-100%);
-  }
-}
-
-.extravaganza {
-  padding-bottom: desktop-vw(100px);
-  padding-top: desktop-vw(150px);
-
-  > h2 {
-    color: var(--duqqa-brown);
-    font-family: var(--font-grandstander);
-    font-weight: 900;
-    margin-bottom: desktop-vw(150px);
-    position: relative;
-    text-align: center;
-    transform: rotate(-5deg);
-
-    > .text {
-      display: block;
-      position: relative;
-      font-size: desktop-vw(150px);
-      margin-bottom: desktop-vw(-20px);
-
-      > .imgC {
-        @include dims(desktop-vw(573px), desktop-vw(230px));
-        display: inline-block;
+        > .imgC {
+          @include dims(desktop-vw(573px), desktop-vw(230px));
+          display: inline-block;
+        }
       }
     }
-  }
 
-  .boxes {
-    column-gap: desktop-vw(25px);
-    margin-bottom: desktop-vw(50px);
+    p {
+      color: var(--duqqa-brown);
+      font-family: var(--font-grandstander);
+      font-size: desktop-vw(35px);
+      font-weight: 900;
+      line-height: 1.6;
+      margin-bottom: desktop-vw(50px);
+      text-align: center;
+      width: desktop-vw(740px);
+    }
 
-    .imgC {
-      @include dims(desktop-vw(180px), desktop-vw(360px));
+    .boxes {
+      column-gap: desktop-vw(25px);
+      margin-bottom: desktop-vw(50px);
 
-      &:nth-child(2),
-      &:nth-child(3) {
-        margin-top: desktop-vw(100px);
+      .imgC {
+        @include dims(desktop-vw(180px), desktop-vw(360px));
+
+        &:nth-child(2),
+        &:nth-child(3) {
+          margin-top: desktop-vw(100px);
+        }
       }
     }
   }

@@ -1,5 +1,7 @@
 footer {
   padding: 0 desktop-vw(50px);
+  position: relative;
+  z-index: z-index("footer");
 
   .top {
     @include dims(auto, desktop-vw(220px));

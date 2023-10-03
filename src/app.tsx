@@ -1,30 +1,31 @@
-import { Route, Routes } from "react-router-dom"
+import { AnimatePresence } from "framer-motion"
+import { Route, Routes, useLocation } from "react-router-dom"
+
 import Footer from "./components/footer"
 import Header from "./components/header"
 import AnimationWrapper from "./hocs/animation-wrapper"
-import DefaultLayout from "./layouts/default"
+import LenisWrapper from "./hocs/lenis-wrapper"
 import About from "./pages/about"
 import AllProducts from "./pages/all-products"
-import Contact from "./pages/contact"
 import Home from "./pages/home"
-import LenisWrapper from "./hocs/lenis-wrapper"
 
 function App() {
+  const location = useLocation()
+
   return (
     <LenisWrapper>
       <AnimationWrapper>
-        <DefaultLayout>
-          <>
-            <Header />
-            <Routes>
+        <div className="hidden-overflow">
+          <Header />
+          <AnimatePresence mode="wait">
+            <Routes location={location} key={location.pathname}>
               <Route index element={<Home />} />
               <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
               <Route path="/all-products" element={<AllProducts />} />
             </Routes>
-            <Footer />
-          </>
-        </DefaultLayout>
+          </AnimatePresence>
+          <Footer />
+        </div>
       </AnimationWrapper>
     </LenisWrapper>
   )

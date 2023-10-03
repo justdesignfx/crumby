@@ -26,7 +26,7 @@ const Parallax = ({ children, speedX = 1, speedY = 1, directionX = 1, directionY
         yPercent: () => 100 * speedY * directionY,
         scrollTrigger: {
           id: "parallax",
-          markers: true,
+          // markers: true,
           scrub: true,
           trigger: ref.current,
         },

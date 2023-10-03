@@ -1,0 +1,6 @@
+.overlay {
+  @include position(fixed, 0, 0, 0, 0);
+  background: var(--toasted-marshmallow-fluff);
+  pointer-events: none;
+  z-index: z-index("preloader");
+}

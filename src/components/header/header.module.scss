@@ -1,10 +1,10 @@
 header {
+  align-items: center;
+  display: flex;
   height: var(--header-height);
   padding: 0 desktop-vw(50px);
   position: relative;
-
-  align-items: center;
-  display: flex;
+  z-index: z-index("header");
 
   .imgC {
     @include position(absolute, 50%, auto, auto, 50%);
