@@ -26,6 +26,12 @@ import peanut from "@/assets/img/crumby-peanut.png"
 import strawberry from "@/assets/img/crumby-strawberry.png"
 import cake from "@/assets/img/hero-cake.png"
 
+import iconFiber from "@/assets/img/icon-fiber.svg"
+import iconProtein from "@/assets/img/icon-protein.svg"
+import iconLowSugar from "@/assets/img/icon-low-sugar.svg"
+import iconDrop from "@/assets/img/icon-drop.svg"
+import iconCarb from "@/assets/img/icon-carb.svg"
+
 const Home = () => {
   const ref = useRef(null)
   const q = gsap.utils.selector(ref)
@@ -70,11 +76,40 @@ const Home = () => {
           <div className={s.marqueeC}>
             <Marquee repeat={3} duration={20}>
               <>
-                <h2>NO ADDED PRESERVATIVES</h2>
-                <h2>LOW SUGAR</h2>
-                <h2>LOW CARB</h2>
-                <h2>HIGH PROTEIN</h2>
-                <h2>FULL OF FIBER</h2>
+                <div className={s.specC}>
+                  <h2>NO ADDED PRESERVATIVES</h2>
+                  <span className={s.iconC}>
+                    <Img src={iconDrop} objectFit="contain" />
+                  </span>
+                </div>
+
+                <div className={s.specC}>
+                  <h2>LOW SUGAR</h2>
+                  <span className={s.iconC}>
+                    <Img src={iconLowSugar} objectFit="contain" />
+                  </span>
+                </div>
+
+                <div className={s.specC}>
+                  <h2>LOW CARB</h2>
+                  <span className={s.iconC}>
+                    <Img src={iconCarb} objectFit="contain" />
+                  </span>
+                </div>
+
+                <div className={s.specC}>
+                  <h2>HIGH PROTEIN</h2>
+                  <span className={s.iconC}>
+                    <Img src={iconProtein} objectFit="contain" />
+                  </span>
+                </div>
+
+                <div className={s.specC}>
+                  <h2>FULL OF FIBER</h2>
+                  <span className={s.iconC}>
+                    <Img src={iconFiber} objectFit="contain" />
+                  </span>
+                </div>
               </>
             </Marquee>
           </div>

@@ -45,15 +45,31 @@
     }
 
     .marqueeC {
-      @include position(absolute, 100%, auto, auto, auto);
-      transform: translateY(-150%);
+      @include position(absolute, auto, auto, 0, auto);
+      transform: translateY(desktop-vw(-10px));
+
+      .specC {
+        align-items: center;
+        display: flex;
+        margin: 0 desktop-vw(40px);
+      }
 
       h2 {
+        align-items: center;
         color: var(--toasted-marshmallow-fluff);
         font-size: desktop-vw(30px);
         font-family: var(--font-grandstander);
         font-weight: 900;
-        margin: 0 desktop-vw(50px);
+        transform: translateY(desktop-vw(3px));
+        display: inline-flex;
+      }
+
+      .iconC {
+        @include dims(desktop-vw(32px));
+        align-items: center;
+        display: inline-flex;
+        justify-content: center;
+        margin-left: desktop-vw(20px);
       }
     }
 
