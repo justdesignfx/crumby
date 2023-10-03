@@ -111,6 +111,7 @@
   .extravaganza {
     padding-bottom: desktop-vw(100px);
     padding-top: desktop-vw(150px);
+    position: relative;
 
     > h2 {
       color: var(--duqqa-brown);
@@ -146,6 +147,28 @@
         &:nth-child(3) {
           margin-top: desktop-vw(100px);
         }
+      }
+    }
+
+    .popcornC {
+      &.a {
+        @include dims(desktop-vw(180px));
+        @include position(absolute, desktop-vw(240px), auto, auto, desktop-vw(-50px));
+      }
+
+      &.b {
+        @include dims(desktop-vw(45px));
+        @include position(absolute, desktop-vw(200px), auto, auto, desktop-vw(1200px));
+      }
+
+      &.c {
+        @include dims(desktop-vw(110px));
+        @include position(absolute, desktop-vw(550px), auto, auto, desktop-vw(1100px));
+      }
+
+      &.d {
+        @include dims(desktop-vw(60px));
+        @include position(absolute, desktop-vw(700px), auto, auto, desktop-vw(100px));
       }
     }
   }

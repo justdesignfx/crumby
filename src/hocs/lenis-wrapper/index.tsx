@@ -1,6 +1,6 @@
-import { ReactLenis } from "@studio-freight/react-lenis"
 import { ReactNode, useEffect, useRef } from "react"
 
+import { ReactLenis } from "@studio-freight/react-lenis"
 import gsap from "gsap"
 
 type Props = {

@@ -5,6 +5,9 @@ import cn from "clsx"
 import Button from "@/components/button"
 import CallToContact from "@/components/call-to-contact"
 import Img from "@/components/custom-img"
+import IconPopcorn from "@/components/icons/icon-popcorn"
+import Float from "@/hocs/float"
+import PageTransition from "@/hocs/page-transition"
 import Parallax from "@/hocs/parallax"
 
 import charYay from "@/assets/img/char-yay.png"
@@ -20,8 +23,6 @@ import crumbyDarkChocolate from "@/assets/img/crumby-dark-chocolate.png"
 import crumbyPeanut from "@/assets/img/crumby-peanut.png"
 import crumbyStrawberry from "@/assets/img/crumby-strawberry.png"
 import riceCake from "@/assets/img/rice-cake.png"
-import Float from "@/hocs/float"
-import PageTransition from "@/hocs/page-transition"
 
 const About = () => {
   return (
@@ -88,7 +89,7 @@ const About = () => {
           </div>
           <div className={cn(s.crumbC, s.g)}>
             <Parallax speedX={0} directionY={-1}>
-              <Float amountY={10} amountRotate={3}>
+              <Float amountY={10} amountRotate={-6}>
                 <Img src={crumb7} objectFit="contain" />
               </Float>
             </Parallax>
@@ -133,6 +134,26 @@ const About = () => {
             </div>
           </div>
           <Button text="SEE ALL PRODUCTS" size="lg" theme="light" />
+          <div className={cn(s.popcornC, s.a)}>
+            <Parallax speedX={0} directionY={-1}>
+              <IconPopcorn fill="var(--qing-yellow)" />
+            </Parallax>
+          </div>
+          <div className={cn(s.popcornC, s.b)}>
+            <Parallax speedX={0} directionY={-1}>
+              <IconPopcorn fill="var(--qing-yellow)" />
+            </Parallax>
+          </div>
+          <div className={cn(s.popcornC, s.c)}>
+            <Parallax speedX={0} directionY={-1}>
+              <IconPopcorn fill="var(--qing-yellow)" />
+            </Parallax>
+          </div>
+          <div className={cn(s.popcornC, s.d)}>
+            <Parallax speedX={0} directionY={-1}>
+              <IconPopcorn fill="var(--qing-yellow)" />
+            </Parallax>
+          </div>
         </section>
 
         <CallToContact />
