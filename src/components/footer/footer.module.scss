@@ -8,8 +8,19 @@ footer {
     display: flex;
 
     .scrollToTop {
+      @include dims(desktop-vw(36px));
+      border-radius: desktop-vw(10px);
+      border: 1px solid var(--duqqa-brown);
+      margin-bottom: desktop-vw(20px);
       margin-top: auto;
       margin-left: auto;
+
+      .iconC {
+        @include dims(desktop-vw(12px));
+        align-items: center;
+        display: flex;
+        justify-content: center;
+      }
     }
   }
 

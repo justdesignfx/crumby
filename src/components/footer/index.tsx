@@ -6,7 +6,8 @@ import { useLenis } from "@studio-freight/react-lenis"
 
 import Img from "@/components/custom-img"
 
-import logo from "../../assets/img/logo-crumby-c.svg"
+import logo from "@/assets/img/logo-crumby-c.svg"
+import iconUpArrow from "@/assets/img/icon-up-arrow.svg"
 
 const Footer = () => {
   const lenis = useLenis()
@@ -21,8 +22,10 @@ const Footer = () => {
   return (
     <footer>
       <div className={s.top}>
-        <div className={cn(s.scrollToTop, "cursor-pointer")} onClick={scrollToTop}>
-          TO TOP
+        <div className={cn(s.scrollToTop, "cursor-pointer", "flex-center")} onClick={scrollToTop}>
+          <div className={cn(s.iconC, "flex-center")}>
+            <Img src={iconUpArrow} objectFit="contain" />
+          </div>
         </div>
       </div>
 
