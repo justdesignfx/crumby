@@ -1,6 +1,11 @@
 import s from "./page-transition.module.scss"
 
+import logo from "@/assets/img/logo-crumby-c.svg"
+
+import Img from "@/components/custom-img"
+
 import { motion } from "framer-motion"
+import cn from "clsx"
 import { ReactNode } from "react"
 
 type Props = {
@@ -12,12 +17,22 @@ const PageTransition = ({ children }: Props) => {
     <>
       {children}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0 }}
-        exit={{ opacity: 1 }}
-        transition={{ duration: 0.4, delay: 0.4 }}
-        className={s.overlay}
-      />
+        className={cn(s.overlay, "flex-center")}
+        initial={{ y: "0" }}
+        animate={{ y: "100%" }}
+        exit={{ y: "0" }}
+        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+      >
+        <motion.div
+          className={s.imgC}
+          initial={{ y: "0" }}
+          animate={{ y: "300%" }}
+          exit={{ y: "0" }}
+          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <Img src={logo} objectFit="contain" />
+        </motion.div>
+      </motion.div>
     </>
   )
 }

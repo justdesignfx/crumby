@@ -6,6 +6,7 @@
     background-position: bottom center;
     background-size: 100% auto;
     position: relative;
+    z-index: 50;
 
     h1 {
       color: var(--duqqa-brown);
@@ -81,6 +82,8 @@
     flex-direction: column;
     justify-content: center;
     padding-top: desktop-vw(120px);
+    position: relative;
+    z-index: 100;
 
     h2 {
       color: var(--toasted-marshmallow-fluff);
@@ -204,31 +207,9 @@
 
     .boxes {
       align-items: flex-start;
-      column-gap: desktop-vw(100px);
+      column-gap: desktop-vw(20px);
       display: flex;
       margin-bottom: desktop-vw(90px);
-
-      & > div {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        width: desktop-vw(330px);
-
-        .imgC {
-          @include dims(desktop-vw(180px), desktop-vw(360px));
-          margin-bottom: desktop-vw(30px);
-        }
-
-        p {
-          color: var(--duqqa-brown);
-          font-size: desktop-vw(30px);
-          font-family: var(--font-grandstander);
-          font-weight: 700;
-          line-height: 1.25;
-        }
-      }
     }
   }
 }

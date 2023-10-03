@@ -5,18 +5,19 @@ import gsap from "gsap"
 
 type Props = {
   children: ReactNode
-  amount: number
+  amountY: number
+  amountRotate: number
 }
 
-const Float = ({ children, amount = 3 }: Props) => {
+const Float = ({ children, amountY = 10, amountRotate = 3 }: Props) => {
   const ref = useRef<HTMLDivElement>(null)
   const random = gsap.utils.random(-3, 3)
 
   useAnimationFrame((time) => {
     if (!ref.current) return
 
-    const y = (1 + Math.sin(time / 1500)) * amount * random
-    const rotate = (1 + Math.sin(time / 1500)) * amount * random
+    const y = (1 + Math.sin(time / 1500)) * amountY * random
+    const rotate = (1 + Math.sin(time / 1500)) * amountRotate * random
 
     ref.current.style.transform = `translateY(${y}px) rotate(${rotate}deg)`
   })

@@ -11,7 +11,7 @@
   padding-top: desktop-vw(220px);
   position: relative;
 
-  h2 {
+  > h2 {
     color: var(--toasted-marshmallow-fluff);
     font-size: desktop-vw(80px);
     font-family: var(--font-grandstander);
@@ -21,18 +21,19 @@
     width: desktop-vw(660px);
   }
 
-  p {
+  > p {
     color: var(--toasted-marshmallow-fluff);
     font-size: desktop-vw(26px);
     font-family: var(--font-grandstander);
     font-weight: 400;
-    margin-bottom: desktop-vw(120px);
+    margin-bottom: desktop-vw(50px);
   }
 
   .imgs {
     align-items: center;
     display: flex;
-    margin-bottom: desktop-vw(-150px);
+    margin-bottom: desktop-vw(-100px);
+    margin-top: desktop-vw(100px);
 
     @include mobile {
       flex-direction: column;
@@ -46,11 +47,8 @@
       }
 
       &:nth-child(1) {
-        width: desktop-vw(450px);
-
-        @include tablet {
-          width: mobile-vw(140px);
-        }
+        @include dims(desktop-vw(450px));
+        margin-right: desktop-vw(5px);
 
         @include mobile {
           margin-right: mobile-vw(150px);
@@ -59,12 +57,8 @@
       }
 
       &:nth-child(2) {
+        @include dims(desktop-vw(350px));
         margin-bottom: desktop-vw(-120px);
-        width: desktop-vw(350px);
-
-        @include tablet {
-          width: mobile-vw(110px);
-        }
 
         @include mobile {
           margin-bottom: 0;
@@ -74,22 +68,12 @@
       }
 
       &:nth-child(3) {
-        width: desktop-vw(370px);
-
-        @include tablet {
-          width: mobile-vw(120px);
-        }
+        @include dims(desktop-vw(375px));
 
         @include mobile {
           margin-right: mobile-vw(100px);
           width: mobile-vw(150px);
         }
-      }
-
-      img {
-        height: 100%;
-        width: 100%;
-        object-fit: contain;
       }
     }
   }

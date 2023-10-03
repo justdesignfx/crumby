@@ -1,0 +1,83 @@
+.cardProduct {
+  @include dims(desktop-vw(400px), dims(desktop-vw(476px)));
+  //   border: 1px solid purple;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+
+  &:hover {
+    .box,
+    .cakes {
+      transform: translateX(0%);
+    }
+
+    .cakes {
+      .imgC {
+        transform: translateX(0%);
+      }
+    }
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  &::before {
+    content: "";
+    @include position(absolute, 0, 0, 0, 0);
+    background: var(--desert-lily);
+    border-radius: desktop-vw(30px);
+    opacity: 0;
+    transition: 400ms all ease;
+  }
+
+  .box {
+    @include dims(desktop-vw(400px), desktop-vw(476px));
+    flex-shrink: 0;
+    text-align: center;
+
+    .imgC {
+      @include dims(desktop-vw(180px), desktop-vw(340px));
+      margin-bottom: desktop-vw(30px);
+    }
+  }
+
+  .cakes {
+    @include dims(desktop-vw(400px), desktop-vw(476px));
+    margin-bottom: desktop-vw(50px);
+    flex-shrink: 0;
+
+    .imgC {
+      transform: translateX(-150%);
+
+      &:nth-child(1) {
+        @include dims(desktop-vw(200px), desktop-vw(150px));
+        transition: 400ms all ease;
+      }
+
+      &:nth-child(2) {
+        @include dims(desktop-vw(300px), desktop-vw(200px));
+        margin-top: desktop-vw(-25px);
+        transition: 500ms all ease;
+      }
+    }
+  }
+
+  .box,
+  .cakes {
+    transform: translateX(-100%);
+    transition: 400ms all ease;
+    will-change: transform;
+  }
+
+  > p {
+    @include position(absolute, auto, auto, 0, 50%);
+    transform: translate(-50%, desktop-vw(-25px));
+    color: var(--duqqa-brown);
+    font-size: desktop-vw(30px);
+    font-family: var(--font-grandstander);
+    font-weight: 700;
+    text-align: center;
+    width: 100%;
+  }
+}

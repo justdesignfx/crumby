@@ -46,49 +46,49 @@ const About = () => {
 
           <div className={cn(s.crumbC, s.a)}>
             <Parallax speedX={0} directionY={-1}>
-              <Float amount={6}>
+              <Float amountY={10} amountRotate={3}>
                 <Img src={crumb1} objectFit="contain" />
               </Float>
             </Parallax>
           </div>
           <div className={cn(s.crumbC, s.b)}>
             <Parallax speedX={0} directionY={-1}>
-              <Float amount={8}>
+              <Float amountY={10} amountRotate={3}>
                 <Img src={crumb2} objectFit="contain" />
               </Float>
             </Parallax>
           </div>
           <div className={cn(s.crumbC, s.c)}>
             <Parallax speedX={0} directionY={-1}>
-              <Float amount={8}>
+              <Float amountY={10} amountRotate={3}>
                 <Img src={crumb3} objectFit="contain" />
               </Float>
             </Parallax>
           </div>
           <div className={cn(s.crumbC, s.d)}>
             <Parallax speedX={0} directionY={-1}>
-              <Float amount={8}>
+              <Float amountY={10} amountRotate={3}>
                 <Img src={crumb4} objectFit="contain" />
               </Float>
             </Parallax>
           </div>
           <div className={cn(s.crumbC, s.e)}>
             <Parallax speedX={0} directionY={-1}>
-              <Float amount={4}>
+              <Float amountY={10} amountRotate={3}>
                 <Img src={crumb5} objectFit="contain" />
               </Float>
             </Parallax>
           </div>
           <div className={cn(s.crumbC, s.f)}>
             <Parallax speedX={0} directionY={-1}>
-              <Float amount={6}>
+              <Float amountY={10} amountRotate={3}>
                 <Img src={crumb6} objectFit="contain" />
               </Float>
             </Parallax>
           </div>
           <div className={cn(s.crumbC, s.g)}>
             <Parallax speedX={0} directionY={-1}>
-              <Float amount={10}>
+              <Float amountY={10} amountRotate={3}>
                 <Img src={crumb7} objectFit="contain" />
               </Float>
             </Parallax>

@@ -7,6 +7,7 @@ import { Link } from "react-router-dom"
 
 import Button from "@/components/button"
 import CallToContact from "@/components/call-to-contact"
+import CardProduct from "@/components/card-product"
 import CardSpec from "@/components/card-spec"
 import Img from "@/components/custom-img"
 import IconPopcorn from "@/components/icons/icon-popcorn"
@@ -14,14 +15,16 @@ import { Marquee } from "@/components/marquee"
 import PageTransition from "@/hocs/page-transition"
 import Parallax from "@/hocs/parallax"
 
+import cakesBottomPeanut from "@/assets/img/cakes-bottom-peanut.png"
+import cakesTopPeanut from "@/assets/img/cakes-top-peanut.png"
 import cardSpec1 from "@/assets/img/card-spec-1.png"
 import cardSpecIcon1 from "@/assets/img/card-spec-icon-1.png"
 import cardSpecIcon2 from "@/assets/img/card-spec-icon-2.png"
+import charBests from "@/assets/img/char-bests.png"
 import chocolate from "@/assets/img/crumby-chocolate.png"
 import peanut from "@/assets/img/crumby-peanut.png"
 import strawberry from "@/assets/img/crumby-strawberry.png"
 import cake from "@/assets/img/hero-cake.png"
-import charBests from "@/assets/img/char-bests.png"
 
 const Home = () => {
   const ref = useRef(null)
@@ -35,7 +38,8 @@ const Home = () => {
         duration: 0.9,
         ease: Back.easeOut,
         opacity: 0,
-        yPercent: 100,
+        yPercent: 50,
+        transformOrigin: "center",
       })
     }, ref.current)
 
@@ -122,7 +126,7 @@ const Home = () => {
               </p>
             </div>
           </div>
-          <Link className="cursor-pointer" to="/all-products">
+          <Link className="cursor-pointer" to="/about">
             <Button text="ABOUT US" theme="dark" />
           </Link>
           <div className={s.charC}>
@@ -210,28 +214,37 @@ const Home = () => {
         <div className={s.flavors}>
           <h2>OUR TASTY FLAVORS</h2>
           <div className={s.boxes}>
-            <div>
-              <div className={s.imgC}>
-                <Img src={peanut} objectFit="contain" />
-              </div>
-              <p>MILK CHOCOLATE</p>
-            </div>
-            <div>
-              <div className={s.imgC}>
-                <Img src={chocolate} objectFit="contain" />
-              </div>
-              <p>
-                MILK CHOCOLATE <br /> + DRIED STRAWBERRY
-              </p>
-            </div>
-            <div>
-              <div className={s.imgC}>
-                <Img src={strawberry} objectFit="contain" />
-              </div>
-              <p>
-                MILK CHOCOLATE <br /> + PEANUT
-              </p>
-            </div>
+            <Link to="/all-products">
+              <CardProduct
+                img={chocolate}
+                hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
+                name={
+                  <>
+                    MILK CHOCOLATE <br />+ PEANUT
+                  </>
+                }
+              />
+            </Link>
+
+            <Link to="/all-products">
+              <CardProduct
+                img={peanut}
+                hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
+                name={
+                  <>
+                    MILK CHOCOLATE <br />+ DRIED STRAWBERRY
+                  </>
+                }
+              />
+            </Link>
+
+            <Link to="/all-products">
+              <CardProduct
+                img={strawberry}
+                hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
+                name={<>MILK CHOCOLATE</>}
+              />
+            </Link>
           </div>
           <Button text="SEE ALL PRODUCTS" size="lg" theme="light" />
         </div>
