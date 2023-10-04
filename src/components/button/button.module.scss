@@ -20,6 +20,11 @@
     border-width: 2px;
     font-size: desktop-vw(16px);
     padding: desktop-vw(12px) desktop-vw(20px);
+
+    @include mobile {
+      font-size: mobile-vw(16px);
+      padding: mobile-vw(12px) mobile-vw(20px);
+    }
   }
 
   &.md {
@@ -27,6 +32,12 @@
     border-radius: desktop-vw(10px);
     font-size: desktop-vw(20px);
     padding: desktop-vw(11px) desktop-vw(20px);
+
+    @include mobile {
+      border-radius: mobile-vw(10px);
+      font-size: mobile-vw(20px);
+      padding: mobile-vw(11px) mobile-vw(20px);
+    }
   }
 
   &.lg {
@@ -34,6 +45,13 @@
     border-radius: desktop-vw(20px);
     font-size: desktop-vw(45px);
     padding: desktop-vw(22px) desktop-vw(160px);
+
+    @include mobile {
+      border-width: 2px;
+      border-radius: mobile-vw(10px);
+      font-size: mobile-vw(20px);
+      padding: mobile-vw(11px) mobile-vw(20px);
+    }
   }
 
   & > span {

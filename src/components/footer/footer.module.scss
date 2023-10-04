@@ -3,9 +3,18 @@ footer {
   position: relative;
   z-index: z-index("footer");
 
+  @include mobile {
+    padding: 0 mobile-vw(20px);
+  }
+
   .top {
     @include dims(auto, desktop-vw(220px));
     display: flex;
+
+    @include mobile {
+      @include dims(auto);
+      margin-top: mobile-vw(30px);
+    }
 
     .scrollToTop {
       @include dims(desktop-vw(36px));
@@ -15,11 +24,18 @@ footer {
       margin-top: auto;
       margin-left: auto;
 
+      @include mobile {
+        @include dims(mobile-vw(36px));
+        border-radius: mobile-vw(10px);
+        margin-bottom: mobile-vw(20px);
+      }
+
       .iconC {
         @include dims(desktop-vw(12px));
-        align-items: center;
-        display: flex;
-        justify-content: center;
+
+        @include mobile {
+          @include dims(mobile-vw(12px));
+        }
       }
     }
   }
@@ -31,19 +47,38 @@ footer {
     padding: desktop-vw(40px) 0;
     position: relative;
 
+    @include mobile {
+      flex-direction: column;
+      padding: mobile-vw(40px) 0;
+    }
+
     nav {
       align-items: center;
       display: flex;
+
+      @include mobile {
+        flex-direction: column;
+        margin-bottom: mobile-vw(100px);
+        row-gap: mobile-vw(20px);
+      }
 
       .navItem {
         color: var(--duqqa-brown);
         font-size: desktop-vw(16px);
         font-family: var(--font-grandstander);
         font-weight: 400;
+
+        @include mobile {
+          font-size: mobile-vw(24px);
+        }
       }
 
       .separator {
         margin: 0 desktop-vw(4px);
+
+        @include mobile {
+          display: none;
+        }
       }
     }
 
@@ -51,6 +86,13 @@ footer {
       @include position(absolute, 50%, auto, auto, 50%);
       @include dims(desktop-vw(85px));
       transform: translate(-50%, -70%);
+
+      @include mobile {
+        @include position(relative, auto, auto, auto, auto);
+        @include dims(mobile-vw(85px));
+        transform: unset;
+        margin-bottom: mobile-vw(50px);
+      }
     }
 
     .copyright {
@@ -58,6 +100,10 @@ footer {
       font-size: desktop-vw(16px);
       font-family: var(--font-grandstander);
       font-weight: 400;
+
+      @include mobile {
+        font-size: mobile-vw(16px);
+      }
     }
   }
 }

@@ -6,6 +6,11 @@
     font-weight: 900;
     margin-bottom: desktop-vw(75px);
     text-align: center;
+
+    @include mobile {
+      font-size: mobile-vw(40px);
+      margin-bottom: mobile-vw(50px);
+    }
   }
 
   p {
@@ -17,6 +22,12 @@
     margin-bottom: desktop-vw(150px);
     text-align: center;
     width: desktop-vw(740px);
+
+    @include mobile {
+      font-size: mobile-vw(20px);
+      margin-bottom: mobile-vw(50px);
+      width: mobile-vw(320px);
+    }
   }
 
   .hero {
@@ -31,6 +42,10 @@
       position: relative;
       text-align: center;
 
+      @include mobile {
+        margin-top: mobile-vw(75px);
+      }
+
       > span {
         display: block;
         position: relative;
@@ -38,10 +53,18 @@
         &:nth-child(1) {
           font-size: desktop-vw(190px);
           margin-bottom: desktop-vw(-20px);
+
+          @include mobile {
+            font-size: mobile-vw(80px);
+          }
         }
 
         &:nth-child(2) {
           font-size: desktop-vw(240px);
+
+          @include mobile {
+            font-size: mobile-vw(95px);
+          }
         }
       }
     }
@@ -51,42 +74,81 @@
       @include dims(var(--char-height));
       margin-bottom: calc(var(--char-height) / -3);
       z-index: -1;
+
+      @include mobile {
+        --char-height: #{mobile-vw(300px)};
+      }
     }
 
     .crumbC {
       &.a {
-        @include dims(desktop-vw(120px));
         @include position(absolute, desktop-vw(240px), auto, auto, desktop-vw(220px));
+        @include dims(desktop-vw(120px));
+
+        @include mobile {
+          @include position(absolute, mobile-vw(140px), auto, auto, mobile-vw(10px));
+          @include dims(mobile-vw(50px));
+        }
       }
 
       &.b {
-        @include dims(desktop-vw(90px));
         @include position(absolute, desktop-vw(470px), auto, auto, desktop-vw(900px));
+        @include dims(desktop-vw(90px));
+
+        @include mobile {
+          @include position(absolute, mobile-vw(260px), auto, auto, mobile-vw(300px));
+          @include dims(mobile-vw(45px));
+        }
       }
 
       &.c {
-        @include dims(desktop-vw(140px));
         @include position(absolute, desktop-vw(600px), auto, auto, desktop-vw(1160px));
+        @include dims(desktop-vw(140px));
+
+        @include mobile {
+          @include position(absolute, mobile-vw(150px), auto, auto, mobile-vw(200px));
+          @include dims(mobile-vw(40px));
+        }
       }
 
       &.d {
-        @include dims(desktop-vw(140px));
         @include position(absolute, desktop-vw(180px), auto, auto, desktop-vw(1100px));
+        @include dims(desktop-vw(140px));
+
+        @include mobile {
+          @include position(absolute, mobile-vw(380px), auto, auto, mobile-vw(280px));
+          @include dims(mobile-vw(40px));
+        }
       }
 
       &.e {
-        @include dims(desktop-vw(100px));
         @include position(absolute, desktop-vw(280px), auto, auto, desktop-vw(620px));
+        @include dims(desktop-vw(100px));
+
+        @include mobile {
+          @include position(absolute, mobile-vw(100px), auto, auto, mobile-vw(300px));
+          @include dims(mobile-vw(50px));
+        }
       }
 
       &.f {
-        @include dims(desktop-vw(100px));
         @include position(absolute, desktop-vw(840px), auto, auto, desktop-vw(40px));
+        @include dims(desktop-vw(100px));
+
+        @include mobile {
+          @include position(absolute, mobile-vw(240px), auto, auto, mobile-vw(40px));
+          @include dims(mobile-vw(50px));
+        }
       }
 
       &.g {
-        @include dims(desktop-vw(170px));
         @include position(absolute, desktop-vw(500px), auto, auto, desktop-vw(440px));
+        @include dims(desktop-vw(170px));
+
+        @include mobile {
+          @include position(absolute, mobile-vw(400px), auto, auto, mobile-vw(20px));
+          @include dims(mobile-vw(45px));
+        }
       }
     }
   }
@@ -113,24 +175,42 @@
     padding-top: desktop-vw(150px);
     position: relative;
 
+    @include mobile {
+      padding-bottom: mobile-vw(75px);
+      padding-top: mobile-vw(75px);
+    }
+
     > h2 {
-      color: var(--duqqa-brown);
-      font-family: var(--font-grandstander);
-      font-weight: 900;
       margin-bottom: desktop-vw(150px);
       position: relative;
-      text-align: center;
       transform: rotate(-5deg);
+
+      @include mobile {
+        margin-bottom: mobile-vw(50px);
+      }
 
       > .text {
         display: block;
+        color: var(--duqqa-brown);
+        font-family: var(--font-grandstander);
+        font-weight: 900;
+        margin-bottom: desktop-vw(-20px);
         position: relative;
         font-size: desktop-vw(150px);
-        margin-bottom: desktop-vw(-20px);
+        text-align: center;
+
+        @include mobile {
+          font-size: mobile-vw(50px);
+          margin-bottom: mobile-vw(0px);
+        }
 
         > .imgC {
-          @include dims(desktop-vw(573px), desktop-vw(230px));
+          @include dims(desktop-vw(570px), desktop-vw(232px));
           display: inline-block;
+
+          @include mobile {
+            @include dims(mobile-vw(200px), mobile-vw(86px));
+          }
         }
       }
     }
@@ -140,8 +220,18 @@
       margin-bottom: desktop-vw(50px);
       margin-top: desktop-vw(-150px);
 
+      @include mobile {
+        column-gap: mobile-vw(8px);
+        margin-bottom: mobile-vw(50px);
+        margin-top: mobile-vw(-50px);
+      }
+
       .imgC {
         @include dims(desktop-vw(180px), desktop-vw(360px));
+
+        @include mobile {
+          @include dims(mobile-vw(80px), mobile-vw(144px));
+        }
 
         &:nth-child(2),
         &:nth-child(3) {
@@ -152,23 +242,43 @@
 
     .popcornC {
       &.a {
-        @include dims(desktop-vw(180px));
         @include position(absolute, desktop-vw(240px), auto, auto, desktop-vw(-50px));
+        @include dims(desktop-vw(180px));
+
+        @include mobile {
+          @include position(absolute, mobile-vw(100px), auto, auto, mobile-vw(-10px));
+          @include dims(mobile-vw(60px));
+        }
       }
 
       &.b {
-        @include dims(desktop-vw(45px));
         @include position(absolute, desktop-vw(200px), auto, auto, desktop-vw(1200px));
+        @include dims(desktop-vw(45px));
+
+        @include mobile {
+          @include position(absolute, mobile-vw(140px), auto, auto, mobile-vw(330px));
+          @include dims(mobile-vw(35px));
+        }
       }
 
       &.c {
-        @include dims(desktop-vw(110px));
         @include position(absolute, desktop-vw(550px), auto, auto, desktop-vw(1100px));
+        @include dims(desktop-vw(110px));
+
+        @include mobile {
+          @include position(absolute, mobile-vw(240px), auto, auto, mobile-vw(250px));
+          @include dims(mobile-vw(45px));
+        }
       }
 
       &.d {
-        @include dims(desktop-vw(60px));
         @include position(absolute, desktop-vw(700px), auto, auto, desktop-vw(100px));
+        @include dims(desktop-vw(60px));
+
+        @include mobile {
+          @include position(absolute, mobile-vw(260px), auto, auto, mobile-vw(50px));
+          @include dims(mobile-vw(30px));
+        }
       }
     }
   }

@@ -14,7 +14,7 @@ const Footer = () => {
 
   function scrollToTop() {
     lenis.scrollTo("top", {
-      duration: 2,
+      duration: 1.5,
       lock: true,
     })
   }
@@ -39,7 +39,7 @@ const Footer = () => {
             <a href="/">FACEBOOK</a>
           </div>
           <span className={s.separator}>|</span>
-          <div className={s.navItemC}>
+          <div className={s.navItem}>
             <a href="/">X</a>
           </div>
           <span className={s.separator}>|</span>

@@ -24,12 +24,12 @@ const CallToContact = () => {
             <Img src={c1} object-fit="contain" />
           </Float>
         </div>
-        <div className={s.imgC} objec-fit="contain">
+        <div className={s.imgC}>
           <Float amountRotate={1} amountY={5}>
             <Img src={c2} object-fit="contain" />
           </Float>
         </div>
-        <div className={s.imgC} objec-fit="contain">
+        <div className={s.imgC}>
           <Float amountRotate={1} amountY={5}>
             <Img src={c3} object-fit="contain" />
           </Float>

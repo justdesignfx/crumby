@@ -18,9 +18,9 @@ const PageTransition = ({ children }: Props) => {
       {children}
       <motion.div
         className={cn(s.overlay, "flex-center")}
-        initial={{ y: "0" }}
+        initial={{ y: "-100%" }}
         animate={{ y: "100%" }}
-        exit={{ y: "0" }}
+        exit={{ y: "-100%" }}
         transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
       >
         <motion.div
