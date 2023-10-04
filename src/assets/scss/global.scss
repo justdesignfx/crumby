@@ -11,6 +11,10 @@
 :root {
   --font-grandstander: Grandstander;
   --header-height: #{desktop-vw(120px)};
+
+  @include mobile {
+    --header-height: #{mobile-vw(100px)};
+  }
 }
 
 html {

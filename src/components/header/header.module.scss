@@ -6,19 +6,27 @@ header {
   position: relative;
   z-index: z-index("header");
 
+  @include mobile {
+    height: var(--header-height);
+    padding: 0 mobile-vw(20px);
+  }
+
   .imgC {
     @include position(absolute, 50%, auto, auto, 50%);
-    height: desktop-vw(67px);
+    @include dims(desktop-vw(216px), desktop-vw(67px));
     transform: translate(-50%, -40%);
-    width: desktop-vw(216px);
+
+    @include mobile {
+      @include dims(mobile-vw(180px), mobile-vw(50px));
+    }
   }
 
   nav {
-    width: 100%;
     align-items: center;
     column-gap: desktop-vw(180px);
     display: flex;
     justify-content: space-between;
+    width: 100%;
 
     .navItem {
       font-family: var(--font-grandstander);

@@ -1,3 +1,5 @@
+$ease: cubic-bezier(0.22, 0.68, 0, 1.71);
+
 .cardProduct {
   @include dims(desktop-vw(400px), dims(desktop-vw(476px)));
   //   border: 1px solid purple;
@@ -5,20 +7,22 @@
   position: relative;
   display: flex;
 
-  &:hover {
-    .box,
-    .cakes {
-      transform: translateX(0%);
-    }
-
-    .cakes {
-      .imgC {
+  @include hover {
+    &:hover {
+      .box,
+      .cakes {
         transform: translateX(0%);
       }
-    }
 
-    &::before {
-      opacity: 1;
+      .cakes {
+        .imgC {
+          transform: translateX(0%);
+        }
+      }
+
+      &::before {
+        opacity: 1;
+      }
     }
   }
 
@@ -28,7 +32,7 @@
     background: var(--desert-lily);
     border-radius: desktop-vw(30px);
     opacity: 0;
-    transition: 400ms all ease;
+    transition: 400ms all $ease;
   }
 
   .box {
@@ -52,13 +56,13 @@
 
       &:nth-child(1) {
         @include dims(desktop-vw(200px), desktop-vw(150px));
-        transition: 400ms all ease;
+        transition: 800ms all $ease;
       }
 
       &:nth-child(2) {
         @include dims(desktop-vw(300px), desktop-vw(200px));
         margin-top: desktop-vw(-25px);
-        transition: 500ms all ease;
+        transition: 1000ms all $ease;
       }
     }
   }
@@ -66,7 +70,7 @@
   .box,
   .cakes {
     transform: translateX(-100%);
-    transition: 400ms all ease;
+    transition: 800ms all $ease;
     will-change: transform;
   }
 

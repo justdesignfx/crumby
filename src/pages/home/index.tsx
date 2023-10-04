@@ -25,7 +25,6 @@ import chocolate from "@/assets/img/crumby-chocolate.png"
 import peanut from "@/assets/img/crumby-peanut.png"
 import strawberry from "@/assets/img/crumby-strawberry.png"
 import cake from "@/assets/img/hero-cake.png"
-
 import iconFiber from "@/assets/img/icon-fiber.svg"
 import iconProtein from "@/assets/img/icon-protein.svg"
 import iconLowSugar from "@/assets/img/icon-low-sugar.svg"
@@ -132,7 +131,7 @@ const Home = () => {
         </section>
 
         <section className={s.why}>
-          <h2>WHY CRUMBY?</h2>
+          <h2>WHY CRUMBY ?</h2>
           <div className={s.reasons}>
             <div>
               <h5>
