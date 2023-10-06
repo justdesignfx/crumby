@@ -7,5 +7,10 @@
     @include dims(mobile-vw(45px));
     background: var(--pale-marigold);
     border-radius: 50%;
+    border: 1px solid var(--duqqa-brown);
+
+    .iconC {
+      @include dims(mobile-vw(14px));
+    }
   }
 }

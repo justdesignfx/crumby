@@ -1,11 +1,13 @@
 import s from "./separator-wave.module.scss"
 
+import cn from "clsx"
+
 type Props = {
-  theme: "light" | "dark"
+  alignment: "ltd" | "dtl"
 }
 
 const SeparatorWave = (props: Props) => {
-  return <div className={s.separatorWave}>SeparatorWave</div>
+  return <div className={cn(s.separatorWave, props.alignment)}></div>
 }
 
 export default SeparatorWave

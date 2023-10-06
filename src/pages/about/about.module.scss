@@ -76,7 +76,8 @@
       z-index: -1;
 
       @include mobile {
-        --char-height: #{mobile-vw(300px)};
+        --char-height: #{mobile-vw(360px)};
+        margin-bottom: calc(var(--char-height) / -5);
       }
     }
 
@@ -164,9 +165,16 @@
       @include dims(100%, desktop-vw(120px));
       background-image: url("../../assets/img/wave.svg");
       background-repeat: no-repeat;
-      background-position: top center;
+      background-position: center bottom -2px;
       background-size: 100% auto;
       transform: translateY(-100%);
+
+      @include mobile {
+        @include dims(100%, auto);
+        background-position: center bottom -2px;
+        background-size: 400% auto;
+        padding-bottom: mobile-vw(150px);
+      }
     }
   }
 
@@ -176,7 +184,7 @@
     position: relative;
 
     @include mobile {
-      padding-bottom: mobile-vw(75px);
+      padding-bottom: mobile-vw(0px);
       padding-top: mobile-vw(75px);
     }
 

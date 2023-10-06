@@ -27,16 +27,16 @@ import peanut from "@/assets/img/crumby-peanut.png"
 import strawberry from "@/assets/img/crumby-strawberry.png"
 
 import cake from "@/assets/img/hero-cake.png"
-import iconFiber from "@/assets/img/icon-fiber.svg"
-import iconProtein from "@/assets/img/icon-protein.svg"
-import iconLowSugar from "@/assets/img/icon-low-sugar.svg"
-import iconDrop from "@/assets/img/icon-drop.svg"
 import iconCarb from "@/assets/img/icon-carb.svg"
-import SliderProduct from "@/components/slider-product"
+import iconDrop from "@/assets/img/icon-drop.svg"
+import iconFiber from "@/assets/img/icon-fiber.svg"
+import iconLowSugar from "@/assets/img/icon-low-sugar.svg"
+import iconProtein from "@/assets/img/icon-protein.svg"
 import CardProduct from "@/components/card-product"
-import { useMedia } from "react-use"
-import { breakpoints } from "@/utils"
+import SliderProduct from "@/components/slider-product"
 import SliderSpecs from "@/components/slider-specs"
+import { breakpoints } from "@/utils"
+import { useMedia } from "react-use"
 
 const slides = [
   <Link to="/all-products">
