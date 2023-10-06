@@ -1,0 +1,11 @@
+.sliderProduct {
+  @include dims(inherit);
+  position: relative;
+
+  .nextBtn,
+  .prevBtn {
+    @include dims(mobile-vw(45px));
+    background: var(--pale-marigold);
+    border-radius: 50%;
+  }
+}

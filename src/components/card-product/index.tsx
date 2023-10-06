@@ -25,6 +25,7 @@ const CardProduct = (props: Props) => {
           <Img src={props.hoverImg.bottom} objectFit="contain" />
         </div>
       </div>
+
       <div className={cn(s.box, "flex-center-y")}>
         <div className={s.imgC}>
           <Img src={props.img} objectFit="contain" />

@@ -12,7 +12,8 @@
   position: relative;
 
   @include mobile {
-    padding-top: mobile-vw(125px);
+    background-size: 330% auto;
+    padding-top: mobile-vw(200px);
   }
 
   > h2 {
@@ -54,7 +55,7 @@
     margin-top: desktop-vw(100px);
 
     @include mobile {
-      margin-bottom: mobile-vw(50px);
+      margin-bottom: mobile-vw(-75px);
       margin-top: mobile-vw(50px);
     }
 

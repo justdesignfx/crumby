@@ -13,7 +13,8 @@ footer {
 
     @include mobile {
       @include dims(auto);
-      margin-top: mobile-vw(30px);
+      margin-bottom: mobile-vw(-25px);
+      margin-top: mobile-vw(100px);
     }
 
     .scrollToTop {

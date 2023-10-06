@@ -7,7 +7,6 @@ import { Link } from "react-router-dom"
 
 import Button from "@/components/button"
 import CallToContact from "@/components/call-to-contact"
-import CardProduct from "@/components/card-product"
 import CardSpec from "@/components/card-spec"
 import Img from "@/components/custom-img"
 import IconPopcorn from "@/components/icons/icon-popcorn"
@@ -15,25 +14,109 @@ import { Marquee } from "@/components/marquee"
 import PageTransition from "@/hocs/page-transition"
 import Parallax from "@/hocs/parallax"
 
-import cakesBottomPeanut from "@/assets/img/cakes-bottom-peanut.png"
-import cakesTopPeanut from "@/assets/img/cakes-top-peanut.png"
 import cardSpec1 from "@/assets/img/card-spec-1.png"
 import cardSpecIcon1 from "@/assets/img/card-spec-icon-1.png"
 import cardSpecIcon2 from "@/assets/img/card-spec-icon-2.png"
 import charBests from "@/assets/img/char-bests.png"
+
+import cakesBottomPeanut from "@/assets/img/cakes-bottom-peanut.png"
+import cakesTopPeanut from "@/assets/img/cakes-top-peanut.png"
+
 import chocolate from "@/assets/img/crumby-chocolate.png"
 import peanut from "@/assets/img/crumby-peanut.png"
 import strawberry from "@/assets/img/crumby-strawberry.png"
+
 import cake from "@/assets/img/hero-cake.png"
 import iconFiber from "@/assets/img/icon-fiber.svg"
 import iconProtein from "@/assets/img/icon-protein.svg"
 import iconLowSugar from "@/assets/img/icon-low-sugar.svg"
 import iconDrop from "@/assets/img/icon-drop.svg"
 import iconCarb from "@/assets/img/icon-carb.svg"
+import SliderProduct from "@/components/slider-product"
+import CardProduct from "@/components/card-product"
+import { useMedia } from "react-use"
+import { breakpoints } from "@/utils"
+import SliderSpecs from "@/components/slider-specs"
+
+const slides = [
+  <Link to="/all-products">
+    <CardProduct
+      img={chocolate}
+      hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
+      name={
+        <>
+          MILK CHOCOLATE <br />+ PEANUT
+        </>
+      }
+    />
+  </Link>,
+  <Link to="/all-products">
+    <CardProduct
+      img={peanut}
+      hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
+      name={
+        <>
+          MILK CHOCOLATE <br />+ DRIED STRAWBERRY
+        </>
+      }
+    />
+  </Link>,
+  <Link to="/all-products">
+    <CardProduct
+      img={strawberry}
+      hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
+      name={<>MILK CHOCOLATE</>}
+    />
+  </Link>,
+]
+
+const specSlides = [
+  <CardSpec
+    bgColor="var(--vanilla-cream)"
+    fontColor="var(--pale-marigold)"
+    fontSize={{ m: "14", d: "86" }}
+    icon={cardSpecIcon1}
+    img={cardSpec1}
+    title="FULL OF FIBER"
+  />,
+  <CardSpec
+    bgColor="var(--lan-se-blue)"
+    fontColor="var(--porcellana)"
+    fontSize={{ m: "14", d: "56" }}
+    icon={cardSpecIcon2}
+    img={cardSpec1}
+    title="NO ADDED PRESERVATIVES"
+  />,
+  <CardSpec
+    bgColor="var(--smashing-pumpkins)"
+    fontColor="var(--basil-smash)"
+    fontSize={{ m: "14", d: "86" }}
+    icon={cardSpecIcon1}
+    img={cardSpec1}
+    title="LOW SUGAR"
+  />,
+  <CardSpec
+    bgColor="var(--lan-se-blue)"
+    fontColor="var(--porcellana)"
+    fontSize={{ m: "14", d: "56" }}
+    icon={cardSpecIcon2}
+    img={cardSpec1}
+    title="NO ADDED PRESERVATIVES"
+  />,
+  <CardSpec
+    bgColor="var(--smashing-pumpkins)"
+    fontColor="var(--basil-smash)"
+    fontSize={{ m: "14", d: "86" }}
+    icon={cardSpecIcon1}
+    img={cardSpec1}
+    title="LOW SUGAR"
+  />,
+]
 
 const Home = () => {
   const ref = useRef(null)
   const q = gsap.utils.selector(ref)
+  const isMobile = useMedia(`(max-width:${breakpoints.mobile}px`)
 
   useLayoutEffect(() => {
     if (!ref.current) return
@@ -73,7 +156,7 @@ const Home = () => {
           </Link>
 
           <div className={s.marqueeC}>
-            <Marquee repeat={3} duration={20}>
+            <Marquee repeat={3} duration={40}>
               <>
                 <div className={s.specC}>
                   <h2>NO ADDED PRESERVATIVES</h2>
@@ -169,48 +252,19 @@ const Home = () => {
         </section>
 
         <section className={s.ingredients}>
-          <h2>WHAT'S INSIDE?</h2>
+          <h2>WHAT'S INSIDE ?</h2>
           <div className={s.specs}>
-            <CardSpec
-              bgColor="var(--vanilla-cream)"
-              fontColor="var(--pale-marigold)"
-              fontSize={{ m: "14", d: "86" }}
-              icon={cardSpecIcon1}
-              img={cardSpec1}
-              title="FULL OF FIBER"
-            />
-            <CardSpec
-              bgColor="var(--lan-se-blue)"
-              fontColor="var(--porcellana)"
-              fontSize={{ m: "14", d: "56" }}
-              icon={cardSpecIcon2}
-              img={cardSpec1}
-              title="NO ADDED PRESERVATIVES"
-            />
-            <CardSpec
-              bgColor="var(--smashing-pumpkins)"
-              fontColor="var(--basil-smash)"
-              fontSize={{ m: "14", d: "86" }}
-              icon={cardSpecIcon1}
-              img={cardSpec1}
-              title="LOW SUGAR"
-            />
-            <CardSpec
-              bgColor="var(--lan-se-blue)"
-              fontColor="var(--porcellana)"
-              fontSize={{ m: "14", d: "56" }}
-              icon={cardSpecIcon2}
-              img={cardSpec1}
-              title="NO ADDED PRESERVATIVES"
-            />
-            <CardSpec
-              bgColor="var(--smashing-pumpkins)"
-              fontColor="var(--basil-smash)"
-              fontSize={{ m: "14", d: "86" }}
-              icon={cardSpecIcon1}
-              img={cardSpec1}
-              title="LOW SUGAR"
-            />
+            {isMobile ? (
+              <>
+                <SliderSpecs slides={specSlides} />
+              </>
+            ) : (
+              <>
+                {specSlides.map((item) => {
+                  return item
+                })}
+              </>
+            )}
           </div>
 
           <div className={s.realChocolate}>
@@ -248,37 +302,7 @@ const Home = () => {
         <div className={s.flavors}>
           <h2>OUR TASTY FLAVORS</h2>
           <div className={s.boxes}>
-            <Link to="/all-products">
-              <CardProduct
-                img={chocolate}
-                hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
-                name={
-                  <>
-                    MILK CHOCOLATE <br />+ PEANUT
-                  </>
-                }
-              />
-            </Link>
-
-            <Link to="/all-products">
-              <CardProduct
-                img={peanut}
-                hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
-                name={
-                  <>
-                    MILK CHOCOLATE <br />+ DRIED STRAWBERRY
-                  </>
-                }
-              />
-            </Link>
-
-            <Link to="/all-products">
-              <CardProduct
-                img={strawberry}
-                hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
-                name={<>MILK CHOCOLATE</>}
-              />
-            </Link>
+            <SliderProduct slides={slides} />
           </div>
           <Button text="SEE ALL PRODUCTS" size="lg" theme="light" />
         </div>

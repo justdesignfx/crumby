@@ -1,11 +1,17 @@
 $ease: cubic-bezier(0.22, 0.68, 0, 1.71);
 
 .cardProduct {
-  @include dims(desktop-vw(400px), dims(desktop-vw(476px)));
-  //   border: 1px solid purple;
+  --cardWidth: #{desktop-vw(400px)};
+  --cardHeight: #{desktop-vw(480px)};
+  @include dims(var(--cardWidth), var(--cardHeight));
+  display: flex;
   overflow: hidden;
   position: relative;
-  display: flex;
+
+  @include mobile {
+    --cardWidth: #{100%};
+    --cardHeight: #{mobile-vw(400px)};
+  }
 
   @include hover {
     &:hover {
@@ -36,20 +42,22 @@ $ease: cubic-bezier(0.22, 0.68, 0, 1.71);
   }
 
   .box {
-    @include dims(desktop-vw(400px), desktop-vw(476px));
-    flex-shrink: 0;
-    text-align: center;
+    @include dims(var(--cardWidth), var(--cardHeight));
 
     .imgC {
       @include dims(desktop-vw(180px), desktop-vw(340px));
       margin-bottom: desktop-vw(30px);
+
+      @include mobile {
+        @include dims(mobile-vw(250px), mobile-vw(250px));
+        margin-bottom: mobile-vw(50px);
+      }
     }
   }
 
   .cakes {
-    @include dims(desktop-vw(400px), desktop-vw(476px));
+    @include dims(var(--cardWidth), var(--cardHeight));
     margin-bottom: desktop-vw(50px);
-    flex-shrink: 0;
 
     .imgC {
       transform: translateX(-150%);
@@ -57,18 +65,28 @@ $ease: cubic-bezier(0.22, 0.68, 0, 1.71);
       &:nth-child(1) {
         @include dims(desktop-vw(200px), desktop-vw(150px));
         transition: 800ms all $ease;
+
+        @include mobile {
+          @include dims(mobile-vw(300px), mobile-vw(200px));
+        }
       }
 
       &:nth-child(2) {
         @include dims(desktop-vw(300px), desktop-vw(200px));
         margin-top: desktop-vw(-25px);
         transition: 1000ms all $ease;
+
+        @include mobile {
+          @include dims(mobile-vw(300px), mobile-vw(200px));
+          margin-top: mobile-vw(-25px);
+        }
       }
     }
   }
 
   .box,
   .cakes {
+    flex-shrink: 0;
     transform: translateX(-100%);
     transition: 800ms all $ease;
     will-change: transform;
@@ -76,12 +94,18 @@ $ease: cubic-bezier(0.22, 0.68, 0, 1.71);
 
   > p {
     @include position(absolute, auto, auto, 0, 50%);
-    transform: translate(-50%, desktop-vw(-25px));
     color: var(--duqqa-brown);
     font-size: desktop-vw(30px);
     font-family: var(--font-grandstander);
     font-weight: 700;
     text-align: center;
+    transform: translate(-50%, desktop-vw(-25px));
     width: 100%;
+
+    @include mobile {
+      @include position(absolute, 0, auto, auto, 50%);
+      font-size: mobile-vw(30px);
+      transform: translate(-50%, calc((var(--cardHeight) - mobile-vw(75px))));
+    }
   }
 }

@@ -11,7 +11,7 @@
     @include mobile {
       @include dims(100%, auto);
       background-size: 330% auto;
-      padding-bottom: mobile-vw(100px);
+      padding-bottom: mobile-vw(150px);
     }
 
     h1 {
@@ -110,19 +110,36 @@
     }
 
     .popcornC {
+      z-index: 150;
+
       &.a {
-        @include dims(desktop-vw(66px));
         @include position(absolute, desktop-vw(240px), auto, auto, desktop-vw(220px));
+        @include dims(desktop-vw(66px));
+
+        @include mobile {
+          @include position(absolute, mobile-vw(160px), auto, auto, mobile-vw(280px));
+          @include dims(mobile-vw(28px));
+        }
       }
 
       &.b {
-        @include dims(desktop-vw(98px));
         @include position(absolute, desktop-vw(300px), auto, auto, desktop-vw(1100px));
+        @include dims(desktop-vw(98px));
+
+        @include mobile {
+          @include position(absolute, mobile-vw(280px), auto, auto, mobile-vw(50px));
+          @include dims(mobile-vw(25px));
+        }
       }
 
       &.c {
-        @include dims(desktop-vw(38px));
         @include position(absolute, desktop-vw(500px), auto, auto, desktop-vw(1250px));
+        @include dims(desktop-vw(38px));
+
+        @include mobile {
+          @include position(absolute, mobile-vw(80px), auto, auto, mobile-vw(50px));
+          @include dims(mobile-vw(38px));
+        }
       }
     }
   }
@@ -244,11 +261,16 @@
     }
 
     .specs {
-      gap: desktop-vw(24px);
       display: flex;
       flex-wrap: wrap;
+      gap: desktop-vw(24px);
       justify-content: center;
       margin-bottom: desktop-vw(120px);
+
+      @include mobile {
+        margin-bottom: mobile-vw(50px);
+        width: 100%;
+      }
     }
 
     .realChocolate {
@@ -260,6 +282,7 @@
         align-items: center;
         display: flex;
         padding: desktop-vw(35px);
+        outline: 1px solid var(--white-transparent);
 
         @include mobile {
           padding: mobile-vw(20px);
@@ -285,8 +308,9 @@
           transform: translateY(10%);
 
           @include mobile {
-            font-size: mobile-vw(70px);
+            font-size: mobile-vw(50px);
             margin: 0 mobile-vw(30px);
+            transform: translateY(mobile-vw(15px));
           }
         }
 
@@ -320,7 +344,7 @@
 
       @include mobile {
         font-size: mobile-vw(66px);
-        margin-bottom: mobile-vw(30px);
+        margin-bottom: unset;
       }
     }
 
@@ -332,6 +356,7 @@
 
       @include mobile {
         margin-bottom: mobile-vw(50px);
+        width: 100%;
       }
     }
   }
