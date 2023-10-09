@@ -1,0 +1,15 @@
+.allProducts {
+  display: flex;
+  flex-direction: column;
+
+  .filterC {
+    display: flex;
+  }
+
+  .productsList {
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: desktop-vw(20px);
+  }
+}

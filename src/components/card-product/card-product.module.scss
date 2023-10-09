@@ -46,7 +46,7 @@ $ease: cubic-bezier(0.22, 0.68, 0, 1.71);
 
     .imgC {
       @include dims(desktop-vw(180px), desktop-vw(340px));
-      margin-bottom: desktop-vw(30px);
+      margin-bottom: desktop-vw(100px);
 
       @include mobile {
         @include dims(mobile-vw(250px), mobile-vw(250px));
@@ -57,10 +57,9 @@ $ease: cubic-bezier(0.22, 0.68, 0, 1.71);
 
   .cakes {
     @include dims(var(--cardWidth), var(--cardHeight));
-    margin-bottom: desktop-vw(50px);
 
     .imgC {
-      transform: translateX(-150%);
+      transform: translateX(desktop-vw(-100px));
 
       &:nth-child(1) {
         @include dims(desktop-vw(200px), desktop-vw(150px));
@@ -73,6 +72,7 @@ $ease: cubic-bezier(0.22, 0.68, 0, 1.71);
 
       &:nth-child(2) {
         @include dims(desktop-vw(300px), desktop-vw(200px));
+        margin-bottom: desktop-vw(100px);
         margin-top: desktop-vw(-25px);
         transition: 1000ms all $ease;
 
@@ -93,13 +93,13 @@ $ease: cubic-bezier(0.22, 0.68, 0, 1.71);
   }
 
   > p {
-    @include position(absolute, auto, auto, 0, 50%);
+    @include position(absolute, 0, auto, auto, 50%);
     color: var(--duqqa-brown);
     font-size: desktop-vw(30px);
     font-family: var(--font-grandstander);
     font-weight: 700;
     text-align: center;
-    transform: translate(-50%, desktop-vw(-25px));
+    transform: translate(-50%, calc((var(--cardHeight) - desktop-vw(85px))));
     width: 100%;
 
     @include mobile {

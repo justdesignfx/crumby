@@ -1,13 +1,13 @@
 import { AnimatePresence } from "framer-motion"
 import { Route, Routes, useLocation } from "react-router-dom"
 
-import Footer from "./components/footer"
-import Header from "./components/header"
-import AnimationWrapper from "./hocs/animation-wrapper"
-import LenisWrapper from "./hocs/lenis-wrapper"
-import About from "./pages/about"
-import AllProducts from "./pages/all-products"
-import Home from "./pages/home"
+import Footer from "@/components/footer"
+import Header from "@/components/header"
+import AnimationWrapper from "@/hocs/animation-wrapper"
+import LenisWrapper from "@/hocs/lenis-wrapper"
+import About from "@/pages/about"
+import AllProducts from "@/pages/all-products"
+import Home from "@/pages/home"
 
 function App() {
   const location = useLocation()

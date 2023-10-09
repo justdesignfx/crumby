@@ -25,7 +25,7 @@
       text-align: center;
 
       @include mobile {
-        font-size: mobile-vw(70px);
+        font-size: mobile-vw(72px);
         margin-bottom: mobile-vw(75px);
         margin-top: mobile-vw(100px);
       }
@@ -41,8 +41,8 @@
           transform: translate(-50%, -10%);
 
           @include mobile {
-            @include dims(mobile-vw(220px));
-            transform: translate(-50%, mobile-vw(-5px));
+            @include dims(mobile-vw(200px));
+            transform: translate(-50%, mobile-vw(-10px));
           }
         }
 
