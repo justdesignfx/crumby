@@ -224,7 +224,7 @@
     }
 
     .charC {
-      @include dims(desktop-vw(300px), desktop-vw(220px));
+      @include dims(desktop-vw(320px), desktop-vw(240px));
       margin-top: desktop-vw(85px);
 
       @include mobile {
@@ -251,7 +251,7 @@
       font-size: desktop-vw(120px);
       font-family: var(--font-grandstander);
       font-weight: 900;
-      margin-bottom: desktop-vw(120px);
+      margin-bottom: desktop-vw(90px);
       text-align: center;
 
       @include mobile {
@@ -261,13 +261,14 @@
     }
 
     .specs {
-      display: flex;
-      flex-wrap: wrap;
-      gap: desktop-vw(24px);
-      justify-content: center;
-      margin-bottom: desktop-vw(120px);
+      display: grid;
+      gap: desktop-vw(22px);
+      grid-template-columns: repeat(3, 1fr);
+      margin: 0 auto;
+      margin-bottom: desktop-vw(90px);
 
       @include mobile {
+        display: flex;
         margin-bottom: mobile-vw(50px);
         width: 100%;
       }

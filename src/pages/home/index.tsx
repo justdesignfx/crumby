@@ -14,10 +14,17 @@ import { Marquee } from "@/components/marquee"
 import PageTransition from "@/hocs/page-transition"
 import Parallax from "@/hocs/parallax"
 
-import cardSpec1 from "@/assets/img/card-spec-1.png"
-import cardSpecIcon1 from "@/assets/img/card-spec-icon-1.png"
-import cardSpecIcon2 from "@/assets/img/card-spec-icon-2.png"
-import charBests from "@/assets/img/char-bests.png"
+import cardSpecIcon1 from "@/assets/img/icon-card-spec-1.png"
+import cardSpecIcon2 from "@/assets/img/icon-card-spec-2.png"
+import cardSpecIcon3 from "@/assets/img/icon-card-spec-3.png"
+import cardSpecIcon4 from "@/assets/img/icon-card-spec-4.png"
+import cardSpecIcon5 from "@/assets/img/icon-card-spec-5.png"
+
+import cardSpecBg1 from "@/assets/img/bg-card-spec-1.png"
+import cardSpecBg3 from "@/assets/img/bg-card-spec-3.png"
+import cardSpecBg5 from "@/assets/img/bg-card-spec-5.png"
+
+import charBests from "@/assets/gif/char-walk.gif"
 
 import cakesBottomPeanut from "@/assets/img/cakes-bottom-peanut.png"
 import cakesTopPeanut from "@/assets/img/cakes-top-peanut.png"
@@ -25,6 +32,9 @@ import cakesTopPeanut from "@/assets/img/cakes-top-peanut.png"
 import chocolate from "@/assets/img/crumby-chocolate.png"
 import peanut from "@/assets/img/crumby-peanut.png"
 import strawberry from "@/assets/img/crumby-strawberry.png"
+
+import specCard2 from "@/assets/video/blue.mp4"
+import specCard4 from "@/assets/video/purple.mp4"
 
 import cake from "@/assets/img/hero-cake.png"
 import iconCarb from "@/assets/img/icon-carb.svg"
@@ -74,42 +84,62 @@ const specSlides = [
   <CardSpec
     bgColor="var(--vanilla-cream)"
     fontColor="var(--pale-marigold)"
-    fontSize={{ m: "14", d: "86" }}
+    fontSize="lg"
     icon={cardSpecIcon1}
-    img={cardSpec1}
-    title="FULL OF FIBER"
+    img={cardSpecBg1}
+    title={
+      <>
+        FULL OF <br /> FIBER
+      </>
+    }
   />,
   <CardSpec
     bgColor="var(--lan-se-blue)"
     fontColor="var(--porcellana)"
-    fontSize={{ m: "14", d: "56" }}
+    fontSize="sm"
     icon={cardSpecIcon2}
-    img={cardSpec1}
-    title="NO ADDED PRESERVATIVES"
+    title={
+      <>
+        NO ADDED <br /> PRESERVATIVES
+      </>
+    }
+    video={specCard2}
   />,
   <CardSpec
-    bgColor="var(--smashing-pumpkins)"
-    fontColor="var(--basil-smash)"
-    fontSize={{ m: "14", d: "86" }}
-    icon={cardSpecIcon1}
-    img={cardSpec1}
-    title="LOW SUGAR"
+    bgColor="var(--algerian-coral)"
+    fontColor="var(--celery-victor)"
+    fontSize="lg"
+    icon={cardSpecIcon3}
+    img={cardSpecBg3}
+    title={
+      <>
+        LOW <br /> SUGAR
+      </>
+    }
   />,
   <CardSpec
     bgColor="var(--lan-se-blue)"
     fontColor="var(--porcellana)"
-    fontSize={{ m: "14", d: "56" }}
-    icon={cardSpecIcon2}
-    img={cardSpec1}
-    title="NO ADDED PRESERVATIVES"
+    fontSize="lg"
+    icon={cardSpecIcon4}
+    title={
+      <>
+        LOW <br /> CARB
+      </>
+    }
+    video={specCard4}
   />,
   <CardSpec
-    bgColor="var(--smashing-pumpkins)"
-    fontColor="var(--basil-smash)"
-    fontSize={{ m: "14", d: "86" }}
-    icon={cardSpecIcon1}
-    img={cardSpec1}
-    title="LOW SUGAR"
+    bgColor="var(--basil-smash)"
+    fontColor="var(--nyanza)"
+    fontSize="lg"
+    icon={cardSpecIcon5}
+    img={cardSpecBg5}
+    title={
+      <>
+        HIGH <br /> PROTEIN
+      </>
+    }
   />,
 ]
 
@@ -248,6 +278,7 @@ const Home = () => {
           </Link>
           <div className={s.charC}>
             <Img src={charBests} objectFit="contain" />
+            {/* <video style={{ width: "100%", height: "100%" }} src={charBests} playsInline loop muted autoPlay></video> */}
           </div>
         </section>
 

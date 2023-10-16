@@ -1,19 +1,18 @@
 import s from "./cardSpec.module.scss"
-
-import Img from "../custom-img"
+import { ReactNode } from "react"
 
 import cn from "clsx"
 
+import Img from "@/components/custom-img"
+
 type Props = {
-  title: string
-  img: string
+  title: string | ReactNode
+  img?: string
   icon: string
   bgColor: string
   fontColor: string
-  fontSize: {
-    m: string
-    d: string
-  }
+  fontSize: "sm" | "lg"
+  video?: string
 }
 
 const CardSpec = (props: Props) => {
@@ -27,16 +26,25 @@ const CardSpec = (props: Props) => {
       <h5
         style={
           {
-            "--font-size-d": `desktop-vw(${props.fontSize.d}px)`,
-            "--font-size-m": `mobile-vw(${props.fontSize.m}px)`,
             color: props.fontColor,
           } as React.CSSProperties
         }
+        className={cn(s[props.fontSize])}
       >
         {props.title}
       </h5>
       <div className={s.imgC}>
-        <Img src={props.img} objectFit="cover" />
+        {props.img && <Img src={props.img} objectFit="cover" />}
+        {props.video && (
+          <video
+            style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            src={props.video}
+            playsInline
+            loop
+            muted
+            autoPlay
+          ></video>
+        )}
       </div>
       <div className={s.iconC}>
         <Img src={props.icon} objectFit="contain" />

@@ -1,9 +1,9 @@
 import s from "./card-product.module.scss"
+import { ReactNode } from "react"
 
 import cn from "clsx"
 
 import Img from "@/components/custom-img"
-import { ReactNode } from "react"
 
 type Props = {
   name: ReactNode
