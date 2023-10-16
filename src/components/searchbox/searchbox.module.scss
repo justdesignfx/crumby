@@ -1,2 +1,59 @@
 .searchbox {
+  @include dims(desktop-vw(460px), desktop-vw(45px));
+
+  .field {
+    --input-padding: #{desktop-vw(20px)};
+    @include dims(100%);
+    column-gap: desktop-vw(8px);
+    display: flex;
+
+    @include mobile {
+      --input-padding: #{mobile-vw(16px)};
+      column-gap: mobile-vw(8px);
+    }
+
+    .inputC {
+      border: 1px solid var(--duqqa-brown);
+      border-radius: desktop-vw(11px);
+      flex: 1;
+      position: relative;
+      transition: 300ms all ease;
+
+      @include mobile {
+        border-radius: mobile-vw(11px);
+        margin-bottom: mobile-vw(14px);
+      }
+
+      .input {
+        @include dims(100%);
+        border-radius: desktop-vw(11px);
+        color: var(--liliac);
+        font-family: var(--font-grandstander);
+        font-size: desktop-vw(20px);
+        font-weight: 500;
+        padding: 0 var(--input-padding);
+
+        @include mobile {
+          border-radius: mobile-vw(11px);
+          font-size: mobile-vw(14px);
+          padding: mobile-vw(17px) var(--input-padding);
+        }
+
+        &::placeholder {
+          transition: 0.4s all ease;
+        }
+
+        &:focus {
+          &::placeholder {
+            opacity: 0.3;
+          }
+        }
+      }
+
+      &.disabled {
+        opacity: 0.1;
+        pointer-events: none;
+      }
+    }
+  }
 }

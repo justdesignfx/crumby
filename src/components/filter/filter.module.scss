@@ -1,2 +1,48 @@
 .filter {
+  --input-padding: #{desktop-vw(20px)};
+  background: var(--toasted-marshmallow-fluff);
+  align-items: center;
+  border-radius: desktop-vw(11px);
+  border: 1px solid var(--duqqa-brown);
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  position: relative;
+  z-index: 10;
+
+  .label {
+    @include dims(desktop-vw(220px), desktop-vw(45px));
+    align-items: center;
+    display: flex;
+    justify-content: flex-start;
+    font-family: var(--font-grandstander);
+    font-size: desktop-vw(20px);
+    font-weight: 600;
+    padding: 0 var(--input-padding);
+  }
+
+  .items {
+    @include position(absolute, auto, 0, desktop-vw(-5px), 0);
+    align-items: center;
+    background: var(--toasted-marshmallow-fluff);
+    border-radius: desktop-vw(11px);
+    border: 1px solid var(--duqqa-brown);
+    justify-content: flex-start;
+    flex-direction: column;
+    padding: desktop-vw(15px) desktop-vw(15px) desktop-vw(35px) desktop-vw(15px);
+    row-gap: desktop-vw(5px);
+    transform: translateY(100%);
+    display: none;
+
+    &.open {
+      display: flex;
+    }
+
+    .option {
+      @include dims(100%);
+      border-radius: desktop-vw(8px);
+      border: 1px solid var(--duqqa-brown);
+      padding: desktop-vw(10px);
+    }
+  }
 }

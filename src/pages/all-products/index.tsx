@@ -8,6 +8,8 @@ import cakesTopPeanut from "@/assets/img/cakes-top-peanut.png"
 import chocolate from "@/assets/img/crumby-chocolate.png"
 import peanut from "@/assets/img/crumby-peanut.png"
 import strawberry from "@/assets/img/crumby-strawberry.png"
+import darkChocolate from "@/assets/img/crumby-dark-chocolate.png"
+
 import Breadcrumb from "@/components/breadcrumb"
 import Filter from "@/components/filter"
 import Searchbox from "@/components/searchbox"
@@ -44,6 +46,13 @@ const AllProducts = () => {
         name={<>MILK CHOCOLATE</>}
       />
     </Link>,
+    <Link to="/all-products">
+      <CardProduct
+        img={darkChocolate}
+        hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
+        name={<>DARK CHOCOLATE</>}
+      />
+    </Link>,
   ]
 
   return (
@@ -53,7 +62,14 @@ const AllProducts = () => {
       </section>
       <section className={s.filterC}>
         <Searchbox />
-        <Filter />
+        <Filter
+          label="SORT"
+          options={[
+            { label: "asc", value: "asc" },
+            { label: "desc", value: "desc" },
+            { label: "th", value: "th" },
+          ]}
+        />
       </section>
       <section className={s.productsList}>
         {products.map((product) => {
