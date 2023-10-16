@@ -1,3 +1,4 @@
+import { Fragment } from "react"
 import s from "./all-products.module.scss"
 
 import { Link } from "react-router-dom"
@@ -6,14 +7,15 @@ import cakesBottomPeanut from "@/assets/img/cakes-bottom-peanut.png"
 import cakesTopPeanut from "@/assets/img/cakes-top-peanut.png"
 
 import chocolate from "@/assets/img/crumby-chocolate.png"
+import darkChocolate from "@/assets/img/crumby-dark-chocolate.png"
 import peanut from "@/assets/img/crumby-peanut.png"
 import strawberry from "@/assets/img/crumby-strawberry.png"
-import darkChocolate from "@/assets/img/crumby-dark-chocolate.png"
 
 import Breadcrumb from "@/components/breadcrumb"
+import CallToContact from "@/components/call-to-contact"
+import CardProduct from "@/components/card-product"
 import Filter from "@/components/filter"
 import Searchbox from "@/components/searchbox"
-import CardProduct from "@/components/card-product"
 
 const AllProducts = () => {
   const products = [
@@ -71,11 +73,14 @@ const AllProducts = () => {
           ]}
         />
       </section>
-      <section className={s.productsList}>
-        {products.map((product) => {
-          return product
-        })}
+      <section className="flex-center-y">
+        <div className={s.productsList}>
+          {products.map((product, i) => {
+            return <Fragment key={i}>{product}</Fragment>
+          })}
+        </div>
       </section>
+      <CallToContact />
     </main>
   )
 }
