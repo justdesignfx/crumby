@@ -19,7 +19,7 @@ import Searchbox from "@/components/searchbox"
 
 const AllProducts = () => {
   const products = [
-    <Link to="/all-products">
+    <Link to="/detail">
       <CardProduct
         img={chocolate}
         hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
@@ -30,7 +30,7 @@ const AllProducts = () => {
         }
       />
     </Link>,
-    <Link to="/all-products">
+    <Link to="/detail">
       <CardProduct
         img={peanut}
         hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
@@ -41,14 +41,14 @@ const AllProducts = () => {
         }
       />
     </Link>,
-    <Link to="/all-products">
+    <Link to="/detail">
       <CardProduct
         img={strawberry}
         hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
         name={<>MILK CHOCOLATE</>}
       />
     </Link>,
-    <Link to="/all-products">
+    <Link to="/detail">
       <CardProduct
         img={darkChocolate}
         hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}

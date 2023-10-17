@@ -11,7 +11,6 @@ import CardSpec from "@/components/card-spec"
 import Img from "@/components/custom-img"
 import IconPopcorn from "@/components/icons/icon-popcorn"
 import { Marquee } from "@/components/marquee"
-import PageTransition from "@/hocs/page-transition"
 import Parallax from "@/hocs/parallax"
 
 import cardSpecIcon1 from "@/assets/img/icon-card-spec-1.png"
@@ -167,180 +166,176 @@ const Home = () => {
   }, [q])
 
   return (
-    <PageTransition>
-      <main className={s.home} ref={ref}>
-        <section className={cn(s.hero, "flex-center-y")}>
-          <h1>
-            <span>CRUMB</span>
-            <span className={cn(s.imgC, "slide-in")}>
-              <Parallax speedX={0} directionY={-1} speedY={0.5}>
-                <Img src={cake} objectFit="contain" />
-              </Parallax>
-            </span>
+    <main className={s.home} ref={ref}>
+      <section className={cn(s.hero, "flex-center-y")}>
+        <h1>
+          <span>CRUMB</span>
+          <span className={cn(s.imgC, "slide-in")}>
+            <Parallax speedX={0} directionY={-1} speedY={0.5}>
+              <Img src={cake} objectFit="contain" />
+            </Parallax>
+          </span>
 
-            <span>YOUR WAY.</span>
-          </h1>
+          <span>YOUR WAY.</span>
+        </h1>
 
-          <Link className="cursor-pointer" to="/all-products">
-            <Button text="SEE ALL PRODUCTS" />
-          </Link>
+        <Link className="cursor-pointer" to="/all-products">
+          <Button text="SEE ALL PRODUCTS" />
+        </Link>
 
+        <div className={s.marqueeC}>
+          <Marquee repeat={3} duration={40}>
+            <>
+              <div className={s.specC}>
+                <h2>NO ADDED PRESERVATIVES</h2>
+                <span className={s.iconC}>
+                  <Img src={iconDrop} objectFit="contain" />
+                </span>
+              </div>
+
+              <div className={s.specC}>
+                <h2>LOW SUGAR</h2>
+                <span className={s.iconC}>
+                  <Img src={iconLowSugar} objectFit="contain" />
+                </span>
+              </div>
+
+              <div className={s.specC}>
+                <h2>LOW CARB</h2>
+                <span className={s.iconC}>
+                  <Img src={iconCarb} objectFit="contain" />
+                </span>
+              </div>
+
+              <div className={s.specC}>
+                <h2>HIGH PROTEIN</h2>
+                <span className={s.iconC}>
+                  <Img src={iconProtein} objectFit="contain" />
+                </span>
+              </div>
+
+              <div className={s.specC}>
+                <h2>FULL OF FIBER</h2>
+                <span className={s.iconC}>
+                  <Img src={iconFiber} objectFit="contain" />
+                </span>
+              </div>
+            </>
+          </Marquee>
+        </div>
+
+        <div className={cn(s.popcornC, s.a)}>
+          <Parallax speedX={0} directionY={-1}>
+            <IconPopcorn fill="var(--qing-yellow)" />
+          </Parallax>
+        </div>
+        <div className={cn(s.popcornC, s.b)}>
+          <Parallax speedX={0} directionY={-1}>
+            <IconPopcorn fill="var(--qing-yellow)" />
+          </Parallax>
+        </div>
+        <div className={cn(s.popcornC, s.c)}>
+          <Parallax speedX={0} directionY={-1}>
+            <IconPopcorn fill="var(--qing-yellow)" />
+          </Parallax>
+        </div>
+      </section>
+
+      <section className={s.why}>
+        <h2>WHY CRUMBY ?</h2>
+        <div className={s.reasons}>
+          <div>
+            <h5>
+              NUTRIENT <br /> RICH
+            </h5>
+            <p>
+              In addition to fiber, our rice cakes provide essential nutrients like vitamins, minerals, and
+              antioxidants, supporting your overall well-being.
+            </p>
+          </div>
+          <div>
+            <h5>
+              GREAT <br /> TASTE
+            </h5>
+            <p>Crumby's commitment to quality means you get the perfect blend of taste and nutrition in every bite.</p>
+          </div>
+          <div>
+            <h5>
+              VARIETY OF <br /> FLAVORS
+            </h5>
+            <p>
+              Crumby offers a range of savory and sweet flavors to suit all preferences, ensuring you never get bored of
+              your high-protein snack.
+            </p>
+          </div>
+        </div>
+        <Link className="cursor-pointer" to="/about">
+          <Button text="ABOUT US" theme="dark" />
+        </Link>
+        <div className={s.charC}>
+          <Img src={charBests} objectFit="contain" />
+          {/* <video style={{ width: "100%", height: "100%" }} src={charBests} playsInline loop muted autoPlay></video> */}
+        </div>
+      </section>
+
+      <section className={s.ingredients}>
+        <h2>WHAT'S INSIDE ?</h2>
+        <div className={s.specs}>
+          {isMobile ? (
+            <>
+              <SliderSpecs slides={specSlides} />
+            </>
+          ) : (
+            <>
+              {specSlides.map((item) => {
+                return item
+              })}
+            </>
+          )}
+        </div>
+
+        <div className={s.realChocolate}>
           <div className={s.marqueeC}>
-            <Marquee repeat={3} duration={40}>
+            <Marquee repeat={5} duration={30}>
               <>
-                <div className={s.specC}>
-                  <h2>NO ADDED PRESERVATIVES</h2>
-                  <span className={s.iconC}>
-                    <Img src={iconDrop} objectFit="contain" />
-                  </span>
-                </div>
-
-                <div className={s.specC}>
-                  <h2>LOW SUGAR</h2>
-                  <span className={s.iconC}>
-                    <Img src={iconLowSugar} objectFit="contain" />
-                  </span>
-                </div>
-
-                <div className={s.specC}>
-                  <h2>LOW CARB</h2>
-                  <span className={s.iconC}>
-                    <Img src={iconCarb} objectFit="contain" />
-                  </span>
-                </div>
-
-                <div className={s.specC}>
-                  <h2>HIGH PROTEIN</h2>
-                  <span className={s.iconC}>
-                    <Img src={iconProtein} objectFit="contain" />
-                  </span>
-                </div>
-
-                <div className={s.specC}>
-                  <h2>FULL OF FIBER</h2>
-                  <span className={s.iconC}>
-                    <Img src={iconFiber} objectFit="contain" />
-                  </span>
-                </div>
+                <h3>REAL CHOCOLATE.</h3>
+                <span className={s.imgC}>
+                  <IconPopcorn fill="var(--smashing-pumpkins)" />
+                </span>
+                <h3>REAL CRUNCH.</h3>
+                <span className={s.imgC}>
+                  <IconPopcorn fill="var(--smashing-pumpkins)" />
+                </span>
               </>
             </Marquee>
           </div>
-
-          <div className={cn(s.popcornC, s.a)}>
-            <Parallax speedX={0} directionY={-1}>
-              <IconPopcorn fill="var(--qing-yellow)" />
-            </Parallax>
-          </div>
-          <div className={cn(s.popcornC, s.b)}>
-            <Parallax speedX={0} directionY={-1}>
-              <IconPopcorn fill="var(--qing-yellow)" />
-            </Parallax>
-          </div>
-          <div className={cn(s.popcornC, s.c)}>
-            <Parallax speedX={0} directionY={-1}>
-              <IconPopcorn fill="var(--qing-yellow)" />
-            </Parallax>
-          </div>
-        </section>
-
-        <section className={s.why}>
-          <h2>WHY CRUMBY ?</h2>
-          <div className={s.reasons}>
-            <div>
-              <h5>
-                NUTRIENT <br /> RICH
-              </h5>
-              <p>
-                In addition to fiber, our rice cakes provide essential nutrients like vitamins, minerals, and
-                antioxidants, supporting your overall well-being.
-              </p>
-            </div>
-            <div>
-              <h5>
-                GREAT <br /> TASTE
-              </h5>
-              <p>
-                Crumby's commitment to quality means you get the perfect blend of taste and nutrition in every bite.
-              </p>
-            </div>
-            <div>
-              <h5>
-                VARIETY OF <br /> FLAVORS
-              </h5>
-              <p>
-                Crumby offers a range of savory and sweet flavors to suit all preferences, ensuring you never get bored
-                of your high-protein snack.
-              </p>
-            </div>
-          </div>
-          <Link className="cursor-pointer" to="/about">
-            <Button text="ABOUT US" theme="dark" />
-          </Link>
-          <div className={s.charC}>
-            <Img src={charBests} objectFit="contain" />
-            {/* <video style={{ width: "100%", height: "100%" }} src={charBests} playsInline loop muted autoPlay></video> */}
-          </div>
-        </section>
-
-        <section className={s.ingredients}>
-          <h2>WHAT'S INSIDE ?</h2>
-          <div className={s.specs}>
-            {isMobile ? (
+          <div className={s.marqueeC}>
+            <Marquee repeat={5} duration={25}>
               <>
-                <SliderSpecs slides={specSlides} />
+                <h3>REAL CHOCOLATE.</h3>
+                <span className={s.imgC}>
+                  <IconPopcorn fill="var(--basil-smash)" />
+                </span>
+                <h3>REAL CRUNCH.</h3>
+                <span className={s.imgC}>
+                  <IconPopcorn fill="var(--basil-smash)" />
+                </span>
               </>
-            ) : (
-              <>
-                {specSlides.map((item) => {
-                  return item
-                })}
-              </>
-            )}
+            </Marquee>
           </div>
-
-          <div className={s.realChocolate}>
-            <div className={s.marqueeC}>
-              <Marquee repeat={5} duration={30}>
-                <>
-                  <h3>REAL CHOCOLATE.</h3>
-                  <span className={s.imgC}>
-                    <IconPopcorn fill="var(--smashing-pumpkins)" />
-                  </span>
-                  <h3>REAL CRUNCH.</h3>
-                  <span className={s.imgC}>
-                    <IconPopcorn fill="var(--smashing-pumpkins)" />
-                  </span>
-                </>
-              </Marquee>
-            </div>
-            <div className={s.marqueeC}>
-              <Marquee repeat={5} duration={25}>
-                <>
-                  <h3>REAL CHOCOLATE.</h3>
-                  <span className={s.imgC}>
-                    <IconPopcorn fill="var(--basil-smash)" />
-                  </span>
-                  <h3>REAL CRUNCH.</h3>
-                  <span className={s.imgC}>
-                    <IconPopcorn fill="var(--basil-smash)" />
-                  </span>
-                </>
-              </Marquee>
-            </div>
-          </div>
-        </section>
-
-        <div className={s.flavors}>
-          <h2>OUR TASTY FLAVORS</h2>
-          <div className={s.boxes}>
-            <SliderProduct slides={slides} />
-          </div>
-          <Button text="SEE ALL PRODUCTS" size="lg" theme="light" />
         </div>
+      </section>
 
-        <CallToContact />
-      </main>
-    </PageTransition>
+      <div className={s.flavors}>
+        <h2>OUR TASTY FLAVORS</h2>
+        <div className={s.boxes}>
+          <SliderProduct slides={slides} />
+        </div>
+        <Button text="SEE ALL PRODUCTS" size="lg" theme="light" />
+      </div>
+
+      <CallToContact />
+    </main>
   )
 }
 
