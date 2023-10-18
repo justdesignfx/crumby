@@ -1,14 +1,15 @@
+import { useLayoutEffect, useRef } from "react"
+
+import gsap from "gsap"
 import { useLocation, useOutlet } from "react-router-dom"
 import { CSSTransition, SwitchTransition } from "react-transition-group"
 
 import Footer from "@/components/footer"
 import Header from "@/components/header"
+import PageTransition from "@/components/page-transition"
+import { routes } from "@/global/routes"
 import AnimationWrapper from "@/hocs/animation-wrapper"
 import LenisWrapper from "@/hocs/lenis-wrapper"
-import { routes } from "./global/routes"
-import gsap from "gsap"
-import PageTransition from "./components/page-transition"
-import { useLayoutEffect, useRef } from "react"
 
 function App() {
   const location = useLocation()
@@ -18,23 +19,23 @@ function App() {
 
   useLayoutEffect(() => {
     gsap.set(ptRef.current, {
-      y: "100%",
+      y: "-100%",
     })
   }, [])
 
   const onEnter = () => {
     gsap.to(ptRef.current, {
       delay: 0.6,
-      duration: 0.5,
-      ease: "power1.InOut",
-      y: "100%",
+      duration: 1,
+      ease: "expo.out",
+      y: "-100%",
     })
   }
 
   const onExit = () => {
     gsap.to(ptRef.current, {
-      ease: "power1.InOut",
-      duration: 0.5,
+      ease: "expo.out",
+      duration: 1,
       y: 0,
     })
   }
@@ -45,6 +46,7 @@ function App() {
         <PageTransition ref={ptRef} />
         <div className="hidden-overflow">
           <Header />
+
           {/* <Routes>
             {routes.map(({ path, Element }) => (
               <Route key={path} exact path={path}>
@@ -70,7 +72,7 @@ function App() {
             <CSSTransition
               key={location.pathname}
               nodeRef={nodeRef as React.RefObject<HTMLElement>}
-              timeout={600}
+              timeout={1000}
               classNames="page"
               unmountOnExit
               onEnter={onEnter}
