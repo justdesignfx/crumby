@@ -10,7 +10,7 @@ import CallToContact from "@/components/call-to-contact"
 import CardSpec from "@/components/card-spec"
 import Img from "@/components/custom-img"
 import IconPopcorn from "@/components/icons/icon-popcorn"
-import { Marquee } from "@/components/marquee"
+import Marquee from "@/components/marquee"
 import Parallax from "@/hocs/parallax"
 
 import cardSpecIcon1 from "@/assets/img/icon-card-spec-1.png"

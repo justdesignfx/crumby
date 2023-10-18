@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom"
 import s from "./breadcrumb.module.scss"
 
-type Props = {}
-
-const Breadcrumb = (props: Props) => {
+const Breadcrumb = () => {
   return (
     <div className={s.breadcrumb}>
       <Link to="/all-products" className={s.item}>

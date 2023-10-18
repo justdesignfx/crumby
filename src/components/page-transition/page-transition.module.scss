@@ -1,0 +1,10 @@
+.pageTransition {
+  @include position(absolute, 0, 0, 0, 0);
+  background: var(--qing-yellow);
+  pointer-events: none;
+  z-index: z-index("preloader");
+
+  .imgC {
+    @include dims(desktop-vw(100px));
+  }
+}

@@ -1,37 +1,30 @@
-import Img from "@/components/custom-img"
 import s from "./detail-product.module.scss"
 
 import cn from "clsx"
+import { Link } from "react-router-dom"
 
-import icon from "@/assets/img/icon-card-spec-1.png"
-
+import sample from "@/assets/img/c-1.png"
 import cakesBottomPeanut from "@/assets/img/cakes-bottom-peanut.png"
 import cakesTopPeanut from "@/assets/img/cakes-top-peanut.png"
-
+import crumbYourWay from "@/assets/img/crumb-your-way.png"
 import chocolate from "@/assets/img/crumby-chocolate.png"
 import peanut from "@/assets/img/crumby-peanut.png"
 import strawberry from "@/assets/img/crumby-strawberry.png"
-
-import crumbYourWay from "@/assets/img/crumb-your-way.png"
-
-import CallToContact from "@/components/call-to-contact"
-import SliderProduct from "@/components/slider-product"
-import { Link } from "react-router-dom"
-import CardProduct from "@/components/card-product"
-
-import sample from "@/assets/img/c-1.png"
-import Breadcrumb from "@/components/breadcrumb"
-
+import icon from "@/assets/img/icon-card-spec-1.png"
 import o1 from "@/assets/img/options-1.png"
 import o2 from "@/assets/img/options-2.png"
 import o3 from "@/assets/img/options-3.png"
-import { Marquee } from "@/components/marquee"
-import IconPopcorn from "@/components/icons/icon-popcorn"
+
 import AccordionSpecs from "@/components/accordion-specs"
+import Breadcrumb from "@/components/breadcrumb"
+import CallToContact from "@/components/call-to-contact"
+import CardProduct from "@/components/card-product"
+import Img from "@/components/custom-img"
+import IconPopcorn from "@/components/icons/icon-popcorn"
+import Marquee from "@/components/marquee"
+import SliderProduct from "@/components/slider-product"
 
-type Props = {}
-
-const DetailProduct = (props: Props) => {
+const DetailProduct = () => {
   const products = [
     <Link to="/all-products">
       <CardProduct

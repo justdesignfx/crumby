@@ -21,18 +21,18 @@ const SliderProduct = (props: Props) => {
           },
         }}
         nextButton={
-          <button className={cn(s.nextBtn, "flex-center")}>
+          <div className={cn(s.nextBtn, "flex-center")}>
             <div className={cn(s.iconC, "flex-center")}>
               <IconArrow fill="var(--duqqa-brown)" rotate={90} />
             </div>
-          </button>
+          </div>
         }
         prevButton={
-          <button className={cn(s.prevBtn, "flex-center")}>
+          <div className={cn(s.prevBtn, "flex-center")}>
             <div className={cn(s.iconC, "flex-center")}>
               <IconArrow fill="var(--duqqa-brown)" rotate={-90} />
             </div>
-          </button>
+          </div>
         }
       />
     </div>

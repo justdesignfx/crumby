@@ -50,4 +50,4 @@ const Marquee = ({
   )
 }
 
-export { Marquee }
+export default Marquee

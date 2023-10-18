@@ -58,11 +58,7 @@ const AccordionItem = () => {
   )
 }
 
-type Props = {
-  isOpen: boolean
-}
-
-const AccordionSpecs = (props: Props) => {
+const AccordionSpecs = () => {
   return (
     <div className={s.accordionSpecs}>
       <AccordionItem />
