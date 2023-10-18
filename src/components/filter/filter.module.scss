@@ -1,7 +1,7 @@
 .filter {
   --input-padding: #{desktop-vw(20px)};
-  background: var(--toasted-marshmallow-fluff);
   align-items: center;
+  background: var(--toasted-marshmallow-fluff);
   border-radius: desktop-vw(11px);
   border: 1px solid var(--duqqa-brown);
   display: flex;
@@ -9,6 +9,10 @@
   flex-direction: column;
   position: relative;
   z-index: 10;
+
+  @include mobile {
+    border-radius: mobile-vw(8px);
+  }
 
   .label {
     @include dims(desktop-vw(220px), desktop-vw(45px));
@@ -19,6 +23,12 @@
     font-size: desktop-vw(20px);
     font-weight: 600;
     padding: 0 var(--input-padding);
+
+    @include mobile {
+      @include dims(mobile-vw(220px), mobile-vw(55px));
+      font-size: mobile-vw(14px);
+      padding: mobile-vw(17px) var(--input-padding);
+    }
   }
 
   .items {

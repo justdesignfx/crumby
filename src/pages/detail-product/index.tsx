@@ -2,6 +2,7 @@ import s from "./detail-product.module.scss"
 
 import cn from "clsx"
 import { Link } from "react-router-dom"
+import { useMedia } from "react-use"
 
 import sample from "@/assets/img/c-1.png"
 import cakesBottomPeanut from "@/assets/img/cakes-bottom-peanut.png"
@@ -23,8 +24,12 @@ import Img from "@/components/custom-img"
 import IconPopcorn from "@/components/icons/icon-popcorn"
 import Marquee from "@/components/marquee"
 import SliderProduct from "@/components/slider-product"
+import SliderSpecs from "@/components/slider-specs"
+import { breakpoints } from "@/utils"
 
 const DetailProduct = () => {
+  const isMobile = useMedia(`(max-width:${breakpoints.mobile}px`)
+
   const products = [
     <Link to="/all-products">
       <CardProduct
@@ -57,23 +62,52 @@ const DetailProduct = () => {
     </Link>,
   ]
 
+  const imgs = [
+    {
+      img: sample,
+    },
+    {
+      img: sample,
+    },
+    {
+      img: sample,
+    },
+    {
+      img: sample,
+    },
+  ]
+
   return (
     <main className={s.detailProduct}>
       <Breadcrumb />
+
       <section className={s.info}>
         <div className={s.pics}>
-          <div className={s.imgC}>
-            <Img src={sample} objectFit="cover" />
-          </div>
-          <div className={s.imgC}>
-            <Img src={sample} objectFit="cover" />
-          </div>
-          <div className={s.imgC}>
-            <Img src={sample} objectFit="cover" />
-          </div>
-          <div className={s.imgC}>
-            <Img src={sample} objectFit="cover" />
-          </div>
+          {isMobile ? (
+            <div className={s.sliderC}>
+              <SliderSpecs
+                slides={imgs.map((item, i) => {
+                  return (
+                    <div className={s.slide}>
+                      <div className={cn(s.imgC, "hidden-overflow")} key={i}>
+                        <Img src={item.img} objectFit="cover" />
+                      </div>
+                    </div>
+                  )
+                })}
+              />
+            </div>
+          ) : (
+            <>
+              {imgs.map((item, i) => {
+                return (
+                  <div className={cn(s.imgC, "hidden-overflow")} key={i}>
+                    <Img src={item.img} objectFit="cover" />
+                  </div>
+                )
+              })}
+            </>
+          )}
         </div>
         <div className={s.desc}>
           <h1>
@@ -84,11 +118,29 @@ const DetailProduct = () => {
             nutty charm of peanuts. That's the magic of Crumby! Crunchy and creamy, all in one bite.
           </p>
           <div className={s.specs}>
-            <div className={s.spec}>
+            <div>
               <div className={s.imgC}>
                 <Img src={icon} objectFit="contain" />
-                <small>Low Carb</small>
               </div>
+              <small>
+                Low <br /> Sugar
+              </small>
+            </div>
+            <div>
+              <div className={s.imgC}>
+                <Img src={icon} objectFit="contain" />
+              </div>
+              <small>
+                Low <br /> Sugar
+              </small>
+            </div>
+            <div>
+              <div className={s.imgC}>
+                <Img src={icon} objectFit="contain" />
+              </div>
+              <small>
+                Low <br /> Sugar
+              </small>
             </div>
           </div>
         </div>
@@ -96,6 +148,7 @@ const DetailProduct = () => {
           <Img src={crumbYourWay} objectFit="contain" />
         </div>
       </section>
+
       <section className={cn(s.crumbYourWay, "flex-center")}>
         <div>
           <div className={s.imgC}>
@@ -122,6 +175,7 @@ const DetailProduct = () => {
           </p>
         </div>
       </section>
+
       <section className={s.realChocolate}>
         <div className={s.marqueeC}>
           <Marquee repeat={5} duration={30}>
@@ -138,9 +192,11 @@ const DetailProduct = () => {
           </Marquee>
         </div>
       </section>
-      <section className={s.specsC}>
+
+      <section className={s.detailedInfo}>
         <AccordionSpecs />
       </section>
+
       <section className={s.share}>
         <div className={s.imgC}></div>
         <div className={s.text}>
@@ -152,10 +208,14 @@ const DetailProduct = () => {
           </p>
         </div>
       </section>
-      <section className={s.mightLoveThese}>
+
+      <section className={cn(s.mightLoveThese, "flex-center-y")}>
         <h4>YOU MIGHT ALSO LOVE THESE...</h4>
-        <SliderProduct slides={products} />
+        <div className={s.sliderC}>
+          <SliderProduct slides={products} />
+        </div>
       </section>
+
       <CallToContact />
     </main>
   )

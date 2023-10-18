@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef } from "react"
+import { Fragment, useLayoutEffect, useRef } from "react"
 import s from "./home.module.scss"
 
 import cn from "clsx"
@@ -282,57 +282,55 @@ const Home = () => {
         <h2>WHAT'S INSIDE ?</h2>
         <div className={s.specs}>
           {isMobile ? (
-            <>
-              <SliderSpecs slides={specSlides} />
-            </>
+            <SliderSpecs slides={specSlides} />
           ) : (
             <>
-              {specSlides.map((item) => {
-                return item
+              {specSlides.map((item, i) => {
+                return <Fragment key={i}>{item}</Fragment>
               })}
             </>
           )}
         </div>
+      </section>
 
-        <div className={s.realChocolate}>
-          <div className={s.marqueeC}>
-            <Marquee repeat={5} duration={30}>
-              <>
-                <h3>REAL CHOCOLATE.</h3>
-                <span className={s.imgC}>
-                  <IconPopcorn fill="var(--smashing-pumpkins)" />
-                </span>
-                <h3>REAL CRUNCH.</h3>
-                <span className={s.imgC}>
-                  <IconPopcorn fill="var(--smashing-pumpkins)" />
-                </span>
-              </>
-            </Marquee>
-          </div>
-          <div className={s.marqueeC}>
-            <Marquee repeat={5} duration={25}>
-              <>
-                <h3>REAL CHOCOLATE.</h3>
-                <span className={s.imgC}>
-                  <IconPopcorn fill="var(--basil-smash)" />
-                </span>
-                <h3>REAL CRUNCH.</h3>
-                <span className={s.imgC}>
-                  <IconPopcorn fill="var(--basil-smash)" />
-                </span>
-              </>
-            </Marquee>
-          </div>
+      <section className={s.realChocolate}>
+        <div className={s.marqueeC}>
+          <Marquee repeat={5} duration={30}>
+            <>
+              <h3>REAL CHOCOLATE.</h3>
+              <span className={s.imgC}>
+                <IconPopcorn fill="var(--smashing-pumpkins)" />
+              </span>
+              <h3>REAL CRUNCH.</h3>
+              <span className={s.imgC}>
+                <IconPopcorn fill="var(--smashing-pumpkins)" />
+              </span>
+            </>
+          </Marquee>
+        </div>
+        <div className={s.marqueeC}>
+          <Marquee repeat={5} duration={25}>
+            <>
+              <h3>REAL CHOCOLATE.</h3>
+              <span className={s.imgC}>
+                <IconPopcorn fill="var(--basil-smash)" />
+              </span>
+              <h3>REAL CRUNCH.</h3>
+              <span className={s.imgC}>
+                <IconPopcorn fill="var(--basil-smash)" />
+              </span>
+            </>
+          </Marquee>
         </div>
       </section>
 
-      <div className={s.flavors}>
+      <section className={cn(s.flavors, "flex-center-y")}>
         <h2>OUR TASTY FLAVORS</h2>
         <div className={s.boxes}>
           <SliderProduct slides={slides} />
         </div>
         <Button text="SEE ALL PRODUCTS" size="lg" theme="light" />
-      </div>
+      </section>
 
       <CallToContact />
     </main>

@@ -1,40 +1,69 @@
-import s from "./page-transition.module.scss"
+import { useLayoutEffect, useRef } from "react"
 
-import logo from "@/assets/img/logo-crumby-c.svg"
+import { useLenis } from "@studio-freight/react-lenis"
+import gsap from "gsap"
+import { useLocation, useOutlet } from "react-router-dom"
+import { CSSTransition, SwitchTransition } from "react-transition-group"
 
-import Img from "@/components/custom-img"
+import Footer from "@/components/footer"
+import Header from "@/components/header"
+import PageTransition from "@/components/page-transition"
+import { routes } from "@/global/routes"
 
-import { motion } from "framer-motion"
-import cn from "clsx"
-import { ReactNode } from "react"
+const PageTransitionWrapper = () => {
+  const location = useLocation()
+  const currentOutlet = useOutlet()
+  const { nodeRef } = routes.find((route) => route.path === location.pathname) ?? {}
+  const ptRef = useRef(null)
+  const lenis = useLenis()
 
-type Props = {
-  children: ReactNode
-}
+  useLayoutEffect(() => {
+    gsap.set(ptRef.current, {
+      yPercent: -100,
+    })
+  }, [])
 
-const PageTransition = ({ children }: Props) => {
+  const onEnter = () => {
+    lenis.scrollTo("top", {
+      immediate: true,
+      lock: true,
+    })
+
+    gsap.to(ptRef.current, {
+      delay: 0.6,
+      duration: 1,
+      ease: "expo.out",
+      yPercent: -100,
+    })
+  }
+
+  const onExit = () => {
+    gsap.to(ptRef.current, {
+      ease: "expo.out",
+      duration: 1,
+      yPercent: 0,
+    })
+  }
+
   return (
     <>
-      {children}
-      <motion.div
-        className={cn(s.overlay, "flex-center")}
-        initial={{ y: "-100%" }}
-        animate={{ y: "100%" }}
-        exit={{ y: "-100%" }}
-        transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-      >
-        <motion.div
-          className={s.imgC}
-          initial={{ y: "0" }}
-          animate={{ y: "300%" }}
-          exit={{ y: "0" }}
-          transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+      <Header />
+      <SwitchTransition>
+        <CSSTransition
+          key={location.pathname}
+          nodeRef={nodeRef as React.RefObject<HTMLElement>}
+          timeout={1000}
+          unmountOnExit
+          onEnter={onEnter}
+          onExit={onExit}
         >
-          <Img src={logo} objectFit="contain" />
-        </motion.div>
-      </motion.div>
+          <div ref={nodeRef as React.RefObject<HTMLDivElement>}>{currentOutlet}</div>
+        </CSSTransition>
+      </SwitchTransition>
+      <Footer />
+      <PageTransition ref={ptRef} />
     </>
   )
 }
 
-export default PageTransition
+export default PageTransitionWrapper

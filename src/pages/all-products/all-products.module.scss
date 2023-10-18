@@ -1,11 +1,22 @@
 .allProducts {
-  padding: desktop-vw(100px) unset;
   margin-top: desktop-vw(50px);
+  padding: desktop-vw(100px) 0;
+
+  @include mobile {
+    margin-top: 0;
+    padding: 0;
+  }
 
   .filterC {
-    display: flex;
     column-gap: desktop-vw(30px);
+    display: flex;
     padding: 0 desktop-vw(50px);
+
+    @include mobile {
+      column-gap: mobile-vw(30px);
+      flex-direction: column;
+      padding: 0 mobile-vw(16px);
+    }
   }
 
   .productsList {
@@ -14,5 +25,11 @@
     grid-template-columns: repeat(3, 1fr);
     margin: 0 auto;
     padding: desktop-vw(80px) 0;
+
+    @include mobile {
+      grid-template-columns: 1fr;
+      padding: 0;
+      align-items: center;
+    }
   }
 }

@@ -9,7 +9,7 @@ $ease: cubic-bezier(0.22, 0.68, 0, 1.71);
   position: relative;
 
   @include mobile {
-    --cardWidth: #{100%};
+    --cardWidth: #{mobile-vw(320px)};
     --cardHeight: #{mobile-vw(400px)};
   }
 

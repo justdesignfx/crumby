@@ -1,6 +1,10 @@
 .searchbox {
   @include dims(desktop-vw(460px), desktop-vw(45px));
 
+  @include mobile {
+    @include dims(100%, mobile-vw(55px));
+  }
+
   .field {
     --input-padding: #{desktop-vw(20px)};
     @include dims(100%);
@@ -20,7 +24,7 @@
       transition: 300ms all ease;
 
       @include mobile {
-        border-radius: mobile-vw(11px);
+        border-radius: mobile-vw(8px);
         margin-bottom: mobile-vw(14px);
       }
 
