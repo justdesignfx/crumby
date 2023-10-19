@@ -3,12 +3,14 @@
     display: grid;
     grid-template-columns: 1.25fr 1fr;
     margin-top: desktop-vw(75px);
-    position: relative;
+    padding: 0 desktop-vw(50px);
     padding-bottom: desktop-vw(300px);
+    position: relative;
 
     @include mobile {
       grid-template-columns: 1fr;
       margin-top: mobile-vw(30px);
+      padding: 0;
       padding-bottom: mobile-vw(200px);
     }
 
@@ -371,7 +373,9 @@
     }
 
     .sliderC {
-      width: 100vw;
+      @include mobile {
+        width: 100vw;
+      }
     }
   }
 }

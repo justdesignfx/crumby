@@ -32,18 +32,27 @@
       }
 
       > .iconC {
-        @include dims(desktop-vw(18px));
+        @include dims(desktop-vw(32px));
         flex-shrink: 0;
         position: relative;
 
         @include mobile {
-          @include dims(mobile-vw(15px));
+          @include dims(mobile-vw(25px));
+        }
+
+        &.open {
+          .icon.plus {
+            opacity: 0;
+          }
+
+          .icon.minus {
+            opacity: 1;
+          }
         }
 
         .icon {
           @include dims(inherit);
           position: absolute;
-          transition: 400ms all cubic-bezier(0.87, 0, 0.13, 1);
           transform-origin: center;
           will-change: transform;
 
@@ -60,6 +69,11 @@
 
     .accordionBody {
       overflow: hidden;
+      display: none;
+
+      &.open {
+        display: block;
+      }
 
       > p {
         color: var(--vanilla-cream);
