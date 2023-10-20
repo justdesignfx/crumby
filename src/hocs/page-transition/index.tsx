@@ -13,7 +13,7 @@ import { routes } from "@/global/routes"
 const PageTransitionWrapper = () => {
   const location = useLocation()
   const currentOutlet = useOutlet()
-  const { nodeRef } = routes.find((route) => route.path === location.pathname) ?? {}
+  const { nodeRef } = routes.find((route) => location.pathname.includes(route.path)) ?? {}
   const ptRef = useRef(null)
   const lenis = useLenis()
 

@@ -15,10 +15,11 @@ import CallToContact from "@/components/call-to-contact"
 import CardProduct from "@/components/card-product"
 import Filter from "@/components/filter"
 import Searchbox from "@/components/searchbox"
+import Products from "@/layouts/products"
 
 const AllProducts = () => {
   const products = [
-    <Link to="/detail">
+    <Link to={`/all-products/detail`}>
       <CardProduct
         img={chocolate}
         hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
@@ -29,7 +30,7 @@ const AllProducts = () => {
         }
       />
     </Link>,
-    <Link to="/detail">
+    <Link to={`/all-products/detail`}>
       <CardProduct
         img={peanut}
         hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
@@ -40,14 +41,14 @@ const AllProducts = () => {
         }
       />
     </Link>,
-    <Link to="/detail">
+    <Link to={`/all-products/detail`}>
       <CardProduct
         img={strawberry}
         hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
         name={<>MILK CHOCOLATE</>}
       />
     </Link>,
-    <Link to="/detail">
+    <Link to={`/all-products/detail`}>
       <CardProduct
         img={darkChocolate}
         hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
@@ -57,27 +58,29 @@ const AllProducts = () => {
   ]
 
   return (
-    <main className={s.allProducts}>
-      <section className={s.filterC}>
-        <Searchbox />
-        <Filter
-          label="SORT"
-          options={[
-            { label: "NEWEST FIRST", value: "NEWEST_FIRST" },
-            { label: "FILTER 2", value: "desc" },
-            { label: "FILTER 3", value: "th" },
-          ]}
-        />
-      </section>
-      <section className="flex-center-y">
-        <div className={s.productsList}>
-          {products.map((product, i) => {
-            return <Fragment key={i}>{product}</Fragment>
-          })}
-        </div>
-      </section>
-      <CallToContact />
-    </main>
+    <Products>
+      <main className={s.allProducts}>
+        <section className={s.filterC}>
+          <Searchbox />
+          <Filter
+            label="SORT"
+            options={[
+              { label: "NEWEST FIRST", value: "NEWEST_FIRST" },
+              { label: "FILTER 2", value: "desc" },
+              { label: "FILTER 3", value: "th" },
+            ]}
+          />
+        </section>
+        <section className="flex-center-y">
+          <div className={s.productsList}>
+            {products.map((product, i) => {
+              return <Fragment key={i}>{product}</Fragment>
+            })}
+          </div>
+        </section>
+        <CallToContact />
+      </main>
+    </Products>
   )
 }
 

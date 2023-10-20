@@ -1,0 +1,10 @@
+.notFound {
+  @include dims(100vw, calc(100vh - var(--header-height)));
+
+  > h1 {
+    color: var(--duqqa-brown);
+    font-family: var(--font-grandstander);
+    font-size: desktop-vw(50px);
+    font-weight: 700;
+  }
+}
