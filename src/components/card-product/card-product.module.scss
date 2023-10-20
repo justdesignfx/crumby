@@ -1,6 +1,7 @@
-$ease: cubic-bezier(0.22, 0.68, 0, 1.71);
-
 .cardProduct {
+  $ease: var(--ease-out-expo);
+  $duration: 800ms;
+
   --cardWidth: #{desktop-vw(400px)};
   --cardHeight: #{desktop-vw(480px)};
   @include dims(var(--cardWidth), var(--cardHeight));
@@ -11,25 +12,6 @@ $ease: cubic-bezier(0.22, 0.68, 0, 1.71);
   @include mobile {
     --cardWidth: #{mobile-vw(320px)};
     --cardHeight: #{mobile-vw(400px)};
-  }
-
-  @include hover {
-    &:hover {
-      .box,
-      .cakes {
-        transform: translateX(0%);
-      }
-
-      .cakes {
-        .imgC {
-          transform: translateX(0%);
-        }
-      }
-
-      &::before {
-        opacity: 1;
-      }
-    }
   }
 
   &::before {
@@ -59,11 +41,11 @@ $ease: cubic-bezier(0.22, 0.68, 0, 1.71);
     @include dims(var(--cardWidth), var(--cardHeight));
 
     .imgC {
-      transform: translateX(desktop-vw(-100px));
+      transform: translateX(-400%);
 
       &:nth-child(1) {
         @include dims(desktop-vw(200px), desktop-vw(150px));
-        transition: 800ms all $ease;
+        transition: calc($duration * 1.2) transform $ease;
 
         @include mobile {
           @include dims(mobile-vw(300px), mobile-vw(200px));
@@ -74,7 +56,7 @@ $ease: cubic-bezier(0.22, 0.68, 0, 1.71);
         @include dims(desktop-vw(300px), desktop-vw(200px));
         margin-bottom: desktop-vw(100px);
         margin-top: desktop-vw(-25px);
-        transition: 1000ms all $ease;
+        transition: $duration transform $ease;
 
         @include mobile {
           @include dims(mobile-vw(300px), mobile-vw(200px));
@@ -88,7 +70,7 @@ $ease: cubic-bezier(0.22, 0.68, 0, 1.71);
   .cakes {
     flex-shrink: 0;
     transform: translateX(-100%);
-    transition: 800ms all $ease;
+    transition: $duration transform $ease;
     will-change: transform;
   }
 
@@ -106,6 +88,25 @@ $ease: cubic-bezier(0.22, 0.68, 0, 1.71);
       @include position(absolute, 0, auto, auto, 50%);
       font-size: mobile-vw(30px);
       transform: translate(-50%, calc((var(--cardHeight) - mobile-vw(75px))));
+    }
+  }
+
+  @include hover {
+    &:hover {
+      .box,
+      .cakes {
+        transform: translateX(0);
+      }
+
+      .cakes {
+        .imgC {
+          transform: translateX(0);
+        }
+      }
+
+      &::before {
+        opacity: 1;
+      }
     }
   }
 }

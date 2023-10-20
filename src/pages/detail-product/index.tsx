@@ -17,7 +17,6 @@ import o2 from "@/assets/img/options-2.png"
 import o3 from "@/assets/img/options-3.png"
 
 import AccordionSpecs from "@/components/accordion-specs"
-import Breadcrumb from "@/components/breadcrumb"
 import CallToContact from "@/components/call-to-contact"
 import CardProduct from "@/components/card-product"
 import Img from "@/components/custom-img"
@@ -79,8 +78,6 @@ const DetailProduct = () => {
 
   return (
     <main className={s.detailProduct}>
-      <Breadcrumb />
-
       <section className={s.info}>
         <div className={s.pics}>
           {isMobile ? (

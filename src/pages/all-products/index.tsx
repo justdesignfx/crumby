@@ -11,7 +11,6 @@ import darkChocolate from "@/assets/img/crumby-dark-chocolate.png"
 import peanut from "@/assets/img/crumby-peanut.png"
 import strawberry from "@/assets/img/crumby-strawberry.png"
 
-import Breadcrumb from "@/components/breadcrumb"
 import CallToContact from "@/components/call-to-contact"
 import CardProduct from "@/components/card-product"
 import Filter from "@/components/filter"
@@ -59,9 +58,6 @@ const AllProducts = () => {
 
   return (
     <main className={s.allProducts}>
-      <section>
-        <Breadcrumb />
-      </section>
       <section className={s.filterC}>
         <Searchbox />
         <Filter

@@ -22,7 +22,7 @@
 
   .productsList {
     display: grid;
-    gap: desktop-vw(22px);
+    gap: desktop-vw(100px) desktop-vw(22px);
     grid-template-columns: repeat(3, 1fr);
     margin: 0 auto;
     padding: desktop-vw(80px) 0;
