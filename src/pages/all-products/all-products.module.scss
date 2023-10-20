@@ -1,6 +1,6 @@
 .allProducts {
   margin-top: desktop-vw(50px);
-  padding: desktop-vw(100px) 0;
+  padding-bottom: desktop-vw(100px);
 
   @include mobile {
     margin-top: 0;
@@ -15,6 +15,7 @@
     @include mobile {
       column-gap: mobile-vw(30px);
       flex-direction: column;
+      margin-bottom: mobile-vw(30px);
       padding: 0 mobile-vw(16px);
     }
   }

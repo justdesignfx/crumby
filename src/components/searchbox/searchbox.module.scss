@@ -2,17 +2,19 @@
   @include dims(desktop-vw(460px), desktop-vw(45px));
 
   @include mobile {
-    @include dims(100%, mobile-vw(55px));
+    @include dims(100%, mobile-vw(45px));
+    margin-bottom: mobile-vw(14px);
   }
 
   .field {
-    --input-padding: #{desktop-vw(20px)};
+    --input-padding: #{desktop-vw(40px)};
     @include dims(100%);
     column-gap: desktop-vw(8px);
     display: flex;
+    position: relative;
 
     @include mobile {
-      --input-padding: #{mobile-vw(16px)};
+      --input-padding: #{mobile-vw(40px)};
       column-gap: mobile-vw(8px);
     }
 
@@ -25,13 +27,12 @@
 
       @include mobile {
         border-radius: mobile-vw(8px);
-        margin-bottom: mobile-vw(14px);
       }
 
       .input {
         @include dims(100%);
         border-radius: desktop-vw(11px);
-        color: var(--liliac);
+        color: var(--duqqa-brown);
         font-family: var(--font-grandstander);
         font-size: desktop-vw(20px);
         font-weight: 500;
@@ -39,12 +40,17 @@
 
         @include mobile {
           border-radius: mobile-vw(11px);
-          font-size: mobile-vw(14px);
-          padding: mobile-vw(17px) var(--input-padding);
+          font-size: mobile-vw(16px);
+          padding: 0 var(--input-padding);
         }
 
         &::placeholder {
-          transition: 0.4s all ease;
+          transform: translateY(desktop-vw(1px));
+          transition: 400ms all ease;
+
+          @include mobile {
+            transform: translateY(mobile-vw(1px));
+          }
         }
 
         &:focus {
@@ -57,6 +63,17 @@
       &.disabled {
         opacity: 0.1;
         pointer-events: none;
+      }
+    }
+
+    .iconC {
+      @include position(absolute, 50%, auto, auto, desktop-vw(16px));
+      @include dims(desktop-vw(14px));
+      transform: translateY(-50%);
+
+      @include mobile {
+        @include position(absolute, 50%, auto, auto, mobile-vw(16px));
+        @include dims(mobile-vw(14px));
       }
     }
   }

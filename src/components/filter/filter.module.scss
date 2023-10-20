@@ -1,5 +1,6 @@
 .filter {
   --input-padding: #{desktop-vw(20px)};
+  @include dims(desktop-vw(220px), desktop-vw(45px));
   align-items: center;
   background: var(--toasted-marshmallow-fluff);
   border-radius: desktop-vw(11px);
@@ -11,38 +12,81 @@
   z-index: 10;
 
   @include mobile {
+    --input-padding: #{mobile-vw(20px)};
+    @include dims(100%, mobile-vw(45px));
     border-radius: mobile-vw(8px);
   }
 
+  &.open {
+    border-top-left-radius: desktop-vw(11px);
+    border-top-right-radius: desktop-vw(11px);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+
+    border-bottom: none;
+    border-top: 1px solid var(--duqqa-brown);
+    border-left: 1px solid var(--duqqa-brown);
+    border-right: 1px solid var(--duqqa-brown);
+
+    @include mobile {
+      border-top-left-radius: mobile-vw(11px);
+      border-top-right-radius: mobile-vw(11px);
+    }
+  }
+
   .label {
-    @include dims(desktop-vw(220px), desktop-vw(45px));
+    @include dims(100%);
     align-items: center;
+    color: var(--duqqa-brown);
     display: flex;
     justify-content: flex-start;
     font-family: var(--font-grandstander);
     font-size: desktop-vw(20px);
     font-weight: 600;
     padding: 0 var(--input-padding);
+    position: relative;
+    transform: translateY(desktop-vw(1px));
 
     @include mobile {
-      @include dims(mobile-vw(220px), mobile-vw(55px));
-      font-size: mobile-vw(14px);
-      padding: mobile-vw(17px) var(--input-padding);
+      @include dims(100%, mobile-vw(45px));
+      font-size: mobile-vw(16px);
+      padding: 0 var(--input-padding);
+    }
+
+    .iconC {
+      @include position(absolute, 50%, desktop-vw(16px), auto, auto);
+      @include dims(desktop-vw(14px), desktop-vw(8px));
+      transform: translateY(-60%);
+
+      @include mobile {
+        @include position(absolute, 50%, mobile-vw(16px), auto, auto);
+        @include dims(mobile-vw(14px), mobile-vw(8px));
+      }
     }
   }
 
   .items {
-    @include position(absolute, auto, 0, desktop-vw(-5px), 0);
+    @include position(absolute, auto, -1px, 2px, -1px);
     align-items: center;
     background: var(--toasted-marshmallow-fluff);
-    border-radius: desktop-vw(11px);
-    border: 1px solid var(--duqqa-brown);
+    border-bottom-left-radius: desktop-vw(11px);
+    border-bottom-right-radius: desktop-vw(11px);
+    border-bottom: 1px solid var(--duqqa-brown);
+    border-left: 1px solid var(--duqqa-brown);
+    border-right: 1px solid var(--duqqa-brown);
     justify-content: flex-start;
     flex-direction: column;
-    padding: desktop-vw(15px) desktop-vw(15px) desktop-vw(35px) desktop-vw(15px);
-    row-gap: desktop-vw(5px);
+    padding: desktop-vw(10px) desktop-vw(15px) desktop-vw(25px) desktop-vw(15px);
+    row-gap: desktop-vw(10px);
     transform: translateY(100%);
     display: none;
+
+    @include mobile {
+      border-bottom-left-radius: mobile-vw(11px);
+      border-bottom-right-radius: mobile-vw(11px);
+      padding: mobile-vw(10px) mobile-vw(15px) mobile-vw(25px) mobile-vw(15px);
+      row-gap: mobile-vw(10px);
+    }
 
     &.open {
       display: flex;
@@ -52,7 +96,17 @@
       @include dims(100%);
       border-radius: desktop-vw(8px);
       border: 1px solid var(--duqqa-brown);
-      padding: desktop-vw(10px);
+      color: var(--duqqa-brown);
+      font-family: var(--font-grandstander);
+      font-size: desktop-vw(14px);
+      font-weight: 600;
+      padding: desktop-vw(10px) desktop-vw(10px) desktop-vw(7px) desktop-vw(10px);
+
+      @include mobile {
+        border-radius: mobile-vw(8px);
+        font-size: mobile-vw(14px);
+        padding: mobile-vw(10px) mobile-vw(10px) mobile-vw(7px) mobile-vw(10px);
+      }
     }
   }
 }

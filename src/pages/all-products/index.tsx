@@ -67,9 +67,9 @@ const AllProducts = () => {
         <Filter
           label="SORT"
           options={[
-            { label: "asc", value: "asc" },
-            { label: "desc", value: "desc" },
-            { label: "th", value: "th" },
+            { label: "NEWEST FIRST", value: "NEWEST_FIRST" },
+            { label: "FILTER 2", value: "desc" },
+            { label: "FILTER 3", value: "th" },
           ]}
         />
       </section>
