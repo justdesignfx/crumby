@@ -39,9 +39,9 @@
     .navItem {
       color: var(--duqqa-brown);
       font-family: var(--font-grandstander);
-      font-size: mobile-vw(25px);
-      font-weight: 500;
-      margin-bottom: mobile-vw(10px);
+      font-size: mobile-vw(30px);
+      font-weight: 700;
+      margin-bottom: mobile-vw(14px);
 
       &:last-child {
         margin-left: auto;
@@ -53,6 +53,7 @@
 
       .navItem {
         font-size: mobile-vw(20px);
+        font-weight: 500;
       }
     }
   }

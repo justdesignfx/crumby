@@ -1,10 +1,20 @@
 .pageTransition {
-  @include position(fixed, 0, 0, 0, 0);
-  background: var(--qing-yellow);
+  @include position(fixed, 0, auto, auto, 0);
+  @include dims(100vw, 100vh);
   pointer-events: none;
   z-index: z-index("preloader");
 
-  .imgC {
-    @include dims(desktop-vw(100px));
+  > div {
+    @include position(absolute, 0, auto, auto, 0);
+    @include dims(100vw, 100vh);
+    background: var(--qing-yellow);
+
+    .imgC {
+      @include dims(desktop-vw(100px));
+
+      @include mobile {
+        @include dims(mobile-vw(100px));
+      }
+    }
   }
 }

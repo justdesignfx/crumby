@@ -9,9 +9,11 @@ import Img from "@/components/custom-img"
 export type Ref = HTMLDivElement
 
 const PageTransition = forwardRef<Ref>((_, ref) => (
-  <div className={cn(s.pageTransition, "flex-center")} ref={ref}>
-    <div className={s.imgC}>
-      <Img src={logo} objectFit="contain" />
+  <div className={cn(s.pageTransition, "flex-center", "hidden-overflow")} ref={ref}>
+    <div className="flex-center">
+      <div className={s.imgC}>
+        <Img src={logo} objectFit="contain" />
+      </div>
     </div>
   </div>
 ))

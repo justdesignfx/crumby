@@ -17,7 +17,7 @@ header {
     transform: translate(-50%, -40%);
 
     @include mobile {
-      @include dims(mobile-vw(120px), mobile-vw(40px));
+      @include dims(mobile-vw(150px), mobile-vw(50px));
       @include position(relative, auto, auto, auto, auto);
       transform: unset;
     }

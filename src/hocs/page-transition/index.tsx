@@ -19,7 +19,7 @@ const PageTransitionWrapper = () => {
 
   useLayoutEffect(() => {
     gsap.set(ptRef.current, {
-      yPercent: -100,
+      height: 0,
     })
   }, [])
 
@@ -30,18 +30,18 @@ const PageTransitionWrapper = () => {
     })
 
     gsap.to(ptRef.current, {
-      delay: 0.6,
-      duration: 1,
+      delay: 0.4,
+      duration: 0.6,
       ease: "expo.out",
-      yPercent: -100,
+      height: 0,
     })
   }
 
   const onExit = () => {
     gsap.to(ptRef.current, {
       ease: "expo.out",
-      duration: 1,
-      yPercent: 0,
+      duration: 0.7,
+      height: "100%",
     })
   }
 
