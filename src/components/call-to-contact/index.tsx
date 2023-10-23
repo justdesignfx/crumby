@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 
 import Button from "@/components/button"
 import Img from "@/components/custom-img"
-import Float from "@/hocs/float"
+import Float from "@/hocs/animations/float"
 
 import c1 from "@/assets/img/c-1.png"
 import c2 from "@/assets/img/c-2.png"
