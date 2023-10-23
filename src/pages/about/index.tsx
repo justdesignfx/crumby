@@ -22,6 +22,7 @@ import crumbyDarkChocolate from "@/assets/img/crumby-dark-chocolate.png"
 import crumbyPeanut from "@/assets/img/crumby-peanut.png"
 import crumbyStrawberry from "@/assets/img/crumby-strawberry.png"
 import riceCake from "@/assets/img/rice-cake.png"
+import { Link } from "react-router-dom"
 
 const About = () => {
   return (
@@ -131,7 +132,11 @@ const About = () => {
             <Img src={crumbyStrawberry} objectFit="contain" />
           </div>
         </div>
-        <Button text="SEE ALL PRODUCTS" size="lg" theme="light" />
+
+        <Link to="/all-products">
+          <Button text="SEE ALL PRODUCTS" size="lg" theme="light" />
+        </Link>
+
         <div className={cn(s.popcornC, s.a)}>
           <Parallax speedX={0} directionY={-1}>
             <IconPopcorn fill="var(--qing-yellow)" />

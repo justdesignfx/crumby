@@ -329,7 +329,9 @@ const Home = () => {
         <div className={s.boxes}>
           <SliderProduct slides={slides} />
         </div>
-        <Button text="SEE ALL PRODUCTS" size="lg" theme="light" />
+        <Link to="/all-products">
+          <Button text="SEE ALL PRODUCTS" size="lg" theme="light" />
+        </Link>
       </section>
 
       <CallToContact />
