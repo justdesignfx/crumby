@@ -4,6 +4,7 @@ import s from "./home.module.scss"
 import cn from "clsx"
 import gsap, { Back } from "gsap"
 import { Link } from "react-router-dom"
+import { useMedia } from "react-use"
 
 import Button from "@/components/button"
 import CallToContact from "@/components/call-to-contact"
@@ -45,7 +46,6 @@ import CardProduct from "@/components/card-product"
 import SliderProduct from "@/components/slider-product"
 import SliderSpecs from "@/components/slider-specs"
 import { breakpoints } from "@/utils"
-import { useMedia } from "react-use"
 
 const slides = [
   <Link to="/all-products/lol">

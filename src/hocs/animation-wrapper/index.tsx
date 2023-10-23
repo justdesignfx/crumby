@@ -30,7 +30,11 @@ const AnimationWrapper = ({ children }: Props) => {
     }
   }, [location])
 
-  return <div ref={ref}>{children}</div>
+  return (
+    <div className="hidden-overflow" ref={ref}>
+      {children}
+    </div>
+  )
 }
 
 export default AnimationWrapper

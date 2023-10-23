@@ -28,8 +28,15 @@
       flex-shrink: 0;
 
       .emblaSlideContent {
+        align-items: center;
+        display: flex;
+        justify-content: center;
         overflow: hidden;
         width: 100%;
+
+        @include mobile {
+          @include dims(100vw, auto);
+        }
       }
     }
   }

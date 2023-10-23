@@ -7,21 +7,23 @@ header {
   z-index: z-index("header");
 
   @include mobile {
-    height: var(--header-height);
+    justify-content: space-between;
     padding: 0 mobile-vw(20px);
   }
 
-  .imgC {
+  .logoC {
     @include position(absolute, 50%, auto, auto, 50%);
     @include dims(desktop-vw(216px), desktop-vw(67px));
     transform: translate(-50%, -40%);
 
     @include mobile {
-      @include dims(mobile-vw(180px), mobile-vw(50px));
+      @include dims(mobile-vw(120px), mobile-vw(40px));
+      @include position(relative, auto, auto, auto, auto);
+      transform: unset;
     }
   }
 
-  nav {
+  .navDesktop {
     align-items: center;
     column-gap: desktop-vw(180px);
     display: flex;
@@ -29,6 +31,7 @@ header {
     width: 100%;
 
     .navItem {
+      color: var(--duqqa-brown);
       font-family: var(--font-grandstander);
       font-size: desktop-vw(20px);
       font-weight: 500;

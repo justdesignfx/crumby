@@ -283,8 +283,10 @@
     .marqueeC {
       align-items: center;
       display: flex;
+      margin-left: -50%;
       padding: desktop-vw(35px) 0;
       outline: 1px solid var(--white-transparent);
+      width: 200%;
 
       @include mobile {
         padding: mobile-vw(20px) 0;

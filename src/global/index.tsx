@@ -2,20 +2,23 @@ export interface Product {
   desc: string
   name: string
   imgs: string[]
-  similarProducts: Product[]
+  similarProducts: CardProduct[]
   specs: {
     name: string
     icon: string
   }[]
-  specs2: {
+  accordion: {
     desc: string
     title: string
+  }[]
+  media: {
+    mediaType: "video" | "image"
+    src: string
   }
-  video: string
 }
 
 export interface CardProduct {
-  cakes: { bottom: string; top: string }
+  hoverImg: { bottom: string; top: string }
   name: string
   img: string
 }

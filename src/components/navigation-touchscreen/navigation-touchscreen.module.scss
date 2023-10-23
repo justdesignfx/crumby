@@ -1,0 +1,59 @@
+.navTouchscreen {
+  .hamburger {
+    @include dims(mobile-vw(60px), mobile-vw(30px));
+    background: var(--duqqa-brown);
+    color: var(--toasted-marshmallow-fluff);
+    border-radius: mobile-vw(16px);
+    font-family: var(--font-grandstander);
+    font-weight: 500;
+    margin-bottom: mobile-vw(10px);
+    position: relative;
+    z-index: 20;
+
+    span {
+      transform: translateY(mobile-vw(2px));
+    }
+  }
+
+  > nav {
+    $distance: 4px;
+    @include position(fixed, mobile-vw($distance), mobile-vw($distance), mobile-vw($distance), mobile-vw($distance));
+    background: var(--pale-marigold);
+    border-radius: mobile-vw(16px);
+    padding: mobile-vw(100px) mobile-vw(20px) mobile-vw(20px) mobile-vw(20px);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+
+    transition: 400ms all ease;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+
+    &.open {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .navItem {
+      color: var(--duqqa-brown);
+      font-family: var(--font-grandstander);
+      font-size: mobile-vw(25px);
+      font-weight: 500;
+      margin-bottom: mobile-vw(10px);
+
+      &:last-child {
+        margin-left: auto;
+      }
+    }
+
+    .social {
+      margin-top: auto;
+
+      .navItem {
+        font-size: mobile-vw(20px);
+      }
+    }
+  }
+}
