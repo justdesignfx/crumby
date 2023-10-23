@@ -48,7 +48,7 @@ import { breakpoints } from "@/utils"
 import { useMedia } from "react-use"
 
 const slides = [
-  <Link to="/all-products">
+  <Link to="/all-products/lol">
     <CardProduct
       img={chocolate}
       hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
@@ -59,7 +59,7 @@ const slides = [
       }
     />
   </Link>,
-  <Link to="/all-products">
+  <Link to="/all-products/lol">
     <CardProduct
       img={peanut}
       hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
@@ -70,7 +70,7 @@ const slides = [
       }
     />
   </Link>,
-  <Link to="/all-products">
+  <Link to="/all-products/lol">
     <CardProduct
       img={strawberry}
       hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}

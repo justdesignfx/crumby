@@ -1,6 +1,8 @@
 .button {
   font-family: var(--font-grandstander);
   font-weight: 600;
+  overflow: hidden;
+  position: relative;
 
   &.light {
     background: var(--toasted-marshmallow-fluff);
@@ -54,8 +56,30 @@
     }
   }
 
-  & > span {
+  .text {
     display: block;
+    position: relative;
     transform: translateY(10%);
+    z-index: 20;
+  }
+
+  .dotC {
+    @include position(absolute, 0, auto, auto, 0);
+    @include dims(1px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .dot {
+      $dims: 15px;
+      @include position(absolute, 50%, auto, auto, 50%);
+      @include dims($dims);
+      background: var(--pale-marigold);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: 300ms height ease-in-out, 300ms width ease-in-out, 100ms opacity ease-in-out;
+      z-index: 10;
+    }
   }
 }
