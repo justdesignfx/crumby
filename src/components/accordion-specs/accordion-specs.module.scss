@@ -7,18 +7,13 @@
     padding: desktop-vw(90px) desktop-vw(120px);
 
     @include mobile {
-      padding: mobile-vw(90px) mobile-vw(30px);
+      padding: mobile-vw(70px) mobile-vw(30px);
     }
 
     .accordionHeader {
       align-items: center;
       display: flex;
       justify-content: space-between;
-      margin-bottom: desktop-vw(30px);
-
-      @include mobile {
-        margin-bottom: mobile-vw(30px);
-      }
 
       > h5 {
         color: var(--vanilla-cream);
@@ -28,6 +23,7 @@
 
         @include mobile {
           font-size: mobile-vw(40px);
+          transform: translateY(mobile-vw(5px));
         }
       }
 
@@ -70,6 +66,11 @@
     .accordionBody {
       overflow: hidden;
       display: none;
+      margin-top: desktop-vw(30px);
+
+      @include mobile {
+        margin-top: mobile-vw(30px);
+      }
 
       &.open {
         display: block;
