@@ -16,21 +16,22 @@ import o1 from "@/assets/img/options-1.png"
 import o2 from "@/assets/img/options-2.png"
 import o3 from "@/assets/img/options-3.png"
 
+import { useSingle } from "@/api-client/queries"
 import AccordionSpecs from "@/components/accordion-specs"
 import CallToContact from "@/components/call-to-contact"
 import CardProduct from "@/components/card-product"
 import Img from "@/components/custom-img"
 import IconPopcorn from "@/components/icons/icon-popcorn"
+import LoadingScreen from "@/components/loading-screen"
 import Marquee from "@/components/marquee"
 import SliderProduct from "@/components/slider-product"
 import SliderSpecs from "@/components/slider-specs"
-import { breakpoints } from "@/utils"
 import Products from "@/layouts/products"
+import { breakpoints } from "@/utils"
 
 const DetailProduct = () => {
   const params = useParams()
   const isMobile = useMedia(`(max-width:${breakpoints.mobile}px`)
-
   console.log(params)
 
   const products = [
@@ -79,6 +80,12 @@ const DetailProduct = () => {
       img: sample,
     },
   ]
+
+  const { isLoading } = useSingle(params.detail ?? "")
+
+  if (isLoading) {
+    return <LoadingScreen />
+  }
 
   return (
     <Products>

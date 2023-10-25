@@ -11,7 +11,7 @@ type Props = {
   label: string
   options: Option[]
   sort: string
-  setSort: (sort: Option | null) => void
+  setSort: (sort: string) => void
 }
 
 const Sort = (props: Props) => {
@@ -34,7 +34,7 @@ const Sort = (props: Props) => {
       <div className={cn(s.items, { [s.open]: isOpen })}>
         {props.options.map((option, i) => {
           return (
-            <div className={cn(s.option, "cursor-pointer")} onClick={() => props.setSort(option)} key={i}>
+            <div className={cn(s.option, "cursor-pointer")} onClick={() => props.setSort(option.value)} key={i}>
               {option.label}
             </div>
           )

@@ -13,9 +13,16 @@
 
   &.dark {
     background: var(--duqqa-brown);
-    border-color: var(--duqqa-brown);
+    border-color: var(--toasted-marshmallow-fluff);
     border-style: solid;
     color: var(--toasted-marshmallow-fluff);
+    transition: 400ms all ease;
+
+    // @include hover {
+    //   &:hover {
+    //     color: var(--duqqa-brown);
+    //   }
+    // }
   }
 
   &.sm {
