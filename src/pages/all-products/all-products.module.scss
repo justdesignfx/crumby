@@ -1,36 +1,61 @@
-.allProducts {
-  margin-top: desktop-vw(50px);
-  padding-bottom: desktop-vw(100px);
+.filterC {
+  column-gap: desktop-vw(30px);
+  display: flex;
+  padding: 0 desktop-vw(50px);
 
   @include mobile {
-    margin-top: 0;
+    column-gap: mobile-vw(30px);
+    flex-direction: column;
+    margin-bottom: mobile-vw(30px);
+    padding: 0 mobile-vw(16px);
+  }
+}
+
+.productsList {
+  display: grid;
+  gap: desktop-vw(100px) desktop-vw(22px);
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto;
+  padding: desktop-vw(80px) 0;
+
+  @include mobile {
+    grid-template-columns: 1fr;
     padding: 0;
+    align-items: center;
+  }
+}
+
+.notFound {
+  @include dims(100vw, calc(100vh - var(--header-height)));
+  column-gap: desktop-vw(30px);
+
+  @include mobile {
+    flex-direction: column;
+    row-gap: desktop-vw(50px);
   }
 
-  .filterC {
-    column-gap: desktop-vw(30px);
-    display: flex;
-    padding: 0 desktop-vw(50px);
+  > h1 {
+    color: var(--duqqa-brown);
+    font-family: var(--font-grandstander);
+    font-size: desktop-vw(50px);
+    font-weight: 700;
 
     @include mobile {
-      column-gap: mobile-vw(30px);
-      flex-direction: column;
-      margin-bottom: mobile-vw(30px);
-      padding: 0 mobile-vw(16px);
+      font-size: mobile-vw(50px);
     }
   }
 
-  .productsList {
-    display: grid;
-    gap: desktop-vw(100px) desktop-vw(22px);
-    grid-template-columns: repeat(3, 1fr);
-    margin: 0 auto;
-    padding: desktop-vw(80px) 0;
+  > p {
+    color: var(--duqqa-brown);
+    font-family: var(--font-grandstander);
+    font-size: desktop-vw(20px);
+    font-weight: 400;
 
     @include mobile {
-      grid-template-columns: 1fr;
-      padding: 0;
-      align-items: center;
+      font-size: mobile-vw(20px);
+      line-height: 1.5;
+      width: 90%;
+      text-align: center;
     }
   }
 }
