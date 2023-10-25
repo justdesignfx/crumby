@@ -5,15 +5,20 @@ figure {
   img {
     @include dims(100%);
     display: block;
-    z-index: z-index("img");
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    -o-object-fit: cover;
-    object-fit: cover;
+    left: auto;
     max-width: 100%;
+    position: relative;
+    top: auto;
     transform: scale(1.01);
+    z-index: z-index("img");
+  }
+
+  &.lazy {
+    img {
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
   }
 
   .aspectRatio {

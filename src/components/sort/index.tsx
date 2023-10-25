@@ -1,23 +1,21 @@
 import { useRef, useState } from "react"
-import s from "./filter.module.scss"
+import s from "./sort.module.scss"
 
 import cn from "clsx"
 import { useClickAway } from "react-use"
-import IconArrowTriangle from "../icons/icon-arrow-triangle"
 
-interface Option {
-  label: string
-  value: string
-}
+import IconArrowTriangle from "@/components/icons/icon-arrow-triangle"
+import { Option } from "@/global"
 
 type Props = {
   label: string
   options: Option[]
+  sort: string
+  setSort: (sort: Option | null) => void
 }
 
-const Filter = (props: Props) => {
+const Sort = (props: Props) => {
   const ref = useRef(null)
-  const [selected, setSelected] = useState<Option | null>(null)
   const [isOpen, setIsOpen] = useState(false)
 
   useClickAway(ref, () => {
@@ -25,9 +23,9 @@ const Filter = (props: Props) => {
   })
 
   return (
-    <div className={cn(s.filter, { [s.open]: isOpen })} ref={ref}>
+    <div className={cn(s.sort, { [s.open]: isOpen })} ref={ref}>
       <div className={cn(s.label, "cursor-pointer")} onClick={() => setIsOpen((prev) => !prev)}>
-        {selected?.label ?? props.label}
+        {props.sort ?? props.label}
         <div className={cn(s.iconC, "flex-center")}>
           <IconArrowTriangle rotate={isOpen ? 180 : 0} fill="var(--duqqa-brown)" />
         </div>
@@ -36,7 +34,7 @@ const Filter = (props: Props) => {
       <div className={cn(s.items, { [s.open]: isOpen })}>
         {props.options.map((option, i) => {
           return (
-            <div className={cn(s.option, "cursor-pointer")} onClick={() => setSelected(option)} key={i}>
+            <div className={cn(s.option, "cursor-pointer")} onClick={() => props.setSort(option)} key={i}>
               {option.label}
             </div>
           )
@@ -46,4 +44,4 @@ const Filter = (props: Props) => {
   )
 }
 
-export default Filter
+export default Sort

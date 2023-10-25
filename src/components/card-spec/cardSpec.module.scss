@@ -2,8 +2,12 @@
   --card-height: #{desktop-vw(500px)};
   --card-width: #{desktop-vw(416px)};
   @include dims(var(--card-width), var(--card-height));
+  align-items: center;
   border-radius: desktop-vw(50px);
+  display: flex;
+  flex-direction: column;
   flex-shrink: 0;
+  justify-content: flex-start;
   overflow: hidden;
   padding-top: desktop-vw(30px);
   position: relative;
@@ -19,12 +23,13 @@
 
   > h5 {
     color: var(--duqqa-brown);
+    display: block;
     font-family: var(--font-grandstander);
     font-weight: 900;
     line-height: 0.8;
-    margin-bottom: auto;
     text-align: center;
-    z-index: 100;
+    transform: translateZ(200px);
+    z-index: 200;
 
     &.sm {
       font-size: desktop-vw(56px);
@@ -43,18 +48,19 @@
     }
   }
 
-  > .imgC {
-    // @include dims(100%, desktop-vw(300px));
-    // margin-top: auto;
+  > .bgMediaC {
     @include position(absolute, 0, 0, 0, 0);
-    z-index: 50;
+    display: block;
+    transform: translateZ(100px);
+    z-index: 100;
   }
 
   > .iconC {
     @include position(absolute, auto, auto, desktop-vw(12px), desktop-vw(12px));
     @include dims(desktop-vw(90px));
     margin-top: auto;
-    z-index: 100;
+    transform: translateZ(200px);
+    z-index: 200;
 
     @include mobile {
       @include position(absolute, auto, auto, mobile-vw(12px), mobile-vw(12px));

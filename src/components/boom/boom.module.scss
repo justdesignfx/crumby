@@ -1,0 +1,54 @@
+.boom {
+  @include dims(100%, 100vh);
+  align-items: center;
+  background: var(--duqqa-brown);
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  &::before {
+    content: "";
+    @include position(absolute, 2px, 0, auto, 0);
+    @include dims(100%, desktop-vw(120px));
+    background-image: url("../../assets/img/wave.svg");
+    background-repeat: no-repeat;
+    background-position: center bottom -2px;
+    background-size: 100% auto;
+    transform: translateY(-100%);
+
+    @include mobile {
+      @include dims(100%, auto);
+      background-position: center bottom -2px;
+      background-size: 400% auto;
+      padding-bottom: mobile-vw(150px);
+    }
+  }
+
+  .cakeC {
+    @include position(absolute, 50%, auto, auto, 50%);
+    @include dims(desktop-vw(500px));
+    transform: translate(-50%, -50%);
+
+    .cake {
+      @include position(absolute, 50%, auto, auto, 50%);
+      @include dims(100%);
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+      opacity: 0;
+
+      &.active {
+        opacity: 1;
+      }
+
+      @include mobile {
+        @include dims(mobile-vw(300px));
+      }
+
+      .index {
+        @include position(absolute, 0, auto, auto, 0);
+        color: var(--white);
+        font-size: desktop-vw(100px);
+      }
+    }
+  }
+}

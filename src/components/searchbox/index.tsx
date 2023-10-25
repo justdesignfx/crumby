@@ -1,12 +1,14 @@
-import { useState } from "react"
 import s from "./searchbox.module.scss"
 
 import cn from "clsx"
-import IconMagnifyingGlass from "../icons/icon-magnifying-glass"
+import IconMagnifyingGlass from "@/components/icons/icon-magnifying-glass"
 
-const Searchbox = () => {
-  const [keyword, setKeyword] = useState("")
+type Props = {
+  keyword: string
+  setKeyword: (keyword: string) => void
+}
 
+const Searchbox = ({ keyword, setKeyword }: Props) => {
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setKeyword(e.target.value)
   }

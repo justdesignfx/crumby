@@ -154,30 +154,6 @@
     }
   }
 
-  .boom {
-    @include dims(100%, 100vh);
-    background: var(--duqqa-brown);
-    position: relative;
-
-    &::before {
-      content: "";
-      @include position(absolute, 0, 0, auto, 0);
-      @include dims(100%, desktop-vw(120px));
-      background-image: url("../../assets/img/wave.svg");
-      background-repeat: no-repeat;
-      background-position: center bottom -2px;
-      background-size: 100% auto;
-      transform: translateY(-100%);
-
-      @include mobile {
-        @include dims(100%, auto);
-        background-position: center bottom -2px;
-        background-size: 400% auto;
-        padding-bottom: mobile-vw(150px);
-      }
-    }
-  }
-
   .extravaganza {
     padding-bottom: desktop-vw(100px);
     padding-top: desktop-vw(150px);
@@ -198,26 +174,34 @@
       }
 
       > .text {
-        display: block;
         color: var(--duqqa-brown);
+        display: block;
         font-family: var(--font-grandstander);
+        font-size: desktop-vw(150px);
         font-weight: 900;
         margin-bottom: desktop-vw(-20px);
         position: relative;
-        font-size: desktop-vw(150px);
         text-align: center;
 
         @include mobile {
           font-size: mobile-vw(50px);
-          margin-bottom: mobile-vw(0px);
+          line-height: 0.8;
+          margin-bottom: 0;
         }
 
         > .imgC {
-          @include dims(desktop-vw(570px), desktop-vw(232px));
+          @include dims(desktop-vw(600px), auto);
           display: inline-block;
+          margin-bottom: desktop-vw(-55px);
+          margin-left: desktop-vw(-40px);
+          position: relative;
+          transform: rotate(5deg);
+          z-index: 100;
 
           @include mobile {
-            @include dims(mobile-vw(200px), mobile-vw(86px));
+            @include dims(mobile-vw(200px), auto);
+            margin-bottom: mobile-vw(-14px);
+            margin-left: mobile-vw(-14px);
           }
         }
       }

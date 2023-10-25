@@ -1,0 +1,6 @@
+.loadingScreen {
+  @include dims(100vw, calc(100vh - var(--header-height)));
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}

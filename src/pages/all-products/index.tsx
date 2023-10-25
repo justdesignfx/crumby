@@ -1,6 +1,7 @@
-import { Fragment } from "react"
+import { Fragment, useState } from "react"
 import s from "./all-products.module.scss"
 
+import { useQuery } from "react-query"
 import { Link } from "react-router-dom"
 
 import cakesBottomPeanut from "@/assets/img/cakes-bottom-peanut.png"
@@ -11,11 +12,14 @@ import darkChocolate from "@/assets/img/crumby-dark-chocolate.png"
 import peanut from "@/assets/img/crumby-peanut.png"
 import strawberry from "@/assets/img/crumby-strawberry.png"
 
+import { fetchProducts } from "@/api-client/queries"
 import CallToContact from "@/components/call-to-contact"
 import CardProduct from "@/components/card-product"
-import Filter from "@/components/filter"
+import Filter from "@/components/sort"
 import Searchbox from "@/components/searchbox"
 import Products from "@/layouts/products"
+import LoadingSpinner from "@/components/loading-spinner"
+import LoadingScreen from "@/components/loading-screen"
 
 const AllProducts = () => {
   const products = [
@@ -57,30 +61,47 @@ const AllProducts = () => {
     </Link>,
   ]
 
+  const [keyword, setKeyword] = useState("")
+  const [sort, setSort] = useState<string | null>(null)
+
+  const isLoading = true
+
+  // const { isLoading, isError, data, error } = useQuery(["all-products", { keyword, sort }], fetchProducts, {
+  //   retry: 2,
+  // })
+
   return (
-    <Products>
-      <main className={s.allProducts}>
-        <section className={s.filterC}>
-          <Searchbox />
-          <Filter
-            label="SORT"
-            options={[
-              { label: "NEWEST FIRST", value: "NEWEST_FIRST" },
-              { label: "FILTER 2", value: "desc" },
-              { label: "FILTER 3", value: "th" },
-            ]}
-          />
-        </section>
-        <section className="flex-center-y">
-          <div className={s.productsList}>
-            {products.map((product, i) => {
-              return <Fragment key={i}>{product}</Fragment>
-            })}
-          </div>
-        </section>
-        <CallToContact />
-      </main>
-    </Products>
+    <>
+      {isLoading ? (
+        <LoadingScreen />
+      ) : (
+        <Products>
+          <main className={s.allProducts}>
+            <section className={s.filterC}>
+              <Searchbox keyword={keyword} setKeyword={setKeyword} />
+              <Filter
+                label="SORT"
+                options={[
+                  { label: "NEWEST FIRST", value: "NEWEST_FIRST" },
+                  { label: "FILTER 2", value: "desc" },
+                  { label: "FILTER 3", value: "th" },
+                ]}
+                sort={sort}
+                setSort={setSort}
+              />
+            </section>
+            <section className="flex-center-y">
+              <div className={s.productsList}>
+                {products.map((product, i) => {
+                  return <Fragment key={i}>{product}</Fragment>
+                })}
+              </div>
+            </section>
+            <CallToContact />
+          </main>
+        </Products>
+      )}
+    </>
   )
 }
 

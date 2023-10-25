@@ -22,3 +22,8 @@ export interface CardProduct {
   name: string
   img: string
 }
+
+export interface Option {
+  label: string
+  value: string
+}

@@ -1,6 +1,7 @@
 import s from "./about.module.scss"
 
 import cn from "clsx"
+import { Link } from "react-router-dom"
 
 import Button from "@/components/button"
 import CallToContact from "@/components/call-to-contact"
@@ -22,7 +23,7 @@ import crumbyDarkChocolate from "@/assets/img/crumby-dark-chocolate.png"
 import crumbyPeanut from "@/assets/img/crumby-peanut.png"
 import crumbyStrawberry from "@/assets/img/crumby-strawberry.png"
 import riceCake from "@/assets/img/rice-cake.png"
-import { Link } from "react-router-dom"
+import Boom from "@/components/boom"
 
 const About = () => {
   return (
@@ -95,11 +96,7 @@ const About = () => {
         </div>
       </section>
 
-      <section className={s.boom}>
-        <div className={s.waveC}>
-          <Img src={crumbyPeanut} objectFit="contain" />
-        </div>
-      </section>
+      <Boom />
 
       <section className={cn(s.extravaganza, "flex-center-y")}>
         <h2>

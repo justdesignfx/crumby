@@ -189,7 +189,7 @@
         color: var(--toasted-marshmallow-fluff);
         font-family: var(--font-grandstander);
         font-size: desktop-vw(25px);
-        font-weight: 700;
+        font-weight: 900;
         line-height: 1.6;
         text-align: center;
         width: desktop-vw(290px);
@@ -202,11 +202,17 @@
         > span {
           display: inline-block;
           position: relative;
+          z-index: 1;
 
           &:before {
-            content: url("../../assets/img/marker.png");
-            @include position(absolute, 50%, auto, auto, 50%);
-            transform: translate(-50%, -50%);
+            content: "";
+            @include position(absolute, -5%, auto, auto, -10%);
+            @include dims(115%, 100%);
+            background-image: url("../../assets/img/marker.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            z-index: -1;
           }
         }
       }

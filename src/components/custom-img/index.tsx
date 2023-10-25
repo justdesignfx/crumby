@@ -1,5 +1,7 @@
 import s from "./custom-img.module.scss"
 
+import cn from "clsx"
+
 type Props = {
   src: string
   objectFit?: "cover" | "contain"
@@ -40,7 +42,7 @@ const Img = ({
   // }, [src])
 
   return (
-    <figure style={{ background: bgColor }}>
+    <figure className={cn({ [s.lazy]: lazy })} style={{ background: bgColor }}>
       {lazy ? (
         <>
           <div

@@ -4,48 +4,42 @@ import { ReactNode } from "react"
 import cn from "clsx"
 
 import Img from "@/components/custom-img"
+import Video from "@/components/custom-video"
 
 type Props = {
-  title: string | ReactNode
+  bgColor: string
   img?: string
   icon: string
-  bgColor: string
   fontColor: string
   fontSize: "sm" | "lg"
+  title: string | ReactNode
   video?: string
 }
 
 const CardSpec = (props: Props) => {
   return (
     <div
-      className={cn(s.cardSpec, "flex-center-y")}
+      className={s.cardSpec}
       style={{
         backgroundColor: props.bgColor,
       }}
     >
       <h5
+        className={cn(s[props.fontSize])}
         style={
           {
             color: props.fontColor,
           } as React.CSSProperties
         }
-        className={cn(s[props.fontSize])}
       >
         {props.title}
       </h5>
-      <div className={s.imgC}>
+
+      <div className={s.bgMediaC}>
         {props.img && <Img src={props.img} objectFit="cover" />}
-        {props.video && (
-          <video
-            style={{ width: "100%", height: "100%", objectFit: "cover" }}
-            src={props.video}
-            playsInline
-            loop
-            muted
-            autoPlay
-          ></video>
-        )}
+        {props.video && <Video src={props.video} />}
       </div>
+
       <div className={s.iconC}>
         <Img src={props.icon} objectFit="contain" />
       </div>
