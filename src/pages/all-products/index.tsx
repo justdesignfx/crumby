@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react"
 import s from "./all-products.module.scss"
 
-import { useQuery } from "react-query"
+// import { useQuery } from "react-query"
 import { Link } from "react-router-dom"
 
 import cakesBottomPeanut from "@/assets/img/cakes-bottom-peanut.png"
@@ -12,13 +12,13 @@ import darkChocolate from "@/assets/img/crumby-dark-chocolate.png"
 import peanut from "@/assets/img/crumby-peanut.png"
 import strawberry from "@/assets/img/crumby-strawberry.png"
 
-import { fetchProducts } from "@/api-client/queries"
+// import { fetchProducts } from "@/api-client/queries"
 import CallToContact from "@/components/call-to-contact"
 import CardProduct from "@/components/card-product"
-import Filter from "@/components/sort"
+// import Filter from "@/components/sort"
 import Searchbox from "@/components/searchbox"
 import Products from "@/layouts/products"
-import LoadingSpinner from "@/components/loading-spinner"
+// import LoadingSpinner from "@/components/loading-spinner"
 import LoadingScreen from "@/components/loading-screen"
 
 const AllProducts = () => {
@@ -62,7 +62,7 @@ const AllProducts = () => {
   ]
 
   const [keyword, setKeyword] = useState("")
-  const [sort, setSort] = useState<string | null>(null)
+  // const [sort, setSort] = useState<string | null>(null)
 
   const isLoading = true
 
@@ -79,7 +79,7 @@ const AllProducts = () => {
           <main className={s.allProducts}>
             <section className={s.filterC}>
               <Searchbox keyword={keyword} setKeyword={setKeyword} />
-              <Filter
+              {/* <Filter
                 label="SORT"
                 options={[
                   { label: "NEWEST FIRST", value: "NEWEST_FIRST" },
@@ -88,7 +88,7 @@ const AllProducts = () => {
                 ]}
                 sort={sort}
                 setSort={setSort}
-              />
+              /> */}
             </section>
             <section className="flex-center-y">
               <div className={s.productsList}>
