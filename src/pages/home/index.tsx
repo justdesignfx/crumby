@@ -3,7 +3,7 @@ import s from "./home.module.scss"
 
 import { useMediaQuery } from "@uidotdev/usehooks"
 import cn from "clsx"
-import gsap, { Back } from "gsap"
+import gsap from "gsap"
 import { Helmet } from "react-helmet-async"
 import { Link } from "react-router-dom"
 
@@ -19,8 +19,8 @@ import SliderSpecs from "@/components/slider-specs"
 import { seo } from "@/global/seo"
 import Parallax from "@/hocs/animations/parallax"
 import { breakpoints } from "@/utils"
-
 import { useHomeSlider } from "@/api-client/queries"
+
 import charBests from "@/assets/gif/char-walk.gif"
 import cardSpecBg1 from "@/assets/img/bg-card-spec-1.png"
 import cardSpecBg3 from "@/assets/img/bg-card-spec-3.png"
@@ -111,7 +111,7 @@ const Home = () => {
     const ctx = gsap.context(() => {
       gsap.from(".slide-in", {
         duration: 0.9,
-        ease: Back.easeOut,
+        ease: "back.easeOut",
         opacity: 0,
         yPercent: 50,
         transformOrigin: "center",
