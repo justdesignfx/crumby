@@ -1,7 +1,6 @@
-import { ReactNode, useRef } from "react"
+import { ReactNode, useLayoutEffect, useRef } from "react"
 
-import { useAnimationFrame } from "framer-motion"
-// import gsap from "gsap"
+import gsap from "gsap"
 
 type Props = {
   children: ReactNode
@@ -10,17 +9,24 @@ type Props = {
 }
 
 const Float = ({ children, amountY = 10, amountRotate = 3 }: Props) => {
-  const ref = useRef<HTMLDivElement>(null)
-  // const random = gsap.utils.random(-3, 3)
+  const ref = useRef(null)
 
-  useAnimationFrame((time) => {
-    if (!ref.current) return
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.to(ref.current, {
+        yPercent: amountY,
+        rotate: amountRotate,
+        duration: 4,
+        repeat: -1,
+        yoyo: true,
+        yoyoEase: "none",
+      })
+    }, ref)
 
-    const y = (1 + Math.sin(time / 1500)) * amountY
-    const rotate = (1 + Math.sin(time / 1500)) * amountRotate
-
-    ref.current.style.transform = `translateY(${y}px) rotate(${rotate}deg)`
-  })
+    return () => {
+      ctx.revert()
+    }
+  }, [amountRotate, amountY])
 
   return (
     <div ref={ref} style={{ width: "inherit", height: "inherit", willChange: "transform" }}>

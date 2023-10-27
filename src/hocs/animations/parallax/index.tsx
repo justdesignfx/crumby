@@ -2,7 +2,6 @@ import { ReactNode, useLayoutEffect, useRef } from "react"
 
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"
-gsap.registerPlugin(ScrollTrigger)
 
 type Props = {
   children: ReactNode
@@ -17,7 +16,9 @@ const Parallax = ({ children, speedX = 1, speedY = 1, directionX = 1, directionY
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.to(".parallax", {
+      gsap.registerPlugin(ScrollTrigger)
+
+      gsap.to(ref.current, {
         xPercent: () => 100 * speedX * directionX,
         yPercent: () => 100 * speedY * directionY,
         scrollTrigger: {
@@ -35,10 +36,8 @@ const Parallax = ({ children, speedX = 1, speedY = 1, directionX = 1, directionY
   }, [directionX, directionY, speedX, speedY])
 
   return (
-    <div ref={ref}>
-      <div className="parallax" style={{ width: "inherit", height: "inherit", willChange: "transform" }}>
-        {children}
-      </div>
+    <div ref={ref} style={{ width: "inherit", height: "inherit" }}>
+      {children}
     </div>
   )
 }
