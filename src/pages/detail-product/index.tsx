@@ -178,7 +178,7 @@ const DetailProduct = () => {
                 <SliderProduct
                   slides={data?.similarProducts.map((product) => {
                     return (
-                      <Link to={product.url ?? ""}>
+                      <Link to={`/all-products/${product.url ?? ""}`}>
                         <CardProduct
                           img={product.img}
                           hoverImg={{ top: product.hoverImg.top, bottom: product.hoverImg.bottom }}
