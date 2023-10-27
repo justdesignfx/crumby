@@ -1,10 +1,11 @@
 import { Fragment, useLayoutEffect, useRef } from "react"
 import s from "./home.module.scss"
 
+import { useMediaQuery } from "@uidotdev/usehooks"
 import cn from "clsx"
 import gsap, { Back } from "gsap"
-import { Link } from "react-router-dom"
 import { Helmet } from "react-helmet-async"
+import { Link } from "react-router-dom"
 
 import Button from "@/components/button"
 import CallToContact from "@/components/call-to-contact"
@@ -15,6 +16,7 @@ import IconPopcorn from "@/components/icons/icon-popcorn"
 import Marquee from "@/components/marquee"
 import SliderProduct from "@/components/slider-product"
 import SliderSpecs from "@/components/slider-specs"
+import { seo } from "@/global/seo"
 import Parallax from "@/hocs/animations/parallax"
 import { breakpoints } from "@/utils"
 
@@ -36,8 +38,6 @@ import iconLowSugar from "@/assets/img/icon-low-sugar.svg"
 import iconProtein from "@/assets/img/icon-protein.svg"
 import specCard2 from "@/assets/video/blue.mp4"
 import specCard4 from "@/assets/video/purple.mp4"
-import { useMediaQuery } from "@uidotdev/usehooks"
-import { seo } from "@/global/seo"
 
 const specSlides = [
   <CardSpec
@@ -104,27 +104,24 @@ const specSlides = [
 
 const Home = () => {
   const heroRef = useRef(null)
-  const q = gsap.utils.selector(heroRef)
   const isMobile = useMediaQuery(`only screen and (max-width:${breakpoints.mobile}px)`)
   const { data: slides } = useHomeSlider()
 
   useLayoutEffect(() => {
-    if (!heroRef.current) return
-
     const ctx = gsap.context(() => {
-      gsap.from(q(".slide-in"), {
+      gsap.from(".slide-in", {
         duration: 0.9,
         ease: Back.easeOut,
         opacity: 0,
         yPercent: 50,
         transformOrigin: "center",
       })
-    }, heroRef.current)
+    }, heroRef)
 
     return () => {
       ctx.revert()
     }
-  }, [q])
+  }, [])
 
   return (
     <>
