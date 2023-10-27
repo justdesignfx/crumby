@@ -2,6 +2,7 @@ import s from "./about.module.scss"
 
 import cn from "clsx"
 import { Link } from "react-router-dom"
+import { Helmet } from "react-helmet-async"
 
 import Button from "@/components/button"
 import CallToContact from "@/components/call-to-contact"
@@ -9,6 +10,8 @@ import Img from "@/components/custom-img"
 import IconPopcorn from "@/components/icons/icon-popcorn"
 import Float from "@/hocs/animations/float"
 import Parallax from "@/hocs/animations/parallax"
+import Boom from "@/components/boom"
+import { seo } from "@/global/seo"
 
 import charYay from "@/assets/img/char-yay.png"
 import crumb1 from "@/assets/img/crumb-1.png"
@@ -23,11 +26,16 @@ import crumbyDarkChocolate from "@/assets/img/crumby-dark-chocolate.png"
 import crumbyPeanut from "@/assets/img/crumby-peanut.png"
 import crumbyStrawberry from "@/assets/img/crumby-strawberry.png"
 import riceCake from "@/assets/img/rice-cake.png"
-import Boom from "@/components/boom"
 
 const About = () => {
   return (
-    <main className={s.about}>
+    <>
+      <Helmet>
+        <title>{`${seo.title} | ${seo.about.title}`}</title>
+        <meta name="description" content={`${seo.about.desc}`}></meta>
+        <link rel="canonical" href={`${seo.about.canonical}`} />
+      </Helmet>
+
       <section className={cn(s.hero, "flex-center-y")}>
         <h1>
           <span>WE ARE</span>
@@ -157,7 +165,7 @@ const About = () => {
       </section>
 
       <CallToContact />
-    </main>
+    </>
   )
 }
 

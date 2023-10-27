@@ -2,17 +2,17 @@ import s from "./header.module.scss"
 
 import cn from "clsx"
 import { Link } from "react-router-dom"
-import { useMedia } from "react-use"
 
-import Img from "@/components/custom-img"
-import { breakpoints } from "@/utils"
-import NavigationTouchScreen from "@/components/navigation-touchscreen"
 import Button from "@/components/button"
+import Img from "@/components/custom-img"
+import NavigationTouchScreen from "@/components/navigation-touchscreen"
+import { breakpoints } from "@/utils"
 
 import logo from "@/assets/img/logo-crumby.svg"
+import { useMediaQuery } from "@uidotdev/usehooks"
 
 const Header = () => {
-  const isMobile = useMedia(`(max-width:${breakpoints.mobile}px`)
+  const isMobile = useMediaQuery(`only screen and (max-width:${breakpoints.mobile}px)`)
 
   return (
     <header>

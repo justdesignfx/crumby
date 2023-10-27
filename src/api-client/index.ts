@@ -1,11 +1,7 @@
 import axios from "axios"
 
 const apiClient = axios.create({
-  baseURL: "https://eatcrumby.com/jd-admin/services",
-  headers: {
-    ContentType: "application/json",
-    Accept: "application/json",
-  },
+  baseURL: "https://eatcrumby.justdesignfx.com/jd-admin/services",
 })
 
 export default apiClient

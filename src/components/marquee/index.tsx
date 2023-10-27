@@ -1,8 +1,8 @@
+import { useIntersectionObserver } from "@uidotdev/usehooks"
 import s from "./marquee.module.scss"
 
 import cn from "clsx"
-import { ReactElement, useRef } from "react"
-import { useIntersection } from "react-use"
+import { ReactElement } from "react"
 
 type Props = {
   children: ReactElement
@@ -24,9 +24,11 @@ const Marquee = ({
   animationStart = true,
   ...props
 }: Props) => {
-  const ref = useRef<HTMLDivElement>(null)
-
-  const intersection = useIntersection(ref, { threshold: 0 })
+  const [ref, intersection] = useIntersectionObserver({
+    threshold: 0,
+    root: null,
+    rootMargin: "0px",
+  })
 
   return (
     <div

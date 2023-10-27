@@ -4,80 +4,40 @@ import s from "./home.module.scss"
 import cn from "clsx"
 import gsap, { Back } from "gsap"
 import { Link } from "react-router-dom"
-import { useMedia } from "react-use"
+import { Helmet } from "react-helmet-async"
 
 import Button from "@/components/button"
 import CallToContact from "@/components/call-to-contact"
+import CardProduct from "@/components/card-product"
 import CardSpec from "@/components/card-spec"
 import Img from "@/components/custom-img"
 import IconPopcorn from "@/components/icons/icon-popcorn"
 import Marquee from "@/components/marquee"
+import SliderProduct from "@/components/slider-product"
+import SliderSpecs from "@/components/slider-specs"
 import Parallax from "@/hocs/animations/parallax"
+import { breakpoints } from "@/utils"
 
+import { useHomeSlider } from "@/api-client/queries"
+import charBests from "@/assets/gif/char-walk.gif"
+import cardSpecBg1 from "@/assets/img/bg-card-spec-1.png"
+import cardSpecBg3 from "@/assets/img/bg-card-spec-3.png"
+import cardSpecBg5 from "@/assets/img/bg-card-spec-5.png"
+import cake from "@/assets/img/hero-cake.png"
+import iconCarb from "@/assets/img/icon-carb.svg"
 import cardSpecIcon1 from "@/assets/img/icon-card-spec-1.png"
 import cardSpecIcon2 from "@/assets/img/icon-card-spec-2.png"
 import cardSpecIcon3 from "@/assets/img/icon-card-spec-3.png"
 import cardSpecIcon4 from "@/assets/img/icon-card-spec-4.png"
 import cardSpecIcon5 from "@/assets/img/icon-card-spec-5.png"
-
-import cardSpecBg1 from "@/assets/img/bg-card-spec-1.png"
-import cardSpecBg3 from "@/assets/img/bg-card-spec-3.png"
-import cardSpecBg5 from "@/assets/img/bg-card-spec-5.png"
-
-import charBests from "@/assets/gif/char-walk.gif"
-
-import cakesBottomPeanut from "@/assets/img/cakes-bottom-peanut.png"
-import cakesTopPeanut from "@/assets/img/cakes-top-peanut.png"
-
-import chocolate from "@/assets/img/crumby-chocolate.png"
-import peanut from "@/assets/img/crumby-peanut.png"
-import strawberry from "@/assets/img/crumby-strawberry.png"
-
-import specCard2 from "@/assets/video/blue.mp4"
-import specCard4 from "@/assets/video/purple.mp4"
-
-import cake from "@/assets/img/hero-cake.png"
-import iconCarb from "@/assets/img/icon-carb.svg"
 import iconDrop from "@/assets/img/icon-drop.svg"
 import iconFiber from "@/assets/img/icon-fiber.svg"
 import iconLowSugar from "@/assets/img/icon-low-sugar.svg"
 import iconProtein from "@/assets/img/icon-protein.svg"
-import CardProduct from "@/components/card-product"
-import SliderProduct from "@/components/slider-product"
-import SliderSpecs from "@/components/slider-specs"
-import { breakpoints } from "@/utils"
-
-const slides = [
-  <Link to="/all-products/lol">
-    <CardProduct
-      img={chocolate}
-      hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
-      name={
-        <>
-          MILK CHOCOLATE <br />+ PEANUT
-        </>
-      }
-    />
-  </Link>,
-  <Link to="/all-products/lol">
-    <CardProduct
-      img={peanut}
-      hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
-      name={
-        <>
-          MILK CHOCOLATE <br />+ DRIED STRAWBERRY
-        </>
-      }
-    />
-  </Link>,
-  <Link to="/all-products/lol">
-    <CardProduct
-      img={strawberry}
-      hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
-      name={<>MILK CHOCOLATE</>}
-    />
-  </Link>,
-]
+import specCard2 from "@/assets/video/blue.mp4"
+import specCard4 from "@/assets/video/purple.mp4"
+import { useMediaQuery } from "@uidotdev/usehooks"
+import { seo } from "@/global/seo"
 
 const specSlides = [
   <CardSpec
@@ -143,12 +103,13 @@ const specSlides = [
 ]
 
 const Home = () => {
-  const ref = useRef(null)
-  const q = gsap.utils.selector(ref)
-  const isMobile = useMedia(`(max-width:${breakpoints.mobile}px`)
+  const heroRef = useRef(null)
+  const q = gsap.utils.selector(heroRef)
+  const isMobile = useMediaQuery(`only screen and (max-width:${breakpoints.mobile}px)`)
+  const { data: slides } = useHomeSlider()
 
   useLayoutEffect(() => {
-    if (!ref.current) return
+    if (!heroRef.current) return
 
     const ctx = gsap.context(() => {
       gsap.from(q(".slide-in"), {
@@ -158,7 +119,7 @@ const Home = () => {
         yPercent: 50,
         transformOrigin: "center",
       })
-    }, ref.current)
+    }, heroRef.current)
 
     return () => {
       ctx.revert()
@@ -166,8 +127,14 @@ const Home = () => {
   }, [q])
 
   return (
-    <main className={s.home} ref={ref}>
-      <section className={cn(s.hero, "flex-center-y")}>
+    <>
+      <Helmet>
+        <title>{`${seo.title} | ${seo.home.title}`}</title>
+        <meta name="description" content={`${seo.home.desc}`}></meta>
+        <link rel="canonical" href={`${seo.home.canonical}`} />
+      </Helmet>
+
+      <section className={cn(s.hero, "flex-center-y")} ref={heroRef}>
         <h1>
           <span>CRUMB</span>
           <span className={cn(s.imgC, "slide-in")}>
@@ -274,7 +241,6 @@ const Home = () => {
         </Link>
         <div className={s.charC}>
           <Img src={charBests} objectFit="contain" />
-          {/* <video style={{ width: "100%", height: "100%" }} src={charBests} playsInline loop muted autoPlay></video> */}
         </div>
       </section>
 
@@ -324,18 +290,33 @@ const Home = () => {
         </div>
       </section>
 
-      <section className={cn(s.flavors, "flex-center-y")}>
-        <h2>OUR TASTY FLAVORS</h2>
-        <div className={s.boxes}>
-          <SliderProduct slides={slides} />
-        </div>
-        <Link to="/all-products">
-          <Button text="SEE ALL PRODUCTS" size="lg" theme="light" />
-        </Link>
-      </section>
+      {slides && (
+        <section className={cn(s.flavors, "flex-center-y")}>
+          <h2>OUR TASTY FLAVORS</h2>
+          <div className={s.boxes}>
+            <SliderProduct
+              slides={slides?.map((product) => {
+                return (
+                  <Link to={`/all-products/${product.url}` ?? ""} key={product.id}>
+                    <CardProduct
+                      img={product.img}
+                      hoverImg={{ top: product.hoverImg.top, bottom: product.hoverImg.bottom }}
+                      name={product.name}
+                    />
+                  </Link>
+                )
+              })}
+            />
+          </div>
+
+          <Link to="/all-products">
+            <Button text="SEE ALL PRODUCTS" size="lg" theme="light" />
+          </Link>
+        </section>
+      )}
 
       <CallToContact />
-    </main>
+    </>
   )
 }
 

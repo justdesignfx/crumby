@@ -9,19 +9,15 @@ figure {
     max-width: 100%;
     position: relative;
     top: auto;
+    transition: 200ms opacity ease;
     transform: scale(1.01);
-    z-index: z-index("img");
+    // z-index: z-index("img");
+    opacity: 0;
   }
 
-  &.lazy {
+  &.visible {
     img {
-      left: 0;
-      position: absolute;
-      top: 0;
+      opacity: 1;
     }
-  }
-
-  .aspectRatio {
-    padding-top: var(--aspectRatio);
   }
 }

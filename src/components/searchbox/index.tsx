@@ -1,11 +1,12 @@
 import s from "./searchbox.module.scss"
 
 import cn from "clsx"
+
 import IconMagnifyingGlass from "@/components/icons/icon-magnifying-glass"
 
 type Props = {
-  keyword: string
-  setKeyword: (keyword: string) => void
+  keyword: string | null
+  setKeyword: (keyword: string | null) => void
 }
 
 const Searchbox = ({ keyword, setKeyword }: Props) => {
@@ -24,7 +25,7 @@ const Searchbox = ({ keyword, setKeyword }: Props) => {
             id="search"
             name="search"
             onChange={handleChange}
-            value={keyword}
+            value={keyword ?? ""}
           />
         </div>
         <div className={cn(s.iconC, "flex-center")}>

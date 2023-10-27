@@ -3,75 +3,39 @@ import s from "./all-products.module.scss"
 
 import cn from "clsx"
 import { Link } from "react-router-dom"
+import { Helmet } from "react-helmet-async"
 
-import { useAll } from "@/api-client/queries"
+import { useAll, useSortOptions } from "@/api-client/queries"
+import Breadcrumb from "@/components/breadcrumb"
 import CallToContact from "@/components/call-to-contact"
 import CardProduct from "@/components/card-product"
 import LoadingScreen from "@/components/loading-screen"
 import Searchbox from "@/components/searchbox"
 import Filter from "@/components/sort"
-import Products from "@/layouts/products"
-import { Option } from "@/global"
+import useDebounce from "@/components/use-debounce"
+import { IOption } from "@/global"
+import { seo } from "@/global/seo"
 
 const AllProducts = () => {
-  // const products = [
-  //   <Link to={`/all-products/detail`}>
-  //     <CardProduct
-  //       img={chocolate}
-  //       hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
-  //       name={
-  //         <>
-  //           MILK CHOCOLATE <br />+ PEANUT
-  //         </>
-  //       }
-  //     />
-  //   </Link>,
-  //   <Link to={`/all-products/detail`}>
-  //     <CardProduct
-  //       img={peanut}
-  //       hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
-  //       name={
-  //         <>
-  //           MILK CHOCOLATE <br />+ DRIED STRAWBERRY
-  //         </>
-  //       }
-  //     />
-  //   </Link>,
-  //   <Link to={`/all-products/detail`}>
-  //     <CardProduct
-  //       img={strawberry}
-  //       hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
-  //       name={<>MILK CHOCOLATE</>}
-  //     />
-  //   </Link>,
-  //   <Link to={`/all-products/detail`}>
-  //     <CardProduct
-  //       img={darkChocolate}
-  //       hoverImg={{ top: cakesTopPeanut, bottom: cakesBottomPeanut }}
-  //       name={<>DARK CHOCOLATE</>}
-  //     />
-  //   </Link>,
-  // ]
-
   const [keyword, setKeyword] = useState<string | null>(null)
-  const [sort, setSort] = useState<Option | null>(null)
-
-  const { isLoading, data } = useAll(keyword, sort)
+  const [sort, setSort] = useState<IOption | null>(null)
+  const debouncedKeyword = useDebounce(keyword, 500)
+  const { data: sortOptions } = useSortOptions()
+  const { isLoading, data } = useAll(debouncedKeyword, sort)
 
   return (
-    <Products>
+    <>
+      <Helmet>
+        <title>{`${seo.title} | ${seo.allProducts.title}`}</title>
+        <meta name="description" content={`${seo.allProducts.desc}`}></meta>
+        <link rel="canonical" href={`${seo.allProducts.canonical}`} />
+      </Helmet>
+
+      <Breadcrumb />
+
       <section className={s.filterC}>
         <Searchbox keyword={keyword} setKeyword={setKeyword} />
-        <Filter
-          label="SORT"
-          options={[
-            { label: "NEWEST FIRST", value: "NEWEST_FIRST" },
-            { label: "FILTER 2", value: "desc" },
-            { label: "FILTER 3", value: "th" },
-          ]}
-          sort={sort}
-          setSort={setSort}
-        />
+        {sortOptions && <Filter label="SORT" options={sortOptions} sort={sort} setSort={setSort} />}
       </section>
 
       <>
@@ -107,7 +71,7 @@ const AllProducts = () => {
       </>
 
       <CallToContact />
-    </Products>
+    </>
   )
 }
 

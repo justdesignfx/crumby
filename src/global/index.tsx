@@ -1,8 +1,8 @@
-export interface Product {
+export interface IProduct {
   desc: string
   name: string
-  imgs: string[]
-  similarProducts: CardProduct[]
+  imgs: IMedia[]
+  similarProducts: ICardProduct[]
   specs: {
     name: string
     icon: string
@@ -11,19 +11,26 @@ export interface Product {
     desc: string
     title: string
   }[]
-  media: {
-    mediaType: "video" | "image"
-    src: string
-  }
+  media: IMedia
+  seoTitle: string
+  url: string
 }
 
-export interface CardProduct {
+export interface ICardProduct {
   hoverImg: { bottom: string; top: string }
   name: string
   img: string
+  id?: number
+  url?: string
 }
 
-export interface Option {
+export interface IOption {
+  id?: string
   label: string
   value: string
+}
+
+export interface IMedia {
+  mediaType: "video" | "image"
+  src: string
 }

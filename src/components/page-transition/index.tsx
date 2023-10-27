@@ -3,8 +3,10 @@ import s from "./page-transition.module.scss"
 
 import cn from "clsx"
 
-import logo from "@/assets/img/logo-crumby-c.svg"
 import Img from "@/components/custom-img"
+
+// import logo from "@/assets/img/logo-crumby-c.svg"
+import logo from "@/assets/gif/logo-loading-c.gif"
 
 export type Ref = HTMLDivElement
 

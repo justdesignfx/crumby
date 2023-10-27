@@ -1,32 +1,40 @@
-import { useEffect, useRef } from "react"
+import { useLayoutEffect, useRef, useState } from "react"
 import s from "./preloader.module.scss"
 
 import cn from "clsx"
-
-import logo from "@/assets/img/logo-crumby-c.svg"
+import gsap from "gsap"
 
 import Img from "@/components/custom-img"
-import gsap from "gsap"
+
+// import logo from "@/assets/img/logo-crumby-c.svg"
+import logo from "@/assets/gif/logo-loading-c.gif"
 
 const Preloader = () => {
   const ref = useRef(null)
-  //   const [loading, setLoading] = useState(true)
+  const [visible, setVisible] = useState(true)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     gsap.to(ref.current, {
       opacity: 0,
-      delay: 2,
+      delay: 1.5,
+      onComplete: () => {
+        setVisible(false)
+      },
     })
   }, [])
 
   return (
-    <div className={cn(s.preloader, "flex-center", "hidden-overflow")} ref={ref}>
-      <div className="flex-center">
-        <div className={s.imgC}>
-          <Img src={logo} objectFit="contain" />
+    <>
+      {visible && (
+        <div className={cn(s.preloader, "flex-center", "hidden-overflow")} ref={ref}>
+          <div className="flex-center">
+            <div className={s.imgC}>
+              <Img src={logo} objectFit="contain" />
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   )
 }
 

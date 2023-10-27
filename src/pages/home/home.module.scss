@@ -1,362 +1,360 @@
-.home {
-  .hero {
-    @include dims(100%, calc(100vh - var(--header-height)));
-    background: url("../../assets/img/wave.svg");
-    background-repeat: no-repeat;
-    background-position: center bottom -2px;
-    background-size: 100% auto;
+.hero {
+  @include dims(100%, calc(100vh - var(--header-height)));
+  background: url("../../assets/img/wave.svg");
+  background-repeat: no-repeat;
+  background-position: center bottom -2px;
+  background-size: 100% auto;
+  position: relative;
+  z-index: 50;
+
+  @include mobile {
+    @include dims(100%, auto);
+    background-size: 400% auto;
+    padding-bottom: mobile-vw(150px);
+  }
+
+  h1 {
+    color: var(--duqqa-brown);
+    font-size: desktop-vw(150px);
+    font-family: var(--font-grandstander);
+    font-weight: 900;
+    margin-bottom: desktop-vw(75px);
+    margin-top: desktop-vw(-100px);
     position: relative;
-    z-index: 50;
+    text-align: center;
 
     @include mobile {
-      @include dims(100%, auto);
-      background-size: 400% auto;
-      padding-bottom: mobile-vw(150px);
+      font-size: mobile-vw(72px);
+      margin-bottom: mobile-vw(75px);
+      margin-top: mobile-vw(100px);
     }
 
-    h1 {
-      color: var(--duqqa-brown);
-      font-size: desktop-vw(150px);
-      font-family: var(--font-grandstander);
-      font-weight: 900;
-      margin-bottom: desktop-vw(75px);
-      margin-top: desktop-vw(-100px);
+    > span {
+      display: block;
       position: relative;
-      text-align: center;
 
-      @include mobile {
-        font-size: mobile-vw(72px);
-        margin-bottom: mobile-vw(75px);
-        margin-top: mobile-vw(100px);
-      }
-
-      > span {
-        display: block;
-        position: relative;
-
-        &.imgC {
-          @include position(absolute, 50%, auto, auto, 50%);
-          @include dims(desktop-vw(360px));
-          pointer-events: none;
-          transform: translate(-50%, -10%);
-
-          @include mobile {
-            @include dims(mobile-vw(200px));
-            transform: translate(-50%, mobile-vw(-10px));
-          }
-        }
-
-        &:nth-child(1) {
-          margin-bottom: desktop-vw(40px);
-          z-index: 10;
-        }
-
-        &:nth-child(2) {
-          z-index: 20;
-        }
-
-        &:nth-child(3) {
-          z-index: 30;
-        }
-      }
-    }
-
-    .marqueeC {
-      @include position(absolute, auto, auto, 0, auto);
-      transform: translateY(desktop-vw(-10px));
-
-      @include mobile {
-        padding: mobile-vw(20px) 0;
-        transform: translateY(desktop-vw(50px));
-      }
-
-      .specC {
-        align-items: center;
-        display: flex;
-        margin: 0 desktop-vw(40px);
+      &.imgC {
+        @include position(absolute, 50%, auto, auto, 50%);
+        @include dims(desktop-vw(360px));
+        pointer-events: none;
+        transform: translate(-50%, -10%);
 
         @include mobile {
-          margin: 0 mobile-vw(20px);
+          @include dims(mobile-vw(200px));
+          transform: translate(-50%, mobile-vw(-10px));
         }
-      }
-
-      h2 {
-        align-items: center;
-        color: var(--toasted-marshmallow-fluff);
-        font-size: desktop-vw(30px);
-        font-family: var(--font-grandstander);
-        font-weight: 900;
-        transform: translateY(desktop-vw(3px));
-        display: inline-flex;
-
-        @include mobile {
-          font-size: mobile-vw(30px);
-          transform: translateY(mobile-vw(3px));
-        }
-      }
-
-      .iconC {
-        @include dims(desktop-vw(32px));
-        align-items: center;
-        display: inline-flex;
-        justify-content: center;
-        margin-left: desktop-vw(20px);
-
-        @include mobile {
-          @include dims(mobile-vw(32px));
-          margin-left: mobile-vw(20px);
-        }
-      }
-    }
-
-    .popcornC {
-      z-index: 150;
-
-      &.a {
-        @include position(absolute, desktop-vw(240px), auto, auto, desktop-vw(220px));
-        @include dims(desktop-vw(66px));
-
-        @include mobile {
-          @include position(absolute, mobile-vw(160px), auto, auto, mobile-vw(280px));
-          @include dims(mobile-vw(28px));
-        }
-      }
-
-      &.b {
-        @include position(absolute, desktop-vw(300px), auto, auto, desktop-vw(1100px));
-        @include dims(desktop-vw(98px));
-
-        @include mobile {
-          @include position(absolute, mobile-vw(280px), auto, auto, mobile-vw(50px));
-          @include dims(mobile-vw(25px));
-        }
-      }
-
-      &.c {
-        @include position(absolute, desktop-vw(500px), auto, auto, desktop-vw(1250px));
-        @include dims(desktop-vw(38px));
-
-        @include mobile {
-          @include position(absolute, mobile-vw(80px), auto, auto, mobile-vw(50px));
-          @include dims(mobile-vw(38px));
-        }
-      }
-    }
-  }
-
-  .why {
-    align-items: center;
-    background: var(--duqqa-brown);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-top: desktop-vw(120px);
-    position: relative;
-    z-index: 100;
-
-    @include mobile {
-      padding-top: mobile-vw(100px);
-    }
-
-    h2 {
-      color: var(--toasted-marshmallow-fluff);
-      font-size: desktop-vw(120px);
-      font-family: var(--font-grandstander);
-      font-weight: 900;
-      margin-bottom: desktop-vw(120px);
-      text-align: center;
-
-      @include mobile {
-        font-size: mobile-vw(70px);
-        margin-bottom: mobile-vw(75px);
-      }
-    }
-
-    .reasons {
-      align-items: flex-start;
-      column-gap: desktop-vw(140px);
-      display: flex;
-      margin-bottom: desktop-vw(50px);
-
-      @include mobile {
-        flex-direction: column;
-      }
-
-      & > div {
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        width: desktop-vw(330px);
-
-        @include mobile {
-          margin-bottom: mobile-vw(50px);
-          width: mobile-vw(320px);
-        }
-
-        h5 {
-          color: var(--toasted-marshmallow-fluff);
-          font-size: desktop-vw(40px);
-          font-family: var(--font-grandstander);
-          font-weight: 900;
-          margin-bottom: desktop-vw(30px);
-
-          @include mobile {
-            font-size: mobile-vw(40px);
-            margin-bottom: mobile-vw(30px);
-          }
-        }
-
-        p {
-          color: var(--net-worker);
-          font-size: desktop-vw(16px);
-          font-family: var(--font-grandstander);
-          font-weight: 400;
-          line-height: 1.5;
-
-          @include mobile {
-            font-size: mobile-vw(16px);
-            margin-bottom: mobile-vw(30px);
-          }
-        }
-      }
-    }
-
-    .charC {
-      @include dims(desktop-vw(320px), desktop-vw(240px));
-      margin-top: desktop-vw(85px);
-
-      @include mobile {
-        @include dims(mobile-vw(300px), mobile-vw(220px));
-        margin-top: mobile-vw(85px);
-      }
-    }
-  }
-
-  .ingredients {
-    align-items: center;
-    background: var(--toasted-marshmallow-fluff);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-top: desktop-vw(120px);
-
-    @include mobile {
-      padding-top: mobile-vw(100px);
-    }
-
-    h2 {
-      color: var(--duqqa-brown);
-      font-size: desktop-vw(120px);
-      font-family: var(--font-grandstander);
-      font-weight: 900;
-      margin-bottom: desktop-vw(90px);
-      text-align: center;
-
-      @include mobile {
-        font-size: mobile-vw(80px);
-        margin-bottom: mobile-vw(50px);
-      }
-    }
-
-    .specs {
-      display: grid;
-      gap: desktop-vw(22px);
-      grid-template-columns: repeat(3, 1fr);
-      margin: 0 auto;
-      margin-bottom: desktop-vw(90px);
-
-      @include mobile {
-        display: flex;
-        margin-bottom: mobile-vw(50px);
-        width: 100%;
-      }
-    }
-  }
-
-  .realChocolate {
-    @include mobile {
-      margin: mobile-vw(50px) 0;
-    }
-
-    .marqueeC {
-      align-items: center;
-      display: flex;
-      margin-left: -50%;
-      padding: desktop-vw(35px) 0;
-      outline: 1px solid var(--white-transparent);
-      width: 200%;
-
-      @include mobile {
-        padding: mobile-vw(20px) 0;
       }
 
       &:nth-child(1) {
-        background: var(--vanilla-cream);
-        color: var(--duqqa-brown);
-        transform: rotate(-8deg);
+        margin-bottom: desktop-vw(40px);
+        z-index: 10;
       }
 
       &:nth-child(2) {
-        background: var(--passionate-purple);
-        color: var(--porcellana);
-        transform: rotate(4deg) translateY(-20%);
+        z-index: 20;
       }
 
-      h3 {
-        font-size: desktop-vw(70px);
+      &:nth-child(3) {
+        z-index: 30;
+      }
+    }
+  }
+
+  .marqueeC {
+    @include position(absolute, auto, auto, 0, auto);
+    transform: translateY(desktop-vw(-10px));
+
+    @include mobile {
+      padding: mobile-vw(20px) 0;
+      transform: translateY(desktop-vw(50px));
+    }
+
+    .specC {
+      align-items: center;
+      display: flex;
+      margin: 0 desktop-vw(40px);
+
+      @include mobile {
+        margin: 0 mobile-vw(20px);
+      }
+    }
+
+    h2 {
+      align-items: center;
+      color: var(--toasted-marshmallow-fluff);
+      font-size: desktop-vw(30px);
+      font-family: var(--font-grandstander);
+      font-weight: 900;
+      transform: translateY(desktop-vw(3px));
+      display: inline-flex;
+
+      @include mobile {
+        font-size: mobile-vw(30px);
+        transform: translateY(mobile-vw(3px));
+      }
+    }
+
+    .iconC {
+      @include dims(desktop-vw(32px));
+      align-items: center;
+      display: inline-flex;
+      justify-content: center;
+      margin-left: desktop-vw(20px);
+
+      @include mobile {
+        @include dims(mobile-vw(32px));
+        margin-left: mobile-vw(20px);
+      }
+    }
+  }
+
+  .popcornC {
+    z-index: 150;
+
+    &.a {
+      @include position(absolute, desktop-vw(240px), auto, auto, desktop-vw(220px));
+      @include dims(desktop-vw(66px));
+
+      @include mobile {
+        @include position(absolute, mobile-vw(160px), auto, auto, mobile-vw(280px));
+        @include dims(mobile-vw(28px));
+      }
+    }
+
+    &.b {
+      @include position(absolute, desktop-vw(300px), auto, auto, desktop-vw(1100px));
+      @include dims(desktop-vw(98px));
+
+      @include mobile {
+        @include position(absolute, mobile-vw(280px), auto, auto, mobile-vw(50px));
+        @include dims(mobile-vw(25px));
+      }
+    }
+
+    &.c {
+      @include position(absolute, desktop-vw(500px), auto, auto, desktop-vw(1250px));
+      @include dims(desktop-vw(38px));
+
+      @include mobile {
+        @include position(absolute, mobile-vw(80px), auto, auto, mobile-vw(50px));
+        @include dims(mobile-vw(38px));
+      }
+    }
+  }
+}
+
+.why {
+  align-items: center;
+  background: var(--duqqa-brown);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: desktop-vw(120px);
+  position: relative;
+  z-index: 100;
+
+  @include mobile {
+    padding-top: mobile-vw(100px);
+  }
+
+  h2 {
+    color: var(--toasted-marshmallow-fluff);
+    font-size: desktop-vw(120px);
+    font-family: var(--font-grandstander);
+    font-weight: 900;
+    margin-bottom: desktop-vw(120px);
+    text-align: center;
+
+    @include mobile {
+      font-size: mobile-vw(70px);
+      margin-bottom: mobile-vw(75px);
+    }
+  }
+
+  .reasons {
+    align-items: flex-start;
+    column-gap: desktop-vw(140px);
+    display: flex;
+    margin-bottom: desktop-vw(50px);
+
+    @include mobile {
+      flex-direction: column;
+    }
+
+    & > div {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      width: desktop-vw(330px);
+
+      @include mobile {
+        margin-bottom: mobile-vw(50px);
+        width: mobile-vw(320px);
+      }
+
+      h5 {
+        color: var(--toasted-marshmallow-fluff);
+        font-size: desktop-vw(40px);
         font-family: var(--font-grandstander);
         font-weight: 900;
-        margin: 0 desktop-vw(40px);
-        transform: translateY(10%);
+        margin-bottom: desktop-vw(30px);
 
         @include mobile {
-          font-size: mobile-vw(50px);
-          margin: 0 mobile-vw(30px);
-          transform: translateY(mobile-vw(15px));
+          font-size: mobile-vw(40px);
+          margin-bottom: mobile-vw(30px);
         }
       }
 
-      .imgC {
-        @include dims(desktop-vw(75px));
+      p {
+        color: var(--net-worker);
+        font-size: desktop-vw(16px);
+        font-family: var(--font-grandstander);
+        font-weight: 400;
+        line-height: 1.5;
 
         @include mobile {
-          @include dims(mobile-vw(70px));
+          font-size: mobile-vw(16px);
+          margin-bottom: mobile-vw(30px);
         }
       }
     }
   }
 
-  .flavors {
-    background: var(--toasted-marshmallow-fluff);
-    padding-bottom: desktop-vw(120px);
-    padding-top: desktop-vw(120px);
+  .charC {
+    @include dims(desktop-vw(320px), desktop-vw(240px));
+    margin-top: desktop-vw(85px);
 
-    h2 {
+    @include mobile {
+      @include dims(mobile-vw(300px), mobile-vw(220px));
+      margin-top: mobile-vw(85px);
+    }
+  }
+}
+
+.ingredients {
+  align-items: center;
+  background: var(--toasted-marshmallow-fluff);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-top: desktop-vw(120px);
+
+  @include mobile {
+    padding-top: mobile-vw(100px);
+  }
+
+  h2 {
+    color: var(--duqqa-brown);
+    font-size: desktop-vw(120px);
+    font-family: var(--font-grandstander);
+    font-weight: 900;
+    margin-bottom: desktop-vw(90px);
+    text-align: center;
+
+    @include mobile {
+      font-size: mobile-vw(80px);
+      margin-bottom: mobile-vw(50px);
+    }
+  }
+
+  .specs {
+    display: grid;
+    gap: desktop-vw(22px);
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0 auto;
+    margin-bottom: desktop-vw(90px);
+
+    @include mobile {
+      display: flex;
+      margin-bottom: mobile-vw(50px);
+      width: 100%;
+    }
+  }
+}
+
+.realChocolate {
+  @include mobile {
+    margin: mobile-vw(50px) 0;
+  }
+
+  .marqueeC {
+    align-items: center;
+    display: flex;
+    margin-left: -50%;
+    padding: desktop-vw(35px) 0;
+    outline: 1px solid var(--white-transparent);
+    width: 200%;
+
+    @include mobile {
+      padding: mobile-vw(20px) 0;
+    }
+
+    &:nth-child(1) {
+      background: var(--vanilla-cream);
       color: var(--duqqa-brown);
-      font-size: desktop-vw(66px);
+      transform: rotate(-8deg);
+    }
+
+    &:nth-child(2) {
+      background: var(--passionate-purple);
+      color: var(--porcellana);
+      transform: rotate(4deg) translateY(-20%);
+    }
+
+    h3 {
+      font-size: desktop-vw(70px);
       font-family: var(--font-grandstander);
       font-weight: 900;
-      margin-bottom: desktop-vw(30px);
-      text-align: center;
+      margin: 0 desktop-vw(40px);
+      transform: translateY(10%);
 
       @include mobile {
-        font-size: mobile-vw(66px);
-        margin-bottom: unset;
+        font-size: mobile-vw(50px);
+        margin: 0 mobile-vw(30px);
+        transform: translateY(mobile-vw(15px));
       }
     }
 
-    .boxes {
-      align-items: flex-start;
-      column-gap: desktop-vw(20px);
-      display: flex;
-      margin-bottom: desktop-vw(90px);
+    .imgC {
+      @include dims(desktop-vw(75px));
 
       @include mobile {
-        margin-bottom: mobile-vw(50px);
-        width: 100%;
+        @include dims(mobile-vw(70px));
       }
+    }
+  }
+}
+
+.flavors {
+  background: var(--toasted-marshmallow-fluff);
+  padding-bottom: desktop-vw(120px);
+  padding-top: desktop-vw(120px);
+
+  h2 {
+    color: var(--duqqa-brown);
+    font-size: desktop-vw(66px);
+    font-family: var(--font-grandstander);
+    font-weight: 900;
+    margin-bottom: desktop-vw(30px);
+    text-align: center;
+
+    @include mobile {
+      font-size: mobile-vw(66px);
+      margin-bottom: unset;
+    }
+  }
+
+  .boxes {
+    align-items: flex-start;
+    column-gap: desktop-vw(20px);
+    display: flex;
+    margin-bottom: desktop-vw(90px);
+
+    @include mobile {
+      margin-bottom: mobile-vw(50px);
+      width: 100%;
     }
   }
 }

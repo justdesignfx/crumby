@@ -1,14 +1,21 @@
 import { Link } from "react-router-dom"
+import cn from "clsx"
+
 import s from "./breadcrumb.module.scss"
 
-const Breadcrumb = () => {
+type Props = {
+  productName?: string
+}
+
+const Breadcrumb = (props: Props) => {
   return (
-    <div className={s.breadcrumb}>
-      <Link to="/all-products" className={s.item}>
+    <section className={s.breadcrumb}>
+      <Link to="/all-products" className={cn(s.item, { [s.hollow]: props.productName })}>
         ALL PRODUCTS
+        {props.productName && <span className={s.separator}>/</span>}
       </Link>
-      <small className={s.item}> / PRODUCTNAME</small>
-    </div>
+      {props.productName && <small className={s.item}>{props.productName}</small>}
+    </section>
   )
 }
 

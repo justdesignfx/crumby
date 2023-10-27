@@ -6,13 +6,18 @@ import cn from "clsx"
 import IconMinus from "@/components/icons/icon-minus"
 import IconPlus from "@/components/icons/icon-plus"
 
-const AccordionItem = () => {
+interface IAccordionItem {
+  title: string
+  desc: string
+}
+
+const AccordionItem = (props: IAccordionItem) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
     <div className={cn(s.item, "cursor-pointer")} onClick={() => setIsOpen((prev) => !prev)}>
       <div className={cn(s.accordionHeader, "accordion-header")}>
-        <h5>INGREDIENTS</h5>
+        <h5>{props.title}</h5>
         <span className={cn(s.iconC, "flex-center", { [s.open]: isOpen })}>
           <span className={cn(s.icon, s.minus)}>
             <IconMinus fill={"var(--vanilla-cream)"} />
@@ -23,20 +28,22 @@ const AccordionItem = () => {
         </span>
       </div>
       <div className={cn(s.accordionBody, "accordion-body", { [s.open]: isOpen })}>
-        <p>
-          Milk Chocolate (56%) [Sugar, Cocoa Mass, Cocoa Butter, Soya Lecithin, Polyglycerol Polyricinoleate, Natural
-          Vanilla Flavouring], Brown Rice (27%), White Rice (11%), Peanut pieces (6%).
-        </p>
+        <p>{props.desc}</p>
       </div>
     </div>
   )
 }
 
-const AccordionSpecs = () => {
+type Props = {
+  items: IAccordionItem[]
+}
+
+const AccordionSpecs = (props: Props) => {
   return (
     <div className={s.accordionSpecs}>
-      <AccordionItem />
-      <AccordionItem />
+      {props.items.map((item, i) => {
+        return <AccordionItem {...item} key={i} />
+      })}
     </div>
   )
 }

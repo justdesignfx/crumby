@@ -1,387 +1,386 @@
-.detailProduct {
-  .info {
+.info {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  margin-top: desktop-vw(50px);
+  padding: 0 desktop-vw(50px);
+  padding-bottom: desktop-vw(300px);
+  position: relative;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    margin-top: mobile-vw(30px);
+    padding: 0;
+    padding-bottom: mobile-vw(200px);
+  }
+
+  .pics {
     display: grid;
-    grid-template-columns: 1.25fr 1fr;
-    margin-top: desktop-vw(75px);
-    padding: 0 desktop-vw(50px);
-    padding-bottom: desktop-vw(300px);
-    position: relative;
-
-    @include mobile {
-      grid-template-columns: 1fr;
-      margin-top: mobile-vw(30px);
-      padding: 0;
-      padding-bottom: mobile-vw(200px);
-    }
-
-    .pics {
-      display: grid;
-      gap: desktop-vw(9px);
-      grid-template-columns: repeat(2, 1fr);
-
-      .sliderC {
-        @include mobile {
-          width: 100vw;
-        }
-
-        .slide {
-          width: 100vw;
-        }
-      }
-
-      .imgC {
-        @include dims(auto, desktop-vw(440px));
-        background: var(--smashing-pumpkins);
-        border-radius: desktop-vw(20px);
-
-        @include mobile {
-          @include dims(mobile-vw(320px), mobile-vw(440px));
-          border-radius: mobile-vw(20px);
-          margin: 0 auto;
-        }
-      }
-    }
-
-    .desc {
-      padding-left: desktop-vw(100px);
-
-      @include mobile {
-        padding: 0 mobile-vw(16px);
-      }
-
-      > h1 {
-        color: var(--duqqa-brown);
-        font-size: desktop-vw(66px);
-        font-family: var(--font-grandstander);
-        font-weight: 900;
-        margin-bottom: desktop-vw(50px);
-        position: relative;
-        text-align: right;
-
-        @include mobile {
-          font-size: mobile-vw(45px);
-          margin-bottom: mobile-vw(30px);
-          margin-top: mobile-vw(50px);
-          text-align: center;
-        }
-      }
-
-      > p {
-        color: var(--duqqa-brown);
-        font-family: var(--font-grandstander);
-        font-size: desktop-vw(20px);
-        font-weight: 400;
-        line-height: 1.6;
-        margin-bottom: desktop-vw(125px);
-        text-align: right;
-
-        @include mobile {
-          font-size: mobile-vw(18px);
-          margin-bottom: mobile-vw(50px);
-          text-align: center;
-        }
-      }
-
-      > .specs {
-        display: flex;
-        justify-content: flex-end;
-        column-gap: desktop-vw(90px);
-
-        @include mobile {
-          column-gap: mobile-vw(40px);
-          flex-wrap: wrap;
-          justify-content: center;
-        }
-
-        > div {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-
-          .imgC {
-            @include dims(desktop-vw(95px));
-            margin-bottom: desktop-vw(10px);
-
-            @include mobile {
-              @include dims(mobile-vw(70px));
-              margin-bottom: mobile-vw(10px);
-            }
-          }
-
-          small {
-            color: var(--duqqa-brown);
-            font-family: var(--font-grandstander);
-            font-size: desktop-vw(25px);
-            font-weight: 800;
-            text-align: center;
-
-            @include mobile {
-              font-size: mobile-vw(20px);
-              margin-bottom: mobile-vw(50px);
-            }
-          }
-        }
-      }
-    }
-
-    .stickerC {
-      @include position(absolute, 100%, auto, auto, 50%);
-      @include dims(desktop-vw(500px), desktop-vw(220px));
-      transform: translate(-50%, desktop-vw(-200px));
-      z-index: 10;
-
-      @include mobile {
-        @include dims(mobile-vw(360px), mobile-vw(200px));
-        transform: translate(-50%, mobile-vw(-180px));
-      }
-    }
-  }
-
-  .crumbYourWay {
-    background: var(--duqqa-brown);
-    column-gap: desktop-vw(100px);
-    padding: desktop-vw(100px) 0;
-    position: relative;
-
-    @include mobile {
-      flex-direction: column;
-      row-gap: mobile-vw(100px);
-      padding: mobile-vw(100px) 0 mobile-vw(50px) 0;
-    }
-
-    &::before {
-      content: "";
-      @include position(absolute, 0, 0, auto, 0);
-      @include dims(100%, desktop-vw(120px));
-      background-image: url("../../assets/img/wave.svg");
-      background-repeat: no-repeat;
-      background-position: center bottom -2px;
-      background-size: 100% auto;
-      transform: translateY(-100%);
-
-      @include mobile {
-        @include dims(100%, auto);
-        background-position: center bottom -2px;
-        background-size: 400% auto;
-        padding-bottom: mobile-vw(150px);
-      }
-    }
-
-    > div {
-      align-items: center;
-      display: flex;
-      flex-direction: column;
-      row-gap: desktop-vw(30px);
-
-      @include mobile {
-        row-gap: mobile-vw(30px);
-      }
-
-      > .imgC {
-        @include dims(desktop-vw(260px), desktop-vw(200px));
-
-        @include mobile {
-          @include dims(mobile-vw(260px), mobile-vw(200px));
-        }
-      }
-
-      > p {
-        color: var(--toasted-marshmallow-fluff);
-        font-family: var(--font-grandstander);
-        font-size: desktop-vw(25px);
-        font-weight: 900;
-        line-height: 1.6;
-        text-align: center;
-        width: desktop-vw(290px);
-
-        @include mobile {
-          font-size: mobile-vw(24px);
-          width: mobile-vw(290px);
-        }
-
-        > span {
-          display: inline-block;
-          position: relative;
-          z-index: 1;
-
-          &:before {
-            content: "";
-            @include position(absolute, -5%, auto, auto, -10%);
-            @include dims(115%, 100%);
-            background-image: url("../../assets/img/marker.png");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            z-index: -1;
-          }
-        }
-      }
-    }
-  }
-
-  .realChocolate {
-    background: var(--duqqa-brown);
-    padding: desktop-vw(90px) 0;
-
-    @include mobile {
-      padding: mobile-vw(50px) 0;
-    }
-
-    .marqueeC {
-      align-items: center;
-      background: var(--vanilla-cream);
-      color: var(--duqqa-brown);
-      display: flex;
-      padding: desktop-vw(25px) 0;
-      outline: 1px solid var(--white-transparent);
-
-      @include mobile {
-        padding: mobile-vw(20px) 0;
-      }
-
-      h3 {
-        font-size: desktop-vw(70px);
-        font-family: var(--font-grandstander);
-        font-weight: 900;
-        margin: 0 desktop-vw(40px);
-        transform: translateY(10%);
-
-        @include mobile {
-          font-size: mobile-vw(50px);
-          margin: 0 mobile-vw(30px);
-          transform: translateY(mobile-vw(15px));
-        }
-      }
-
-      .imgC {
-        @include dims(desktop-vw(75px));
-
-        @include mobile {
-          @include dims(mobile-vw(70px));
-        }
-      }
-    }
-  }
-
-  .detailedInfo {
-    background: var(--duqqa-brown);
-    padding-bottom: desktop-vw(300px);
-
-    @include mobile {
-      padding-bottom: mobile-vw(200px);
-    }
-  }
-
-  .share {
-    display: grid;
+    gap: desktop-vw(9px);
     grid-template-columns: repeat(2, 1fr);
-    padding: desktop-vw(50px) desktop-vw(100px);
-    position: relative;
-
-    @include mobile {
-      grid-template-columns: 1fr;
-      padding: mobile-vw(50px) mobile-vw(16px);
-    }
-
-    &::before {
-      content: "";
-      @include position(absolute, 0, 0, auto, 0);
-      @include dims(100%, desktop-vw(120px));
-      background-image: url("../../assets/img/wave-light.svg");
-      background-repeat: no-repeat;
-      background-position: center bottom -2px;
-      background-size: 100% auto;
-      transform: translateY(-100%) rotate(180deg);
-
-      @include mobile {
-        @include dims(100%, auto);
-        background-position: center bottom -2px;
-        background-size: 400% auto;
-        padding-bottom: mobile-vw(120px);
-      }
-    }
-
-    > .imgC {
-      @include dims(auto, desktop-vw(440px));
-      background: var(--smashing-pumpkins);
-      border-radius: desktop-vw(20px);
-      overflow: hidden;
-
-      @include mobile {
-        @include dims(auto, mobile-vw(240px));
-        border-radius: mobile-vw(20px);
-      }
-    }
-
-    > .text {
-      padding-left: desktop-vw(100px);
-
-      @include mobile {
-        padding-left: unset;
-      }
-
-      > h3 {
-        color: var(--duqqa-brown);
-        font-size: desktop-vw(66px);
-        font-family: var(--font-grandstander);
-        font-weight: 900;
-        margin-bottom: desktop-vw(50px);
-        width: desktop-vw(480px);
-
-        @include mobile {
-          font-size: mobile-vw(45px);
-          margin-bottom: mobile-vw(30px);
-          margin-top: mobile-vw(50px);
-          text-align: center;
-          width: unset;
-        }
-      }
-
-      > p {
-        color: var(--duqqa-brown);
-        font-family: var(--font-grandstander);
-        font-size: desktop-vw(20px);
-        font-weight: 400;
-        line-height: 1.6;
-        width: desktop-vw(480px);
-
-        @include mobile {
-          font-size: mobile-vw(18px);
-          text-align: center;
-          width: unset;
-        }
-      }
-    }
-  }
-
-  .mightLoveThese {
-    padding: desktop-vw(100px) desktop-vw(100px) desktop-vw(50px) desktop-vw(100px);
-
-    @include mobile {
-      padding: mobile-vw(50px) mobile-vw(16px) 0 mobile-vw(16px);
-    }
-
-    > h4 {
-      color: var(--duqqa-brown);
-      font-size: desktop-vw(36px);
-      font-family: var(--font-grandstander);
-      font-weight: 900;
-      margin-bottom: desktop-vw(75px);
-      margin-right: auto;
-
-      @include mobile {
-        font-size: mobile-vw(45px);
-        margin-bottom: mobile-vw(30px);
-        margin-top: unset;
-        text-align: center;
-        margin-right: unset;
-      }
-    }
 
     .sliderC {
       @include mobile {
         width: 100vw;
       }
+
+      .slide {
+        width: 100vw;
+      }
+    }
+
+    .imgC {
+      @include dims(auto, desktop-vw(440px));
+      background: var(--smashing-pumpkins);
+      border-radius: desktop-vw(20px);
+
+      @include mobile {
+        @include dims(mobile-vw(320px), mobile-vw(440px));
+        border-radius: mobile-vw(20px);
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .desc {
+    padding-left: desktop-vw(100px);
+
+    @include mobile {
+      padding: 0 mobile-vw(16px);
+    }
+
+    > h1 {
+      color: var(--duqqa-brown);
+      font-size: desktop-vw(66px);
+      font-family: var(--font-grandstander);
+      font-weight: 900;
+      margin-bottom: desktop-vw(50px);
+      position: relative;
+      text-align: right;
+
+      @include mobile {
+        font-size: mobile-vw(45px);
+        margin-bottom: mobile-vw(30px);
+        margin-top: mobile-vw(50px);
+        text-align: center;
+      }
+    }
+
+    > p {
+      color: var(--duqqa-brown);
+      font-family: var(--font-grandstander);
+      font-size: desktop-vw(20px);
+      font-weight: 400;
+      line-height: 1.6;
+      margin-bottom: desktop-vw(125px);
+      text-align: right;
+
+      @include mobile {
+        font-size: mobile-vw(18px);
+        margin-bottom: mobile-vw(50px);
+        text-align: center;
+      }
+    }
+
+    > .specs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: desktop-vw(30px);
+
+      @include mobile {
+        column-gap: mobile-vw(40px);
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      > div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .imgC {
+          @include dims(desktop-vw(95px));
+          margin-bottom: desktop-vw(10px);
+
+          @include mobile {
+            @include dims(mobile-vw(70px));
+            margin-bottom: mobile-vw(10px);
+          }
+        }
+
+        small {
+          color: var(--duqqa-brown);
+          font-family: var(--font-grandstander);
+          font-size: desktop-vw(25px);
+          font-weight: 800;
+          text-align: center;
+
+          @include mobile {
+            font-size: mobile-vw(20px);
+            margin-bottom: mobile-vw(50px);
+          }
+        }
+      }
+    }
+  }
+
+  .stickerC {
+    @include position(absolute, 100%, auto, auto, 50%);
+    @include dims(desktop-vw(500px), desktop-vw(220px));
+    transform: translate(-50%, desktop-vw(-200px));
+    z-index: 10;
+
+    @include mobile {
+      @include dims(mobile-vw(360px), mobile-vw(200px));
+      transform: translate(-50%, mobile-vw(-180px));
+    }
+  }
+}
+
+.crumbYourWay {
+  background: var(--duqqa-brown);
+  column-gap: desktop-vw(100px);
+  padding: desktop-vw(100px) 0;
+  position: relative;
+
+  @include mobile {
+    flex-direction: column;
+    row-gap: mobile-vw(100px);
+    padding: mobile-vw(100px) 0 mobile-vw(50px) 0;
+  }
+
+  &::before {
+    content: "";
+    @include position(absolute, 0, 0, auto, 0);
+    @include dims(100%, desktop-vw(120px));
+    background-image: url("../../assets/img/wave.svg");
+    background-repeat: no-repeat;
+    background-position: center bottom -2px;
+    background-size: 100% auto;
+    transform: translateY(-100%);
+
+    @include mobile {
+      @include dims(100%, auto);
+      background-position: center bottom -2px;
+      background-size: 400% auto;
+      padding-bottom: mobile-vw(150px);
+    }
+  }
+
+  > div {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: desktop-vw(30px);
+
+    @include mobile {
+      row-gap: mobile-vw(30px);
+    }
+
+    > .imgC {
+      @include dims(desktop-vw(260px), desktop-vw(200px));
+
+      @include mobile {
+        @include dims(mobile-vw(260px), mobile-vw(200px));
+      }
+    }
+
+    > p {
+      color: var(--toasted-marshmallow-fluff);
+      font-family: var(--font-grandstander);
+      font-size: desktop-vw(25px);
+      font-weight: 900;
+      line-height: 1.6;
+      text-align: center;
+      width: desktop-vw(290px);
+
+      @include mobile {
+        font-size: mobile-vw(24px);
+        width: mobile-vw(290px);
+      }
+
+      > span {
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+
+        &:before {
+          content: "";
+          @include position(absolute, -5%, auto, auto, -10%);
+          @include dims(115%, 100%);
+          background-image: url("../../assets/img/marker.png");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: contain;
+          z-index: -1;
+        }
+      }
+    }
+  }
+}
+
+.realChocolate {
+  background: var(--duqqa-brown);
+  padding: desktop-vw(90px) 0;
+
+  @include mobile {
+    padding: mobile-vw(50px) 0;
+  }
+
+  .marqueeC {
+    align-items: center;
+    background: var(--vanilla-cream);
+    color: var(--duqqa-brown);
+    display: flex;
+    padding: desktop-vw(25px) 0;
+    outline: 1px solid var(--white-transparent);
+
+    @include mobile {
+      padding: mobile-vw(20px) 0;
+    }
+
+    h3 {
+      font-size: desktop-vw(70px);
+      font-family: var(--font-grandstander);
+      font-weight: 900;
+      margin: 0 desktop-vw(40px);
+      transform: translateY(10%);
+
+      @include mobile {
+        font-size: mobile-vw(50px);
+        margin: 0 mobile-vw(30px);
+        transform: translateY(mobile-vw(15px));
+      }
+    }
+
+    .imgC {
+      @include dims(desktop-vw(75px));
+
+      @include mobile {
+        @include dims(mobile-vw(70px));
+      }
+    }
+  }
+}
+
+.detailedInfo {
+  background: var(--duqqa-brown);
+  padding-bottom: desktop-vw(300px);
+
+  @include mobile {
+    padding-bottom: mobile-vw(200px);
+  }
+}
+
+.share {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: desktop-vw(50px) desktop-vw(100px);
+  position: relative;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    padding: mobile-vw(50px) mobile-vw(16px);
+  }
+
+  &::before {
+    content: "";
+    @include position(absolute, 0, 0, auto, 0);
+    @include dims(100%, desktop-vw(120px));
+    background-image: url("../../assets/img/wave-light.svg");
+    background-repeat: no-repeat;
+    background-position: center bottom -2px;
+    background-size: 100% auto;
+    transform: translateY(-100%) rotate(180deg);
+
+    @include mobile {
+      @include dims(100%, auto);
+      background-position: center bottom -2px;
+      background-size: 400% auto;
+      padding-bottom: mobile-vw(120px);
+    }
+  }
+
+  > .imgC {
+    @include dims(auto, desktop-vw(440px));
+    background: var(--smashing-pumpkins);
+    border-radius: desktop-vw(20px);
+    overflow: hidden;
+
+    @include mobile {
+      @include dims(auto, mobile-vw(240px));
+      border-radius: mobile-vw(20px);
+    }
+  }
+
+  > .text {
+    padding-left: desktop-vw(100px);
+
+    @include mobile {
+      padding-left: unset;
+    }
+
+    > h3 {
+      color: var(--duqqa-brown);
+      font-size: desktop-vw(66px);
+      font-family: var(--font-grandstander);
+      font-weight: 900;
+      margin-bottom: desktop-vw(50px);
+      width: desktop-vw(480px);
+
+      @include mobile {
+        font-size: mobile-vw(45px);
+        margin-bottom: mobile-vw(30px);
+        margin-top: mobile-vw(50px);
+        text-align: center;
+        width: unset;
+      }
+    }
+
+    > p {
+      color: var(--duqqa-brown);
+      font-family: var(--font-grandstander);
+      font-size: desktop-vw(20px);
+      font-weight: 400;
+      line-height: 1.6;
+      width: desktop-vw(480px);
+
+      @include mobile {
+        font-size: mobile-vw(18px);
+        text-align: center;
+        width: unset;
+      }
+    }
+  }
+}
+
+.mightLoveThese {
+  padding: desktop-vw(100px) desktop-vw(100px) desktop-vw(50px) desktop-vw(100px);
+
+  @include mobile {
+    padding: mobile-vw(50px) mobile-vw(16px) 0 mobile-vw(16px);
+  }
+
+  > h4 {
+    color: var(--duqqa-brown);
+    font-size: desktop-vw(36px);
+    font-family: var(--font-grandstander);
+    font-weight: 900;
+    margin-bottom: desktop-vw(75px);
+    margin-right: auto;
+
+    @include mobile {
+      font-size: mobile-vw(45px);
+      margin-bottom: mobile-vw(30px);
+      margin-top: unset;
+      text-align: center;
+      margin-right: unset;
+    }
+  }
+
+  .sliderC {
+    @include mobile {
+      width: 100vw;
     }
   }
 }

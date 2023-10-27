@@ -1,74 +1,46 @@
+import { SyntheticEvent, useState } from "react"
 import s from "./custom-img.module.scss"
 
 import cn from "clsx"
 
 type Props = {
-  src: string
+  alt?: string
+  backgroundColor?: string
   objectFit?: "cover" | "contain"
   objectPosition?: string
-  alt?: string
-  lazy?: boolean
-  width?: number
-  height?: number
-  bgColor?: string
+  src: string
 }
 
 const Img = ({
-  src = "/",
+  alt = "Media",
+  backgroundColor = "transparent",
   objectFit = "cover",
   objectPosition = "center",
-  alt = "Commercial Media",
-  lazy = false,
-  width = 500,
-  height = 500,
-  bgColor = "transparent",
+  src = "",
 }: Props) => {
-  // const [width, setWidth] = useState(1)
-  // const [height, setHeight] = useState(1)
+  const [loaded, setLoaded] = useState(false)
 
-  // Preload Images
-  // useEffect(() => {
-  //   if (!src) return
-
-  //   const img = new Image()
-  //   img.src = src
-  //   img.onload = () => {
-  //     console.log("image width", img.naturalWidth)
-  //     console.log("image height", img.naturalHeight)
-
-  //     setWidth(img.naturalWidth)
-  //     setHeight(img.naturalHeight)
-  //   }
-  // }, [src])
+  function handleLoad(e: SyntheticEvent<HTMLImageElement>) {
+    if (e.currentTarget.complete) {
+      setLoaded(true)
+    } else {
+      e.currentTarget.onload = () => {
+        setLoaded(true)
+      }
+    }
+  }
 
   return (
-    <figure className={cn({ [s.lazy]: lazy })} style={{ background: bgColor }}>
-      {lazy ? (
-        <>
-          <div
-            className={s.aspectRatio}
-            style={{ "--aspectRatio": `${(height / width) * 100}%` } as React.CSSProperties}
-          ></div>
-          <img
-            data-src={src}
-            className="lazy"
-            style={{
-              objectFit,
-              objectPosition,
-            }}
-            alt={alt}
-          />
-        </>
-      ) : (
-        <img
-          src={src}
-          style={{
-            objectFit,
-            objectPosition,
-          }}
-          alt={alt}
-        />
-      )}
+    <figure className={cn({ [s.visible]: loaded })} style={{ backgroundColor }}>
+      <img
+        alt={alt}
+        onLoad={handleLoad}
+        src={src}
+        style={{
+          objectFit,
+          objectPosition,
+        }}
+      />
     </figure>
   )
 }

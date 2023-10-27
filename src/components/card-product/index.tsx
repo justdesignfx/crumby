@@ -1,20 +1,11 @@
 import s from "./card-product.module.scss"
-import { ReactNode } from "react"
 
 import cn from "clsx"
 
 import Img from "@/components/custom-img"
+import { ICardProduct } from "@/global"
 
-type Props = {
-  name: ReactNode
-  img: string
-  hoverImg: {
-    top: string
-    bottom: string
-  }
-}
-
-const CardProduct = (props: Props) => {
+const CardProduct = (props: ICardProduct) => {
   return (
     <div className={cn(s.cardProduct, "cursor-pointer")}>
       <div className={cn(s.cakes, "flex-center-y")}>
@@ -32,7 +23,7 @@ const CardProduct = (props: Props) => {
         </div>
       </div>
 
-      <p>{props.name}</p>
+      <p>{`${props.name}`}</p>
     </div>
   )
 }
