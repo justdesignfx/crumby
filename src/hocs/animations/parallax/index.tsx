@@ -16,12 +16,8 @@ const Parallax = ({ children, speedX = 1, speedY = 1, directionX = 1, directionY
   const ref = useRef(null)
 
   useLayoutEffect(() => {
-    if (!ref.current) {
-      return
-    }
-
     const ctx = gsap.context(() => {
-      gsap.to(ref.current, {
+      gsap.to(".parallax", {
         xPercent: () => 100 * speedX * directionX,
         yPercent: () => 100 * speedY * directionY,
         scrollTrigger: {
@@ -31,16 +27,18 @@ const Parallax = ({ children, speedX = 1, speedY = 1, directionX = 1, directionY
           trigger: ref.current,
         },
       })
-    }, ref.current)
+    }, ref)
 
     return () => {
       ctx.revert()
     }
-  }, [])
+  }, [directionX, directionY, speedX, speedY])
 
   return (
-    <div ref={ref} style={{ width: "inherit", height: "inherit", willChange: "transform" }}>
-      {children}
+    <div ref={ref}>
+      <div className="parallax" style={{ width: "inherit", height: "inherit", willChange: "transform" }}>
+        {children}
+      </div>
     </div>
   )
 }

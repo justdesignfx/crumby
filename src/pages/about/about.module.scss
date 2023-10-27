@@ -132,7 +132,7 @@
     }
 
     &.f {
-      @include position(absolute, desktop-vw(840px), auto, auto, desktop-vw(40px));
+      @include position(absolute, desktop-vw(740px), auto, auto, desktop-vw(140px));
       @include dims(desktop-vw(100px));
 
       @include mobile {
