@@ -12,7 +12,7 @@ import CardProduct from "@/components/card-product"
 import LoadingScreen from "@/components/loading-screen"
 import Searchbox from "@/components/searchbox"
 import Filter from "@/components/sort"
-import useDebounce from "@/components/use-debounce"
+import useDebounce from "@/hooks/use-debounce"
 import { IOption } from "@/global"
 import { seo } from "@/global/seo"
 
