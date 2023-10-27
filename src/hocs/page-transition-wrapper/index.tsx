@@ -1,14 +1,28 @@
-import { useLayoutEffect, useRef } from "react"
+import { forwardRef, useLayoutEffect, useRef } from "react"
+import s from "./page-transition.module.scss"
 
+import { useLenis } from "@studio-freight/react-lenis"
+import cn from "clsx"
 import gsap from "gsap"
 import { useLocation, useOutlet } from "react-router-dom"
+import { CSSTransition, SwitchTransition } from "react-transition-group"
 
+import Img from "@/components/custom-img"
 import Footer from "@/components/footer"
 import Header from "@/components/header"
-import PageTransition from "@/components/page-transition"
 import { routes } from "@/global/routes"
-import { useLenis } from "@studio-freight/react-lenis"
-import { CSSTransition, SwitchTransition } from "react-transition-group"
+
+import logo from "@/assets/gif/logo-loading-c.gif"
+
+const TransitionPanel = forwardRef<HTMLDivElement>((_, ref) => (
+  <div className={cn(s.pageTransition, "flex-center", "hidden-overflow")} ref={ref}>
+    <div className="flex-center">
+      <div className={s.imgC}>
+        <Img src={logo} objectFit="contain" />
+      </div>
+    </div>
+  </div>
+))
 
 const PageTransitionWrapper = () => {
   const location = useLocation()
@@ -34,6 +48,11 @@ const PageTransitionWrapper = () => {
       duration: 0.6,
       ease: "expo.out",
       height: 0,
+      onComplete: () => {
+        gsap.to(ptRef.current, {
+          display: "none",
+        })
+      },
     })
   }
 
@@ -42,6 +61,11 @@ const PageTransitionWrapper = () => {
       ease: "expo.out",
       duration: 0.7,
       height: "100%",
+      onStart: () => {
+        gsap.to(ptRef.current, {
+          display: "flex",
+        })
+      },
     })
   }
 
@@ -61,15 +85,9 @@ const PageTransitionWrapper = () => {
             <main ref={nodeRef as React.RefObject<HTMLDivElement>}>{currentOutlet}</main>
           </CSSTransition>
         </SwitchTransition>
-
-        {/* <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/all-products" element={<AllProducts />} />
-          <Route path="/all-products/:detail" element={<DetailProduct />} />
-        </Routes> */}
         <Footer />
       </div>
-      <PageTransition ref={ptRef} />
+      <TransitionPanel ref={ptRef} />
     </>
   )
 }
