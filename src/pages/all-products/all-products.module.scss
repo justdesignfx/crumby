@@ -16,7 +16,7 @@
   gap: desktop-vw(100px) desktop-vw(22px);
   grid-template-columns: repeat(3, 1fr);
   margin: 0 auto;
-  padding: desktop-vw(80px) 0;
+  padding: desktop-vw(80px) 0 desktop-vw(200px) 0;
 
   @include mobile {
     grid-template-columns: 1fr;
