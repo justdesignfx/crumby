@@ -280,7 +280,8 @@
 
   @include mobile {
     grid-template-columns: 1fr;
-    padding: mobile-vw(50px) mobile-vw(16px);
+    padding: 0 mobile-vw(16px);
+    margin-bottom: mobile-vw(50px);
   }
 
   &::before {
@@ -360,7 +361,7 @@
 
   @include mobile {
     padding: mobile-vw(50px) mobile-vw(16px);
-    padding-bottom: 0;
+    padding-bottom: mobile-vw(150px);
   }
 
   > h4 {

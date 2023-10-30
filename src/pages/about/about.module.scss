@@ -148,7 +148,7 @@
   position: relative;
 
   @include mobile {
-    padding-bottom: mobile-vw(0px);
+    padding-bottom: mobile-vw(50px);
     padding-top: mobile-vw(75px);
   }
 
@@ -254,6 +254,10 @@
 .charC {
   @include dims(100%, auto);
   margin-bottom: desktop-vw(50px);
+
+  @include mobile {
+    margin-bottom: mobile-vw(30px);
+  }
 
   .char {
     --char-height: #{desktop-vw(800px)};

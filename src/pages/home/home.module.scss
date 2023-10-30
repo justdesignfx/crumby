@@ -332,6 +332,10 @@
   padding-bottom: desktop-vw(220px);
   padding-top: desktop-vw(120px);
 
+  @include mobile {
+    padding-bottom: mobile-vw(200px);
+  }
+
   h2 {
     color: var(--duqqa-brown);
     font-size: desktop-vw(66px);
