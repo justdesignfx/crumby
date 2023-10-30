@@ -25,7 +25,6 @@ import crumbyChocolate from "@/assets/img/crumby-chocolate.png"
 import crumbyDarkChocolate from "@/assets/img/crumby-dark-chocolate.png"
 import crumbyPeanut from "@/assets/img/crumby-peanut.png"
 import crumbyStrawberry from "@/assets/img/crumby-strawberry.png"
-import riceCake from "@/assets/img/rice-cake.png"
 
 const About = () => {
   return (
@@ -46,12 +45,6 @@ const About = () => {
           times).
         </p>
         <h3>AND THEN...</h3>
-
-        <div className={s.charC}>
-          <Parallax directionY={-1} speedX={0} speedY={0.1}>
-            <Img src={charYay} objectFit="contain" />
-          </Parallax>
-        </div>
 
         <div className={cn(s.crumbC, s.a)}>
           <Parallax speedX={0} directionY={-1}>
@@ -107,15 +100,6 @@ const About = () => {
       <Boom />
 
       <section className={cn(s.extravaganza, "flex-center-y")}>
-        <h2>
-          <span className={s.text}>
-            THE{" "}
-            <span className={s.imgC}>
-              <Img src={riceCake} objectFit="contain" />
-            </span>{" "}
-          </span>
-          <span className={s.text}>EXTRAVAGANZA</span>
-        </h2>
         <p>
           Our rice cakes aren't just ordinary; they're flavor-packed bites of joy. We've curated a collection of flavors
           that'll make your taste buds tango. It's snacking with a side of entertainment!
@@ -160,6 +144,14 @@ const About = () => {
         <div className={cn(s.popcornC, s.d)}>
           <Parallax speedX={0} directionY={-1}>
             <IconPopcorn fill="var(--qing-yellow)" />
+          </Parallax>
+        </div>
+      </section>
+
+      <section className={cn(s.charC, "flex-center")}>
+        <div className={s.char}>
+          <Parallax directionY={-1} speedX={0} speedY={0.1}>
+            <Img src={charYay} objectFit="contain" />
           </Parallax>
         </div>
       </section>

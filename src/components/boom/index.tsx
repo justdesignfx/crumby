@@ -13,102 +13,85 @@ import c2 from "@/assets/img/boom/c3.png"
 import c3 from "@/assets/img/boom/c4.png"
 import c4 from "@/assets/img/boom/c5.png"
 import c5 from "@/assets/img/boom/c6.png"
+import riceCake from "@/assets/img/rice-cake.png"
 
 const cakes = [c0, c1, c2, c3, c4, c5]
 
 const Boom = () => {
   const ref = useRef(null)
   const q = gsap.utils.selector(ref)
-  const [currentImg, setCurrentImg] = useState(0)
+  const [phase, setPhase] = useState(0)
+
+  function setImgRecursively(progress: number, cakes: HTMLElement[], currentIndex: number) {
+    const part = 1 / cakes.length
+
+    if (currentIndex === cakes.length) {
+      // Base case: If we've gone through all segments, stop recursion.
+      return
+    }
+
+    if (progress < part * (currentIndex + 1)) {
+      setPhase(currentIndex)
+    } else {
+      // If progress is not in the current segment, recurse with the next index.
+      setImgRecursively(progress, cakes, currentIndex + 1)
+    }
+  }
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      // cakeEls.forEach((cake, i) => {
-      //   gsap.set(cake, {
-      //     scale: 1 + 0.15 * i,
-      //   })
-
-      //   ScrollTrigger.create({
-      //     onEnter: () => {
-      //       setCurrentImg(i)
-      //     },
-      //     onEnterBack: () => {
-      //       setCurrentImg(i)
-      //     },
-      //     id: `part-${i}`,
-      //     trigger: ref.current,
-      //     markers: true,
-      //     start: `top+=${(i * window.innerHeight) / cakes.length}px center`,
-      //     end: `top+=${((i + 1) * window.innerHeight) / cakes.length}px center`,
-      //   })
-
-      //   const tl = gsap.timeline({ paused: true })
-
-      //   tl.to(q(".cakeC"), {
-      //     yPercent: 100,
-      //   })
-
-      //   ScrollTrigger.create({
-      //     animation: tl,
-      //     trigger: ref.current,
-      //     markers: true,
-      //     pin: true,
-      //   })
-      // })
-
-      // const part = 1 / cakes.length
-
-      // const tl = gsap.timeline({ paused: true })
-
-      // tl.to(q(".cakeC"), {
-      //   scale: 1.5,
-      // })
-
-      function setImgRecursively(progress: number, cakes: HTMLElement[], currentIndex: number) {
-        const part = 1 / cakes.length
-
-        if (currentIndex === cakes.length) {
-          // Base case: If we've gone through all segments, stop recursion.
-          return
-        }
-
-        if (progress < part * (currentIndex + 1)) {
-          setCurrentImg(currentIndex)
-        } else {
-          // If progress is not in the current segment, recurse with the next index.
-          setImgRecursively(progress, cakes, currentIndex + 1)
-        }
-      }
-
       q(".cake").forEach((cake, i) => {
         gsap.set(cake, {
-          scale: 1 + i * 0.3,
+          scale: 1 + i * 0.6,
         })
       })
 
       ScrollTrigger.create({
-        // animation: tl,
-        trigger: ref.current,
-        markers: true,
+        // markers: true,
         scrub: true,
+        start: "center center",
         pin: true,
+        trigger: ref.current,
         onUpdate: ({ progress }) => {
-          setImgRecursively(progress, q(".cake"), currentImg)
+          setImgRecursively(progress, q(".cake"), phase)
+        },
+        onLeave: () => {
+          gsap.to(q(".cake-c"), {
+            opacity: 0,
+            duration: 0,
+          })
+        },
+        onEnterBack: () => {
+          gsap.to(q(".cake-c"), {
+            opacity: 1,
+            duration: 0,
+          })
         },
       })
-    }, ref)
+    })
 
     return () => ctx.revert()
   }, [])
 
   return (
     <section className={cn(s.boom, "boom")} ref={ref}>
-      <div className={cn(s.cakeC, "flex-center", "cakeC")}>
+      <div style={{ transform: `scale(${1 + 1 / cakes.length - 1 / (phase + 1)})` }}>
+        <h2 className={cn(s.textC, "text-c")}>
+          <span className={s.text}>
+            THE{" "}
+            <span className={s.imgC}>
+              <Img src={riceCake} objectFit="contain" />
+            </span>{" "}
+          </span>
+          <span className={s.text}>EXTRAVAGANZA</span>
+        </h2>
+      </div>
+
+      <div className={cn(s.cakeC, "flex-center", "cake-c")}>
         {cakes.map((cake, i) => {
           return (
-            <div className={cn(s.cake, "cake", { [s.active]: currentImg === i })} key={i}>
+            <div className={cn(s.cake, "cake", { [s.active]: phase === i })} key={i}>
               <Img src={cake} objectFit="contain" />
-              <span className={s.index}>{i}</span>
             </div>
           )
         })}

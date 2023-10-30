@@ -1,19 +1,33 @@
 .callToContact {
   align-items: center;
   background: var(--duqqa-brown);
-  background-image: url("../../assets/img/wave-light.svg");
-  background-repeat: no-repeat;
-  background-position: center top -2px;
-  background-size: 100% auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-top: desktop-vw(220px);
+  padding-top: desktop-vw(100px);
   position: relative;
 
   @include mobile {
     background-size: 400% auto;
     padding-top: mobile-vw(200px);
+  }
+
+  &::before {
+    content: "";
+    @include position(absolute, 2px, 0, auto, 0);
+    @include dims(100%, desktop-vw(120px));
+    background-image: url("../../assets/img/wave.svg");
+    background-repeat: no-repeat;
+    background-position: center bottom -2px;
+    background-size: 100% auto;
+    transform: translateY(-100%);
+
+    @include mobile {
+      @include dims(100%, auto);
+      background-position: center bottom -2px;
+      background-size: 400% auto;
+      padding-bottom: mobile-vw(150px);
+    }
   }
 
   > h2 {
