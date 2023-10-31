@@ -7,6 +7,7 @@ import gsap from "gsap"
 import { Helmet } from "react-helmet-async"
 import { Link } from "react-router-dom"
 
+import { useHomeSlider } from "@/api-client/queries"
 import Button from "@/components/button"
 import CallToContact from "@/components/call-to-contact"
 import CardProduct from "@/components/card-product"
@@ -18,8 +19,8 @@ import SliderProduct from "@/components/slider-product"
 import SliderSpecs from "@/components/slider-specs"
 import { seo } from "@/global/seo"
 import Parallax from "@/hocs/animations/parallax"
+import { usePreloaderStore } from "@/lib/store/preloader"
 import { breakpoints } from "@/utils"
-import { useHomeSlider } from "@/api-client/queries"
 
 import charBests from "@/assets/gif/char-walk.gif"
 import cardSpecBg1 from "@/assets/img/bg-card-spec-1.png"
@@ -106,22 +107,27 @@ const Home = () => {
   const heroRef = useRef(null)
   const isMobile = useMediaQuery(`only screen and (max-width:${breakpoints.mobile}px)`)
   const { data: slides } = useHomeSlider()
+  const { isLoading } = usePreloaderStore()
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".slide-in", {
-        duration: 0.9,
-        ease: "back.easeOut",
+      const tl = gsap.timeline({ paused: true })
+
+      tl.from(".slide-in", {
+        duration: 0.4,
+        ease: "power1.out",
         opacity: 0,
-        yPercent: 50,
-        transformOrigin: "center",
+        yPercent: 100,
+        transformOrigin: "center center",
       })
+
+      !isLoading ? tl.play() : tl.revert()
     }, heroRef)
 
     return () => {
       ctx.revert()
     }
-  }, [])
+  }, [isLoading])
 
   return (
     <>
@@ -134,9 +140,11 @@ const Home = () => {
       <section className={cn(s.hero, "flex-center-y")} ref={heroRef}>
         <h1>
           <span>CRUMB</span>
-          <span className={cn(s.imgC, "slide-in")}>
+          <span className={s.imgC}>
             <Parallax speedX={0} directionY={-1} speedY={0.5}>
-              <Img src={cake} objectFit="contain" />
+              <div className="slide-in">
+                <Img src={cake} objectFit="contain" />
+              </div>
             </Parallax>
           </span>
 
