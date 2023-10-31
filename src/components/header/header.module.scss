@@ -36,9 +36,30 @@ header {
       font-family: var(--font-grandstander);
       font-size: desktop-vw(20px);
       font-weight: 600;
+      position: relative;
 
       &:last-child {
         margin-left: auto;
+      }
+
+      &:not(:last-child) {
+        &:before {
+          content: "";
+          @include position(absolute, auto, auto, 0, 0);
+          @include dims(100%, 3px);
+          background-color: var(--duqqa-brown);
+          transition: 500ms all var(--ease-out-expo);
+          transform: scaleX(0);
+          transform-origin: center left;
+        }
+
+        @include hover {
+          &:hover {
+            &:before {
+              transform: scaleX(1);
+            }
+          }
+        }
       }
     }
   }

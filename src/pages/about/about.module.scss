@@ -2,6 +2,10 @@
   padding-bottom: desktop-vw(100px);
   position: relative;
 
+  @include mobile {
+    padding-bottom: mobile-vw(100px);
+  }
+
   > h1 {
     color: var(--duqqa-brown);
     font-family: var(--font-grandstander);
@@ -75,8 +79,8 @@
       @include dims(desktop-vw(120px));
 
       @include mobile {
-        @include position(absolute, mobile-vw(140px), auto, auto, mobile-vw(10px));
-        @include dims(mobile-vw(50px));
+        @include position(absolute, mobile-vw(40px), auto, auto, mobile-vw(10px));
+        @include dims(mobile-vw(80px));
       }
     }
 
@@ -86,7 +90,7 @@
 
       @include mobile {
         @include position(absolute, mobile-vw(260px), auto, auto, mobile-vw(300px));
-        @include dims(mobile-vw(45px));
+        @include dims(mobile-vw(85px));
       }
     }
 
@@ -95,8 +99,8 @@
       @include dims(desktop-vw(140px));
 
       @include mobile {
-        @include position(absolute, mobile-vw(150px), auto, auto, mobile-vw(200px));
-        @include dims(mobile-vw(40px));
+        @include position(absolute, mobile-vw(250px), auto, auto, mobile-vw(90px));
+        @include dims(mobile-vw(60px));
       }
     }
 
@@ -105,7 +109,7 @@
       @include dims(desktop-vw(140px));
 
       @include mobile {
-        @include position(absolute, mobile-vw(380px), auto, auto, mobile-vw(280px));
+        @include position(absolute, mobile-vw(450px), auto, auto, mobile-vw(280px));
         @include dims(mobile-vw(40px));
       }
     }
@@ -115,7 +119,7 @@
       @include dims(desktop-vw(100px));
 
       @include mobile {
-        @include position(absolute, mobile-vw(100px), auto, auto, mobile-vw(300px));
+        @include position(absolute, mobile-vw(80px), auto, auto, mobile-vw(300px));
         @include dims(mobile-vw(50px));
       }
     }
@@ -127,6 +131,7 @@
       @include mobile {
         @include position(absolute, mobile-vw(240px), auto, auto, mobile-vw(40px));
         @include dims(mobile-vw(50px));
+        display: none;
       }
     }
 
@@ -214,7 +219,7 @@
       @include dims(desktop-vw(180px));
 
       @include mobile {
-        @include position(absolute, mobile-vw(100px), auto, auto, mobile-vw(-10px));
+        @include position(absolute, mobile-vw(70px), auto, auto, mobile-vw(-10px));
         @include dims(mobile-vw(60px));
       }
     }
@@ -224,7 +229,7 @@
       @include dims(desktop-vw(45px));
 
       @include mobile {
-        @include position(absolute, mobile-vw(140px), auto, auto, mobile-vw(330px));
+        @include position(absolute, mobile-vw(90px), auto, auto, mobile-vw(330px));
         @include dims(mobile-vw(35px));
       }
     }
@@ -234,7 +239,7 @@
       @include dims(desktop-vw(110px));
 
       @include mobile {
-        @include position(absolute, mobile-vw(240px), auto, auto, mobile-vw(250px));
+        @include position(absolute, mobile-vw(240px), auto, auto, mobile-vw(350px));
         @include dims(mobile-vw(45px));
       }
     }
@@ -244,7 +249,7 @@
       @include dims(desktop-vw(60px));
 
       @include mobile {
-        @include position(absolute, mobile-vw(260px), auto, auto, mobile-vw(50px));
+        @include position(absolute, mobile-vw(300px), auto, auto, mobile-vw(50px));
         @include dims(mobile-vw(30px));
       }
     }

@@ -83,6 +83,7 @@
     text-align: center;
     transform: translate(-50%, calc((var(--cardHeight) - desktop-vw(85px))));
     width: 100%;
+    white-space: pre-line;
 
     @include mobile {
       @include position(absolute, 0, auto, auto, 50%);

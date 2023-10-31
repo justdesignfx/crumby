@@ -20,6 +20,10 @@
 
     .separator {
       margin: 0 desktop-vw(8px);
+
+      @include mobile {
+        margin: 0 mobile-vw(4px);
+      }
     }
 
     &.hollow {

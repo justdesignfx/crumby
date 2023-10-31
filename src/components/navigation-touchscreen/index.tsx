@@ -43,15 +43,15 @@ const NavigationTouchScreen = () => {
         </div>
 
         <div className={s.social}>
-          <div className={s.navItem}>
+          {/* <div className={s.navItem}>
             <a href="/">FACEBOOK</a>
-          </div>
+          </div> */}
           <div className={s.navItem}>
             <a href="/">INSTAGRAM</a>
           </div>
-          <div className={s.navItem}>
+          {/* <div className={s.navItem}>
             <a href="/">X</a>
-          </div>
+          </div> */}
         </div>
       </nav>
     </div>

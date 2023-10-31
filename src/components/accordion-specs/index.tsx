@@ -9,10 +9,11 @@ import IconPlus from "@/components/icons/icon-plus"
 interface IAccordionItem {
   title: string
   desc: string
+  active?: boolean
 }
 
 const AccordionItem = (props: IAccordionItem) => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(props.active ?? false)
 
   return (
     <div className={cn(s.item, "cursor-pointer")} onClick={() => setIsOpen((prev) => !prev)}>
@@ -42,7 +43,7 @@ const AccordionSpecs = (props: Props) => {
   return (
     <div className={s.accordionSpecs}>
       {props.items.map((item, i) => {
-        return <AccordionItem {...item} key={i} />
+        return <AccordionItem {...item} key={i} active={i === 0} />
       })}
     </div>
   )

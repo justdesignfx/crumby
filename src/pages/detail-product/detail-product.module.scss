@@ -34,7 +34,7 @@
       border-radius: desktop-vw(20px);
 
       @include mobile {
-        @include dims(mobile-vw(320px), mobile-vw(440px));
+        @include dims(mobile-vw(340px), mobile-vw(420px));
         border-radius: mobile-vw(20px);
         margin: 0 auto;
       }
@@ -56,6 +56,7 @@
       margin-bottom: desktop-vw(50px);
       position: relative;
       text-align: right;
+      white-space: pre-line;
 
       @include mobile {
         font-size: mobile-vw(45px);
@@ -71,7 +72,7 @@
       font-size: desktop-vw(20px);
       font-weight: 400;
       line-height: 1.6;
-      margin-bottom: desktop-vw(125px);
+      margin-bottom: desktop-vw(60px);
       text-align: right;
 
       @include mobile {
@@ -82,15 +83,17 @@
     }
 
     > .specs {
+      column-gap: desktop-vw(90px);
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-end;
-      gap: desktop-vw(30px);
+      row-gap: desktop-vw(30px);
 
       @include mobile {
         column-gap: mobile-vw(40px);
         flex-wrap: wrap;
         justify-content: center;
+        row-gap: mobile-vw(30px);
       }
 
       > div {
@@ -114,10 +117,10 @@
           font-size: desktop-vw(25px);
           font-weight: 800;
           text-align: center;
+          white-space: pre-line;
 
           @include mobile {
             font-size: mobile-vw(20px);
-            margin-bottom: mobile-vw(50px);
           }
         }
       }
@@ -127,12 +130,12 @@
   .stickerC {
     @include position(absolute, 100%, auto, auto, 50%);
     @include dims(desktop-vw(500px), desktop-vw(220px));
-    transform: translate(-50%, desktop-vw(-200px));
+    transform: translate(-50%, desktop-vw(-175px));
     z-index: 10;
 
     @include mobile {
       @include dims(mobile-vw(360px), mobile-vw(200px));
-      transform: translate(-50%, mobile-vw(-180px));
+      transform: translate(-50%, mobile-vw(-150px));
     }
   }
 }
@@ -221,10 +224,10 @@
 
 .realChocolate {
   background: var(--duqqa-brown);
-  padding: desktop-vw(90px) 0;
+  padding: desktop-vw(90px) 0 desktop-vw(180px) 0;
 
   @include mobile {
-    padding: mobile-vw(50px) 0;
+    padding: mobile-vw(50px) 0 mobile-vw(150px) 0;
   }
 
   .marqueeC {

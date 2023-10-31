@@ -4,6 +4,7 @@ import cn from "clsx"
 
 import Img from "@/components/custom-img"
 import { ICardProduct } from "@/global"
+import { lineBreak } from "@/utils"
 
 const CardProduct = (props: ICardProduct) => {
   return (
@@ -23,7 +24,7 @@ const CardProduct = (props: ICardProduct) => {
         </div>
       </div>
 
-      <p>{`${props.name}`}</p>
+      <p>{lineBreak(props.name)}</p>
     </div>
   )
 }

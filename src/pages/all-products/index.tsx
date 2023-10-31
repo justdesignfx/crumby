@@ -35,7 +35,7 @@ const AllProducts = () => {
 
       <section className={s.filterC}>
         <Searchbox keyword={keyword} setKeyword={setKeyword} />
-        {sortOptions && <Filter label="SORT" options={sortOptions} sort={sort} setSort={setSort} />}
+        {sortOptions && <Filter label="SORT BY" options={sortOptions} sort={sort} setSort={setSort} />}
       </section>
 
       <>

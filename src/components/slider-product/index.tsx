@@ -14,6 +14,7 @@ const SliderProduct = (props: Props) => {
   return (
     <div className={s.sliderProduct}>
       <EmblaCarousel
+        slideSpacing={22}
         slides={props.slides}
         options={{
           breakpoints: {

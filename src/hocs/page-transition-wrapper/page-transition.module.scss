@@ -1,7 +1,6 @@
 .pageTransition {
   @include position(fixed, 0, auto, auto, 0);
   @include dims(100vw, 100vh);
-  pointer-events: none;
   z-index: z-index("preloader");
 
   > div {

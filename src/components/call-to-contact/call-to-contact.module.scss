@@ -109,4 +109,33 @@
       }
     }
   }
+
+  .crumbC {
+    &.a {
+      @include position(absolute, desktop-vw(840px), auto, auto, desktop-vw(1200px));
+      @include dims(desktop-vw(160px));
+
+      @include mobile {
+        display: none;
+      }
+    }
+
+    &.b {
+      @include position(absolute, desktop-vw(820px), auto, auto, desktop-vw(140px));
+      @include dims(desktop-vw(150px));
+
+      @include mobile {
+        display: none;
+      }
+    }
+
+    &.c {
+      @include position(absolute, desktop-vw(700px), auto, auto, desktop-vw(520px));
+      @include dims(desktop-vw(140px));
+
+      @include mobile {
+        display: none;
+      }
+    }
+  }
 }

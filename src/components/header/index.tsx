@@ -33,9 +33,9 @@ const Header = () => {
           </div>
 
           <div className={cn(s.navItem, "cursor-pointer")}>
-            <Link to="all-products">
+            <a href="mailto:info@eatcrumby.com" target="_blank" rel="noreferrer noopener">
               <Button text="CONTACT US" theme="dark" />
-            </Link>
+            </a>
           </div>
         </nav>
       )}

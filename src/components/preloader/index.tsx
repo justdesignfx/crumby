@@ -16,7 +16,7 @@ const Preloader = () => {
   useLayoutEffect(() => {
     gsap.to(ref.current, {
       opacity: 0,
-      delay: 1.5,
+      delay: 2.5,
       onComplete: () => {
         setVisible(false)
       },

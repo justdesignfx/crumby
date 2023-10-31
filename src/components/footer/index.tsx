@@ -32,19 +32,27 @@ const Footer = () => {
       <div className={s.bottom}>
         <nav>
           <div className={s.navItem}>
-            <a href="/">INSTAGRAM</a>
+            <a href="https://instagram.com/eatcrumby" target="_blank" rel="noreferrer noopener">
+              INSTAGRAM
+            </a>
+          </div>
+          {/* <span className={s.separator}>|</span>
+          <div className={s.navItem}>
+            <a href="https://instagram.com/eatcrumby" target="_blank" rel="noreferrer noopener">
+              FACEBOOK
+            </a>
           </div>
           <span className={s.separator}>|</span>
           <div className={s.navItem}>
-            <a href="/">FACEBOOK</a>
-          </div>
-          <span className={s.separator}>|</span>
+            <a href="https://instagram.com/eatcrumby" target="_blank" rel="noreferrer noopener">
+              X
+            </a>
+          </div> 
+          <span className={s.separator}>|</span> */}
           <div className={s.navItem}>
-            <a href="/">X</a>
-          </div>
-          <span className={s.separator}>|</span>
-          <div className={s.navItem}>
-            <a href="/">PRIVACY POLICY</a>
+            <a href="https://instagram.com/eatcrumby" target="_blank" rel="noreferrer noopener">
+              PRIVACY POLICY
+            </a>
           </div>
         </nav>
 
@@ -54,8 +62,13 @@ const Footer = () => {
 
         <small className={s.copyright}>
           Crumby Co. 2023 | Made by{" "}
-          <a href="https:justdesignfx.com" target="_blank" rel="noreferrer noopener">
-            <u>JUST DESIGN FX</u>
+          <a
+            href="https:justdesignfx.com"
+            target="_blank"
+            rel="noreferrer noopener"
+            style={{ textDecoration: "underline" }}
+          >
+            JUST DESIGN FX
           </a>
         </small>
       </div>

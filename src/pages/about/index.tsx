@@ -25,8 +25,12 @@ import crumbyChocolate from "@/assets/img/crumby-chocolate.png"
 import crumbyDarkChocolate from "@/assets/img/crumby-dark-chocolate.png"
 import crumbyPeanut from "@/assets/img/crumby-peanut.png"
 import crumbyStrawberry from "@/assets/img/crumby-strawberry.png"
+import { useMediaQuery } from "@uidotdev/usehooks"
+import { breakpoints } from "@/utils"
 
 const About = () => {
+  const isMobile = useMediaQuery(`only screen and (max-width:${breakpoints.mobile}px)`)
+
   return (
     <>
       <Helmet>
@@ -81,13 +85,17 @@ const About = () => {
             </Float>
           </Parallax>
         </div>
-        <div className={cn(s.crumbC, s.f)}>
-          <Parallax speedX={0} directionY={-1}>
-            <Float amountY={10} amountRotate={3}>
-              <Img src={crumb6} objectFit="contain" />
-            </Float>
-          </Parallax>
-        </div>
+
+        {isMobile && (
+          <div className={cn(s.crumbC, s.f)}>
+            <Parallax speedX={0} directionY={-1}>
+              <Float amountY={10} amountRotate={3}>
+                <Img src={crumb6} objectFit="contain" />
+              </Float>
+            </Parallax>
+          </div>
+        )}
+
         <div className={cn(s.crumbC, s.g)}>
           <Parallax speedX={0} directionY={-1}>
             <Float amountY={10} amountRotate={-6}>

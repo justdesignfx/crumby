@@ -19,12 +19,13 @@ import Marquee from "@/components/marquee"
 import SliderProduct from "@/components/slider-product"
 import SliderSpecs from "@/components/slider-specs"
 import { seo } from "@/global/seo"
-import { breakpoints } from "@/utils"
+import { breakpoints, lineBreak } from "@/utils"
 
 import crumbYourWay from "@/assets/img/crumb-your-way.png"
 import o1 from "@/assets/img/options-1.png"
 import o2 from "@/assets/img/options-2.png"
 import o3 from "@/assets/img/options-3.png"
+import Parallax from "@/hocs/animations/parallax"
 
 const DetailProduct = () => {
   const params = useParams()
@@ -46,14 +47,14 @@ const DetailProduct = () => {
         <link rel="canonical" href={`${seo.productDetail.canonical}${data?.url ?? ""}`} />
       </Helmet>
 
-      <Breadcrumb productName={data?.name} />
+      <Breadcrumb productName={data?.seoTitle} />
 
       {isLoading ? (
         <LoadingScreen />
       ) : (
         <>
           <section className={s.info}>
-            {data?.imgs && (
+            {data?.imgs && Array.isArray(data?.imgs) && (
               <div className={s.pics}>
                 {isMobile ? (
                   <div className={s.sliderC}>
@@ -84,23 +85,28 @@ const DetailProduct = () => {
             )}
 
             <div className={s.desc}>
-              <h1>{data?.name}</h1>
+              <h1>{data?.name && lineBreak(data.name)}</h1>
               <p>{data?.desc}</p>
               <div className={s.specs}>
-                {data?.specs.map((spec, i) => {
-                  return (
-                    <div key={i}>
-                      <div className={s.imgC}>
-                        <Img src={spec.icon} objectFit="contain" />
+                {data?.specs &&
+                  Array.isArray(data.specs) &&
+                  data?.specs.map((spec, i) => {
+                    return (
+                      <div key={i}>
+                        <div className={s.imgC}>
+                          <Img src={spec.icon} objectFit="contain" />
+                        </div>
+                        <small>{lineBreak(spec.name)}</small>
                       </div>
-                      <small>{spec.name}</small>
-                    </div>
-                  )
-                })}
+                    )
+                  })}
               </div>
             </div>
+
             <div className={s.stickerC}>
-              <Img src={crumbYourWay} objectFit="contain" />
+              <Parallax speedX={0} directionY={-1} speedY={0.2}>
+                <Img src={crumbYourWay} objectFit="contain" />
+              </Parallax>
             </div>
           </section>
 
@@ -171,7 +177,7 @@ const DetailProduct = () => {
             </div>
           </section>
 
-          {data?.similarProducts && (
+          {data?.similarProducts && Array.isArray(data?.similarProducts) && (
             <section className={cn(s.mightLoveThese, "flex-center-y")}>
               <h4>YOU MIGHT ALSO LOVE THESE...</h4>
               <div className={s.sliderC}>
