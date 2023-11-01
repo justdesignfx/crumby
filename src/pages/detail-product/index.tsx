@@ -27,6 +27,8 @@ import o2 from "@/assets/img/options-2.png"
 import o3 from "@/assets/img/options-3.png"
 import Parallax from "@/hocs/animations/parallax"
 
+import test from "@/assets/video/test.mp4"
+
 const DetailProduct = () => {
   const params = useParams()
   const navigate = useNavigate()
@@ -42,19 +44,19 @@ const DetailProduct = () => {
   return (
     <>
       <Helmet>
-        <title>{`${seo.title} | ${data?.seoTitle ?? seo.productDetail.title}`}</title>
+        <title>{`${seo.title} | ${data?.name.full ?? seo.productDetail.title}`}</title>
         <meta name="description" content={`${seo.productDetail.desc}`}></meta>
         <link rel="canonical" href={`${seo.productDetail.canonical}${data?.url ?? ""}`} />
       </Helmet>
 
-      <Breadcrumb productName={data?.seoTitle} />
+      <Breadcrumb productName={data?.name.full} />
 
       {isLoading ? (
         <LoadingScreen />
       ) : (
         <>
           <section className={s.info}>
-            {data?.imgs && Array.isArray(data?.imgs) && (
+            {data?.imgs && (
               <div className={s.pics}>
                 {isMobile ? (
                   <div className={s.sliderC}>
@@ -64,6 +66,7 @@ const DetailProduct = () => {
                           <div className={s.slide}>
                             <div className={cn(s.imgC, "hidden-overflow")} key={i}>
                               <Img src={item.src} objectFit="cover" />
+                              <Video cover={item.cover} src={test} />
                             </div>
                           </div>
                         )
@@ -75,7 +78,11 @@ const DetailProduct = () => {
                     {data.imgs.map((item, i) => {
                       return (
                         <div className={cn(s.imgC, "hidden-overflow")} key={i}>
-                          <Img src={item.src} objectFit="cover" />
+                          {item.mediaType === "video" ? (
+                            <Video cover={item.cover} src={item.src} />
+                          ) : (
+                            <Img src={item.src} objectFit="cover" />
+                          )}
                         </div>
                       )
                     })}
@@ -85,12 +92,14 @@ const DetailProduct = () => {
             )}
 
             <div className={s.desc}>
-              <h1>{data?.name && lineBreak(data.name)}</h1>
+              <h1>
+                <span>{data?.name.ui.part1}</span>
+                {data?.name.ui.part2 && <span style={{ color: data.name.ui.color }}>{data.name.ui.part2}</span>}
+              </h1>
               <p>{data?.desc}</p>
               <div className={s.specs}>
                 {data?.specs &&
-                  Array.isArray(data.specs) &&
-                  data?.specs.map((spec, i) => {
+                  data.specs.map((spec, i) => {
                     return (
                       <div key={i}>
                         <div className={s.imgC}>
@@ -162,8 +171,12 @@ const DetailProduct = () => {
 
           <section className={s.share}>
             {data?.media && (
-              <div className={s.imgC}>
-                {data?.media.mediaType === "video" ? <Video src={data?.media.src} /> : <Img src={data.media.src} />}
+              <div className={s.mediaC}>
+                {data.media.mediaType === "video" ? (
+                  <Video cover={data.media.cover} src={data.media.src} />
+                ) : (
+                  <Img src={data.media.src} />
+                )}
               </div>
             )}
 
@@ -177,12 +190,12 @@ const DetailProduct = () => {
             </div>
           </section>
 
-          {data?.similarProducts && Array.isArray(data?.similarProducts) && (
+          {data?.similarProducts && (
             <section className={cn(s.mightLoveThese, "flex-center-y")}>
               <h4>YOU MIGHT ALSO LOVE THESE...</h4>
               <div className={s.sliderC}>
                 <SliderProduct
-                  slides={data?.similarProducts.map((product) => {
+                  slides={data.similarProducts.map((product) => {
                     return (
                       <Link to={`/all-products/${product.url ?? ""}`}>
                         <CardProduct

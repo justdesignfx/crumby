@@ -147,7 +147,6 @@ const Home = () => {
               </div>
             </Parallax>
           </span>
-
           <span>YOUR WAY.</span>
         </h1>
 

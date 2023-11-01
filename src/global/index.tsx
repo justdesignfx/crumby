@@ -1,6 +1,13 @@
 export interface IProduct {
   desc: string
-  name: string
+  name: {
+    full: string
+    ui: {
+      part1: string
+      part2?: string
+      color?: string
+    }
+  }
   imgs: IMedia[]
   similarProducts: ICardProduct[]
   specs: {
@@ -12,7 +19,7 @@ export interface IProduct {
     title: string
   }[]
   media: IMedia
-  seoTitle: string
+  seoTitle?: string
   url: string
 }
 
@@ -33,4 +40,5 @@ export interface IOption {
 export interface IMedia {
   mediaType: "video" | "image"
   src: string
+  cover?: string
 }

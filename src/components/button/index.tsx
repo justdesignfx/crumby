@@ -16,7 +16,8 @@ const Button = ({ text = "text", size = "md", theme = "light" }: Props) => {
   const [xy, setXY] = useState([0, 0])
 
   return (
-    <div
+    <button
+      aria-label="button"
       className={cn(s.button, [s[size]], [s[theme]], "cursor-pointer")}
       // onMouseEnter={() => setHover(true)}
       // onMouseLeave={() => setHover(false)}
@@ -48,7 +49,7 @@ const Button = ({ text = "text", size = "md", theme = "light" }: Props) => {
           }}
         ></div>
       </div>
-    </div>
+    </button>
   )
 }
 

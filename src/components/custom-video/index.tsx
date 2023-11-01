@@ -1,25 +1,33 @@
-import s from "./video.module.scss"
+import s from "./custom-video.module.scss"
 
 type Props = {
-  src: string
-  muted?: boolean
-  loop?: boolean
   autoPlay?: boolean
   bgColor?: string
+  cover?: string
+  loop?: boolean
+  muted?: boolean
+  src: string
 }
 
 const Video = ({
-  src = "#",
-  muted = true,
-  loop = true,
   autoPlay = true,
   bgColor = "var(--white-transparent)",
+  cover = "#",
+  loop = true,
+  muted = true,
+  src = "#",
 }: Props) => {
   return (
-    <figure className={s.figure} style={{ background: bgColor }}>
-      <video className={s.vid} muted={muted} autoPlay={autoPlay} loop={loop} playsInline>
+    <figure className={s.customVideo} style={{ background: bgColor }}>
+      <video poster={cover} className={s.vid} muted={muted} autoPlay={autoPlay} loop={loop} playsInline>
         <source src={src} type="video/mp4" />
       </video>
+      {/* {cover && (
+        <div className={s.cover}>
+          <Img src={cover} alt="Video Cover" />
+          <div className={s.play}>play</div>
+        </div>
+      )} */}
     </figure>
   )
 }

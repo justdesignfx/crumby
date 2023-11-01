@@ -19,7 +19,7 @@ const ErrorWrapper = (props: Props) => {
       fallbackRender={({ resetErrorBoundary }) => (
         <div className={s.errorMessage}>
           <h1>
-            Ooops! <span>Something went wrong!</span>
+            Ooops! <span>Something went wrong.</span>
           </h1>
           <div onClick={() => resetErrorBoundary()}>
             <Button text="Try again" theme="dark" />

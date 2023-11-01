@@ -1,4 +1,4 @@
-import s from "./cardSpec.module.scss"
+import s from "./card-spec.module.scss"
 import { ReactNode } from "react"
 
 import cn from "clsx"
@@ -24,7 +24,7 @@ const CardSpec = (props: Props) => {
         backgroundColor: props.bgColor,
       }}
     >
-      <h5
+      <p
         className={cn(s[props.fontSize])}
         style={
           {
@@ -33,7 +33,7 @@ const CardSpec = (props: Props) => {
         }
       >
         {props.title}
-      </h5>
+      </p>
 
       <div className={s.bgMediaC}>
         {props.img && <Img src={props.img} objectFit="cover" />}

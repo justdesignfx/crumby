@@ -31,7 +31,7 @@ const Img = ({
   }
 
   return (
-    <figure className={cn({ [s.visible]: loaded })} style={{ backgroundColor }}>
+    <figure className={cn(s.customImg, { [s.visible]: loaded })} style={{ backgroundColor }}>
       <img
         alt={alt}
         onLoad={handleLoad}
