@@ -71,16 +71,16 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         </div>
       </div>
 
-      {props.prevButton && props.nextButton && (
-        <>
-          <PrevButton className={cn(s.prev, "flex-center")} onClick={scrollPrev} disabled={prevBtnDisabled}>
-            {props.prevButton}
-          </PrevButton>
+      {props.prevButton && (
+        <PrevButton className={cn(s.prev, "flex-center")} onClick={scrollPrev} disabled={prevBtnDisabled}>
+          {props.prevButton}
+        </PrevButton>
+      )}
 
-          <NextButton className={cn(s.next, "flex-center")} onClick={scrollNext} disabled={nextBtnDisabled}>
-            {props.nextButton}
-          </NextButton>
-        </>
+      {props.nextButton && (
+        <NextButton className={cn(s.next, "flex-center")} onClick={scrollNext} disabled={nextBtnDisabled}>
+          {props.nextButton}
+        </NextButton>
       )}
     </div>
   )

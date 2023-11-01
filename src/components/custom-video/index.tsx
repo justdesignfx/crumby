@@ -22,12 +22,6 @@ const Video = ({
       <video poster={cover} className={s.vid} muted={muted} autoPlay={autoPlay} loop={loop} playsInline>
         <source src={src} type="video/mp4" />
       </video>
-      {/* {cover && (
-        <div className={s.cover}>
-          <Img src={cover} alt="Video Cover" />
-          <div className={s.play}>play</div>
-        </div>
-      )} */}
     </figure>
   )
 }

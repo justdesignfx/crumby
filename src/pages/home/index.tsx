@@ -114,8 +114,8 @@ const Home = () => {
       const tl = gsap.timeline({ paused: true })
 
       tl.from(".slide-in", {
-        duration: 0.4,
-        ease: "power1.out",
+        duration: 0.7,
+        ease: "back.out",
         opacity: 0,
         yPercent: 100,
         transformOrigin: "center center",

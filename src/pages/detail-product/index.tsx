@@ -27,8 +27,6 @@ import o2 from "@/assets/img/options-2.png"
 import o3 from "@/assets/img/options-3.png"
 import Parallax from "@/hocs/animations/parallax"
 
-import test from "@/assets/video/test.mp4"
-
 const DetailProduct = () => {
   const params = useParams()
   const navigate = useNavigate()
@@ -45,7 +43,7 @@ const DetailProduct = () => {
     <>
       <Helmet>
         <title>{`${seo.title} | ${data?.name.full ?? seo.productDetail.title}`}</title>
-        <meta name="description" content={`${seo.productDetail.desc}`}></meta>
+        <meta name="description" content={`${data?.desc ?? ""}`}></meta>
         <link rel="canonical" href={`${seo.productDetail.canonical}${data?.url ?? ""}`} />
       </Helmet>
 
@@ -65,8 +63,11 @@ const DetailProduct = () => {
                         return (
                           <div className={s.slide}>
                             <div className={cn(s.imgC, "hidden-overflow")} key={i}>
-                              <Img src={item.src} objectFit="cover" />
-                              <Video cover={item.cover} src={test} />
+                              {item.mediaType === "video" ? (
+                                <Video cover={item.cover} src={item.src} />
+                              ) : (
+                                <Img src={item.src} objectFit="cover" />
+                              )}
                             </div>
                           </div>
                         )
