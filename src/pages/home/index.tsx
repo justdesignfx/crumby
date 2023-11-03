@@ -4,6 +4,7 @@ import s from "./home.module.scss"
 import { useMediaQuery } from "@uidotdev/usehooks"
 import cn from "clsx"
 import gsap from "gsap"
+import ScrollTrigger from "gsap/ScrollTrigger"
 import { Helmet } from "react-helmet-async"
 import { Link } from "react-router-dom"
 
@@ -127,6 +128,12 @@ const Home = () => {
 
     return () => {
       ctx.revert()
+    }
+  }, [isLoading])
+
+  useLayoutEffect(() => {
+    if (!isLoading) {
+      ScrollTrigger.refresh()
     }
   }, [isLoading])
 

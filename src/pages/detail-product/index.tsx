@@ -1,8 +1,9 @@
-import { useEffect } from "react"
+import { useEffect, useLayoutEffect } from "react"
 import s from "./detail-product.module.scss"
 
 import { useMediaQuery } from "@uidotdev/usehooks"
 import cn from "clsx"
+import ScrollTrigger from "gsap/ScrollTrigger"
 import { Helmet } from "react-helmet-async"
 import { Link, useNavigate, useParams } from "react-router-dom"
 
@@ -20,12 +21,12 @@ import SliderProduct from "@/components/slider-product"
 import SliderSpecs from "@/components/slider-specs"
 import { seo } from "@/global/seo"
 import { breakpoints, lineBreak } from "@/utils"
+import Parallax from "@/hocs/animations/parallax"
 
 import crumbYourWay from "@/assets/img/crumb-your-way.png"
 import o1 from "@/assets/img/options-1.png"
 import o2 from "@/assets/img/options-2.png"
 import o3 from "@/assets/img/options-3.png"
-import Parallax from "@/hocs/animations/parallax"
 
 const DetailProduct = () => {
   const params = useParams()
@@ -35,9 +36,15 @@ const DetailProduct = () => {
 
   useEffect(() => {
     if (!isLoading && !data) {
-      navigate("/not-found")
+      return navigate("/not-found")
     }
   }, [data, isLoading, navigate])
+
+  useLayoutEffect(() => {
+    if (!isLoading) {
+      ScrollTrigger.refresh()
+    }
+  }, [isLoading])
 
   return (
     <>
