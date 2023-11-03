@@ -50,9 +50,9 @@ const Footer = () => {
           </div> 
           <span className={s.separator}>|</span> */}
           <div className={s.navItem}>
-            <a href="https://instagram.com/eatcrumby" target="_blank" rel="noreferrer noopener">
-              PRIVACY POLICY
-            </a>
+            {/* <a href="https://instagram.com/eatcrumby" target="_blank" rel="noreferrer noopener"> */}
+            <div>PRIVACY POLICY</div>
+            {/* </a> */}
           </div>
         </nav>
 
@@ -63,7 +63,7 @@ const Footer = () => {
         <small className={s.copyright}>
           Crumby Co. 2023 | Made by{" "}
           <a
-            href="https:justdesignfx.com"
+            href="https://justdesignfx.com"
             target="_blank"
             rel="noreferrer noopener"
             style={{ textDecoration: "underline" }}

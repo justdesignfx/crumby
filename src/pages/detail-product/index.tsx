@@ -42,7 +42,7 @@ const DetailProduct = () => {
   return (
     <>
       <Helmet>
-        <title>{`${seo.title} | ${data?.name.full ?? seo.productDetail.title}`}</title>
+        <title>{`${seo.title} | ${data?.seoTitle ?? seo.productDetail.title}`}</title>
         <meta name="description" content={`${data?.desc ?? ""}`}></meta>
         <link rel="canonical" href={`${seo.productDetail.canonical}${data?.url ?? ""}`} />
       </Helmet>

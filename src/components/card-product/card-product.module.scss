@@ -41,7 +41,7 @@
     @include dims(var(--cardWidth), var(--cardHeight));
 
     .imgC {
-      transform: translateX(-400%);
+      transform: translateX(-100%);
 
       &:nth-child(1) {
         @include dims(desktop-vw(200px), desktop-vw(150px));

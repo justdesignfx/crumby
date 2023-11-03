@@ -31,6 +31,7 @@
     .imgC {
       @include dims(auto, desktop-vw(440px));
       border-radius: desktop-vw(20px);
+      -webkit-mask-image: -webkit-radial-gradient(white, black);
 
       @include mobile {
         @include dims(mobile-vw(340px), mobile-vw(420px));
@@ -184,7 +185,7 @@
     background-image: url("../../assets/img/wave.svg");
     background-repeat: no-repeat;
     background-position: center bottom -2px;
-    background-size: 100% auto;
+    background-size: 101% auto;
     transform: translateY(-100%);
 
     @include mobile {
@@ -319,7 +320,7 @@
     background-image: url("../../assets/img/wave-light.svg");
     background-repeat: no-repeat;
     background-position: center bottom -2px;
-    background-size: 100% auto;
+    background-size: 101% auto;
     transform: translateY(-100%) rotate(180deg);
 
     @include mobile {
@@ -334,6 +335,7 @@
     @include dims(auto, desktop-vw(440px));
     border-radius: desktop-vw(20px);
     overflow: hidden;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
 
     @include mobile {
       @include dims(auto, mobile-vw(240px));

@@ -19,7 +19,7 @@ export interface IProduct {
     title: string
   }[]
   media: IMedia
-  seoTitle?: string
+  seoTitle: string
   url: string
 }
 

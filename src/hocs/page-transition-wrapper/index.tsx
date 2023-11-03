@@ -16,10 +16,8 @@ import logo from "@/assets/gif/logo-loading-c.gif"
 
 const TransitionPanel = forwardRef<HTMLDivElement>((_, ref) => (
   <div className={cn(s.pageTransition, "flex-center", "hidden-overflow")} ref={ref}>
-    <div className="flex-center">
-      <div className={s.imgC}>
-        <Img src={logo} objectFit="contain" />
-      </div>
+    <div className={s.imgC}>
+      <Img src={logo} objectFit="contain" />
     </div>
   </div>
 ))
@@ -27,13 +25,13 @@ const TransitionPanel = forwardRef<HTMLDivElement>((_, ref) => (
 const PageTransitionWrapper = () => {
   const location = useLocation()
   const { nodeRef } = routes.find((route) => location.pathname.includes(route.path)) ?? {}
-  const ptRef = useRef(null)
+  const ptRef = useRef<HTMLDivElement>(null)
   const currentOutlet = useOutlet()
   const lenis = useLenis()
 
   useLayoutEffect(() => {
     gsap.set(ptRef.current, {
-      height: 0,
+      yPercent: -100,
     })
   }, [])
 
@@ -47,7 +45,7 @@ const PageTransitionWrapper = () => {
       delay: 0.4,
       duration: 0.6,
       ease: "expo.out",
-      height: 0,
+      yPercent: -100,
       onComplete: () => {
         gsap.to(ptRef.current, {
           display: "none",
@@ -60,7 +58,7 @@ const PageTransitionWrapper = () => {
     gsap.to(ptRef.current, {
       ease: "expo.out",
       duration: 0.7,
-      height: "100%",
+      yPercent: 0,
       onStart: () => {
         gsap.to(ptRef.current, {
           display: "flex",

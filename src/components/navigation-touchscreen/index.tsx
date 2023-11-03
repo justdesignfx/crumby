@@ -26,7 +26,7 @@ const NavigationTouchScreen = () => {
   return (
     <div className={s.navTouchscreen}>
       <div className={cn(s.hamburger, "flex-center")} onClick={handleMenu}>
-        <span>menu</span>
+        <span>{isOpen ? "X" : "menu"}</span>
       </div>
 
       <nav className={cn({ [s.open]: isOpen })}>
@@ -39,7 +39,9 @@ const NavigationTouchScreen = () => {
         </div>
 
         <div className={cn(s.navItem, "cursor-pointer")}>
-          <Link to="contact">CONTACT US</Link>
+          <a href="mailto:info@eatcrumby.com" target="_blank" rel="noreferrer noopener">
+            CONTACT US
+          </a>
         </div>
 
         <div className={s.social}>
@@ -47,7 +49,9 @@ const NavigationTouchScreen = () => {
             <a href="/">FACEBOOK</a>
           </div> */}
           <div className={s.navItem}>
-            <a href="/">INSTAGRAM</a>
+            <a href="https://instagram.com/eatcrumby" target="_blank" rel="noreferrer noopener">
+              INSTAGRAM
+            </a>
           </div>
           {/* <div className={s.navItem}>
             <a href="/">X</a>

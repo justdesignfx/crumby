@@ -1,9 +1,9 @@
 .hero {
-  @include dims(100%, calc(100vh - var(--header-height)));
+  @include dims(100%, calc(desktop-vw(770px) - var(--header-height)));
   background: url("../../assets/img/wave.svg");
   background-repeat: no-repeat;
   background-position: center bottom -2px;
-  background-size: 100% auto;
+  background-size: 101% auto;
   position: relative;
   z-index: 50;
 
@@ -18,7 +18,7 @@
     font-size: desktop-vw(150px);
     font-family: var(--font-grandstander);
     font-weight: 900;
-    margin-bottom: desktop-vw(75px);
+    margin-bottom: desktop-vw(30px);
     margin-top: desktop-vw(-100px);
     position: relative;
     text-align: center;
@@ -112,7 +112,7 @@
     z-index: 150;
 
     &.a {
-      @include position(absolute, desktop-vw(240px), auto, auto, desktop-vw(220px));
+      @include position(absolute, desktop-vw(100px), auto, auto, desktop-vw(220px));
       @include dims(desktop-vw(66px));
 
       @include mobile {
@@ -122,7 +122,7 @@
     }
 
     &.b {
-      @include position(absolute, desktop-vw(300px), auto, auto, desktop-vw(1100px));
+      @include position(absolute, desktop-vw(200px), auto, auto, desktop-vw(1100px));
       @include dims(desktop-vw(98px));
 
       @include mobile {
@@ -132,7 +132,7 @@
     }
 
     &.c {
-      @include position(absolute, desktop-vw(500px), auto, auto, desktop-vw(1250px));
+      @include position(absolute, desktop-vw(400px), auto, auto, desktop-vw(1250px));
       @include dims(desktop-vw(38px));
 
       @include mobile {

@@ -11,6 +11,7 @@
   overflow: hidden;
   padding-top: desktop-vw(30px);
   position: relative;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
 
   @include mobile {
     --card-height: #{mobile-vw(400px)};

@@ -42,18 +42,6 @@ import specCard4 from "@/assets/video/purple.mp4"
 
 const specSlides = [
   <CardSpec
-    bgColor="var(--vanilla-cream)"
-    fontColor="var(--pale-marigold)"
-    fontSize="lg"
-    icon={cardSpecIcon1}
-    img={cardSpecBg1}
-    title={
-      <>
-        FULL OF <br /> FIBER
-      </>
-    }
-  />,
-  <CardSpec
     bgColor="var(--lan-se-blue)"
     fontColor="var(--porcellana)"
     fontSize="sm"
@@ -66,6 +54,19 @@ const specSlides = [
     video={specCard2}
   />,
   <CardSpec
+    bgColor="var(--vanilla-cream)"
+    fontColor="var(--pale-marigold)"
+    fontSize="lg"
+    icon={cardSpecIcon1}
+    img={cardSpecBg1}
+    title={
+      <>
+        FULL OF <br /> FIBER
+      </>
+    }
+  />,
+
+  <CardSpec
     bgColor="var(--algerian-coral)"
     fontColor="var(--celery-victor)"
     fontSize="lg"
@@ -74,6 +75,18 @@ const specSlides = [
     title={
       <>
         LOW <br /> SUGAR
+      </>
+    }
+  />,
+  <CardSpec
+    bgColor="var(--basil-smash)"
+    fontColor="var(--nyanza)"
+    fontSize="lg"
+    icon={cardSpecIcon5}
+    img={cardSpecBg5}
+    title={
+      <>
+        HIGH <br /> PROTEIN
       </>
     }
   />,
@@ -88,18 +101,6 @@ const specSlides = [
       </>
     }
     video={specCard4}
-  />,
-  <CardSpec
-    bgColor="var(--basil-smash)"
-    fontColor="var(--nyanza)"
-    fontSize="lg"
-    icon={cardSpecIcon5}
-    img={cardSpecBg5}
-    title={
-      <>
-        HIGH <br /> PROTEIN
-      </>
-    }
   />,
 ]
 
